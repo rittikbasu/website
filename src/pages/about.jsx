@@ -13,22 +13,32 @@ import portraitImage from '@/images/avatar.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
-    <li className={clsx(className, 'flex')}>
+    <li>
       <Link
         href={href}
         className="group inline-flex items-center text-sm font-medium tracking-widest text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
       >
-        <Icon className="h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
+        <Icon
+          className={clsx(
+            className,
+            'mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500'
+          )}
+        />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
   )
 }
 
-function SocialLinkMobile({ icon: Icon, ...props }) {
+function SocialLinkMobile({ className, icon: Icon, ...props }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-5 w-5 fill-zinc-500 transition group-hover:fill-indigo-600 dark:fill-zinc-400 dark:group-hover:fill-indigo-300" />
+      <Icon
+        className={clsx(
+          className,
+          'h-5 w-5 fill-zinc-500 transition group-hover:fill-indigo-600 dark:fill-zinc-400 dark:group-hover:fill-indigo-300'
+        )}
+      />
     </Link>
   )
 }
@@ -46,8 +56,8 @@ export default function About() {
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="flex justify-center">
-            <div className="lg:pl-20">
-              <div className="max-w-xs px-2.5 lg:max-w-none">
+            <div className="pt-2 lg:pl-20">
+              <div className="max-w-xs px-2.5">
                 <Image
                   src={portraitImage}
                   alt="Rittik Basu"
@@ -91,37 +101,36 @@ export default function About() {
             </div>
           </div>
           <div className="hidden lg:block lg:pl-20">
-            <div className="flex justify-center">
-              <ul role="list">
+            <div className="flex justify-center rounded-2xl border border-zinc-100 bg-zinc-800/40 p-6 dark:border-zinc-700/40">
+              <ul role="list" className="space-y-6">
+                {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
+                  <span className="ml-3">Contact</span>
+                </h2> */}
                 <SocialLink href="#" icon={BsTwitter}>
-                  Follow on Twitter
+                  Connect on Twitter
                 </SocialLink>
-                <SocialLink href="#" icon={FaDiscord} className="mt-6">
-                  Follow on Discord
+                <SocialLink href="#" icon={FaDiscord} className="">
+                  Connect on Discord
                 </SocialLink>
-                <SocialLink href="#" icon={BsGithub} className="mt-6">
-                  Follow on GitHub
+                <SocialLink href="#" icon={BsGithub} className="">
+                  Connect on GitHub
                 </SocialLink>
-                <SocialLink href="#" icon={BsLinkedin} className="mt-6">
-                  Follow on LinkedIn
+                <SocialLink href="#" icon={BsLinkedin} className="">
+                  Connect on LinkedIn
                 </SocialLink>
                 <div className="flex justify-center">
-                  <div className="mt-8 w-20 border-t border-zinc-300 pt-8 dark:border-zinc-600/40"></div>
+                  <div className="w-24 border-t border-zinc-300 dark:border-zinc-600/40"></div>
                 </div>
                 <SocialLink
                   href="mailto:irittik@gmail.com"
                   icon={MdEmail}
-                  className=""
+                  className="h-6 w-6"
                 >
                   irittik@gmail.com
                 </SocialLink>
-                <Button
-                  href="#"
-                  variant="secondary"
-                  className="group mt-6 w-full"
-                >
-                  Download Resume
+                <Button href="#" variant="secondary" className="group w-full">
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+                  Download Resume
                 </Button>
               </ul>
             </div>
@@ -146,6 +155,7 @@ export default function About() {
                 href="https://instagram.com"
                 aria-label="Follow on Instagram"
                 icon={FaDiscord}
+                className="h-6 w-6"
               />
               <SocialLinkMobile
                 href="https://github.com"
@@ -157,7 +167,11 @@ export default function About() {
                 aria-label="Follow on LinkedIn"
                 icon={BsLinkedin}
               />
-              <SocialLinkMobile href="mailto:irittik@gmail.com" icon={MdEmail}>
+              <SocialLinkMobile
+                className="h-6 w-6"
+                href="mailto:irittik@gmail.com"
+                icon={MdEmail}
+              >
                 irittik@gmail.com
               </SocialLinkMobile>
             </div>
