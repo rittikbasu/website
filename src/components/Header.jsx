@@ -58,8 +58,6 @@ function MobileNavigation(props) {
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
-                {/* <MobileNavItem href="/speaking">Resume</MobileNavItem> */}
-                {/* <MobileNavItem href="/uses">Uses</MobileNavItem> */}
                 <MobileNavItem href="">
                   <span className="text-red-500">Close</span>
                 </MobileNavItem>
@@ -138,7 +136,7 @@ function ModeToggle() {
       onClick={toggleMode}
     >
       <BsSun className="h-5 w-5 fill-zinc-400 stroke-zinc-500 transition group-hover:fill-zinc-500 group-hover:stroke-zinc-700 dark:hidden md:h-6 md:w-6" />
-      <BsMoonStars className="hidden h-5 w-5 fill-indigo-700 stroke-indigo-500 transition hover:fill-indigo-500 dark:block md:h-6 md:w-6" />
+      <BsMoonStars className="hidden h-5 w-5 fill-indigo-700 stroke-indigo-500 transition hover:fill-indigo-500 dark:block" />
     </button>
   )
 }
