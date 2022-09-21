@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Image from 'next/future/image'
 
-export const Text = ({ text }) => {
+export const Text = ({ text }, id) => {
   if (!text) {
     return null
   }
@@ -14,6 +14,7 @@ export const Text = ({ text }) => {
     } = value
     return (
       <span
+        key={id}
         className={[
           bold ? 'font-bold' : '',
           italic ? 'italic' : '',
@@ -60,7 +61,13 @@ const embed = (value, type) => {
     return (
       <>
         <div className="flex items-center justify-center">
-          <img src={src} alt={caption} />
+          <Image
+            src={src}
+            alt={caption}
+            className="md:h-80 md:w-auto"
+            height="300"
+            width="500"
+          />
         </div>
         {caption && <figcaption className="text-center">{caption}</figcaption>}
       </>
@@ -92,25 +99,25 @@ export const renderBlock = (block) => {
     case 'paragraph':
       return (
         <p>
-          <Text text={value.rich_text} />
+          <Text key={id} text={value.rich_text} />
         </p>
       )
     case 'heading_1':
       return (
         <h1>
-          <Text text={value.rich_text} />
+          <Text key={id} text={value.rich_text} />
         </h1>
       )
     case 'heading_2':
       return (
         <h2>
-          <Text text={value.rich_text} />
+          <Text key={id} text={value.rich_text} />
         </h2>
       )
     case 'heading_3':
       return (
         <h3>
-          <Text text={value.rich_text} />
+          <Text key={id} text={value.rich_text} />
         </h3>
       )
     case 'bulleted_list_item':
@@ -118,7 +125,7 @@ export const renderBlock = (block) => {
       // console.log("")
       return (
         <li className={type === 'numbered_list_item' ? 'list-decimal' : ''}>
-          <Text text={value.rich_text} />
+          <Text key={id} text={value.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
       )
@@ -127,7 +134,7 @@ export const renderBlock = (block) => {
         <div>
           <label htmlFor={id}>
             <input type="checkbox" id={id} defaultChecked={value.checked} />{' '}
-            <Text text={value.rich_text} />
+            <Text key={id} text={value.rich_text} />
           </label>
         </div>
       )
@@ -135,7 +142,7 @@ export const renderBlock = (block) => {
       return (
         <details>
           <summary>
-            <Text text={value.rich_text} />
+            <Text key={id} text={value.rich_text} />
           </summary>
           {value.children?.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>

@@ -18,14 +18,14 @@ function Article({ article }) {
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
         <Card.Title href={`/articles/${article.id}`}>
-          <Text text={articleTitle} />
+          <Text key={article.id} text={articleTitle} />
         </Card.Title>
 
         <Card.Eyebrow as="time" dateTime={date} className="md:hidden" decorate>
           {date}
         </Card.Eyebrow>
         <Card.Description>
-          <Text text={articleDescription} />
+          <Text key={article.id} text={articleDescription} />
         </Card.Description>
         <Card.Cta>Read article</Card.Cta>
       </Card>

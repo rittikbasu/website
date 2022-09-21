@@ -42,7 +42,7 @@ export default function Post({ article, blocks }) {
             <article>
               <header className="flex flex-col">
                 <h1 className="my-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                  <Text text={articleTitle} />
+                  <Text key={article.id} text={articleTitle} />
                 </h1>
                 <time
                   dateTime={date}
