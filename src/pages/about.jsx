@@ -6,9 +6,9 @@ import clsx from 'clsx'
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 
-import { BsTwitter, BsGithub, BsLinkedin, BsArrowDown } from 'react-icons/bs'
+import { BsTwitter, BsGithub, BsArrowDown } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
-import { FaDiscord } from 'react-icons/fa'
+import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 import portraitImage from '@/images/avatar.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -115,7 +115,7 @@ export default function About() {
                 <SocialLink href="#" icon={BsGithub} className="">
                   Connect on GitHub
                 </SocialLink>
-                <SocialLink href="#" icon={BsLinkedin} className="">
+                <SocialLink href="#" icon={FaLinkedinIn} className="">
                   Connect on LinkedIn
                 </SocialLink>
                 <div className="flex justify-center">
@@ -165,7 +165,7 @@ export default function About() {
               <SocialLinkMobile
                 href="https://linkedin.com"
                 aria-label="Follow on LinkedIn"
-                icon={BsLinkedin}
+                icon={FaLinkedinIn}
               />
               <SocialLinkMobile
                 className="h-6 w-6"
