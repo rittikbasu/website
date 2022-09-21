@@ -101,7 +101,7 @@ export default function About() {
             </div>
           </div>
           <div className="hidden lg:block lg:pl-20">
-            <div className="flex justify-center rounded-2xl border border-zinc-100 bg-zinc-800/40 p-6 dark:border-zinc-700/40">
+            <div className="flex justify-center rounded-2xl border border-zinc-100 bg-zinc-100/30 p-6 shadow-lg dark:border-zinc-700/40 dark:bg-zinc-800/40">
               <ul role="list" className="space-y-6">
                 {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
                   <span className="ml-3">Contact</span>
