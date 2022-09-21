@@ -31,7 +31,7 @@ export default function Projects() {
               <div className="aspect-w-16 aspect-h-9 relative z-10 flex h-64 w-full items-center justify-center shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
                 <Image
                   src={project.imageSrc}
-                  alt=""
+                  alt={`Screenshot of ${project.title}`}
                   className="h-full w-full"
                 />
               </div>
