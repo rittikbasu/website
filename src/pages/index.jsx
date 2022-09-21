@@ -9,7 +9,7 @@ import { Container } from '@/components/Container'
 import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 // import { generateRssFeed } from '@/lib/generateRssFeed'
-import { formatDate } from '@/lib/formatDate'
+import { FormatDate } from '@/components/FormatDate'
 
 function Article({ article }) {
   return (
