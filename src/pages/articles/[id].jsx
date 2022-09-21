@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { getDatabase, getPage, getBlocks } from '@/lib/notion'
 import { databaseId } from './index.jsx'
@@ -28,7 +29,7 @@ export default function Post({ article, blocks }) {
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
-            <a href="/articles">
+            <Link href="/articles">
               <button
                 type="button"
                 aria-label="Go back to articles"
@@ -36,7 +37,7 @@ export default function Post({ article, blocks }) {
               >
                 <BsArrowLeft className="h-4 w-4 text-zinc-500 transition group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300" />
               </button>
-            </a>
+            </Link>
             <article>
               <header className="flex flex-col">
                 <h1 className="my-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
