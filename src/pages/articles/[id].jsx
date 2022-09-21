@@ -4,12 +4,11 @@ import { useRouter } from 'next/router'
 
 import { getDatabase, getPage, getBlocks } from '@/lib/notion'
 import { databaseId } from './index.jsx'
-import { formatDate } from '@/lib/formatDate'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
-import ArticleLayout from '@/components/ArticleLayout'
 import { Prose } from '@/components/Prose'
+import { FormatDate } from '@/components/FormatDate'
 
 import { BsArrowLeft } from 'react-icons/bs'
 
@@ -18,7 +17,7 @@ export default function Post({ article, blocks }) {
     return <div />
   }
   let router = useRouter()
-  const date = formatDate(article.created_time)
+  const date = FormatDate(article.created_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
   return (

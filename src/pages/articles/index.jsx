@@ -1,15 +1,16 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { getDatabase } from '@/lib/notion'
+
 import { Text } from '@/components/RenderNotion'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { formatDate } from '@/lib/formatDate'
+import { FormatDate } from '@/components/FormatDate'
 
 export const databaseId = process.env.NOTION_DATABASE_ID
 
 function Article({ article }) {
-  const date = formatDate(article.created_time)
+  const date = FormatDate(article.created_time)
   const articleUrl = article.properties.url.rich_text[0].plain_text
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
