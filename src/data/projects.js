@@ -1,52 +1,48 @@
-import netflix from '@/images/logos/netflix.jpg'
-import crypto from '@/images/logos/crypto.jpg'
-import trackrBot from '@/images/logos/trackrBot.webp'
-import twitch from '@/images/logos/twitch.jpg'
+import netflix from '@/images/projects/memeGenerator.gif'
+import summariser from '@/images/projects/summariser.gif'
+import trackrBot from '@/images/projects/trackrBot.webp'
+import amicon from '@/images/projects/amicon.gif'
 
 const data = [
   {
     title: 'Meme Generator',
     description:
-      'A meme generator that allows you to add text to images. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
+      'A simple meme generator that lets you choose a template from the 100 most popular memes from Imgflip and create your own meme by adding text to it.',
     techUsed: ['react', 'bootstrap', 'python'],
     imageSrc: netflix,
     link: {
       href: 'https://rittikbasu.github.io/meme-generator',
-      label: 'github.com',
+      label: 'Website',
     },
+    github: 'https://github.com/rittikbasu/meme-generator',
   },
   {
     title: 'Price Alert Bot',
     description:
-      'A bot that sends you an email when the price of a product drops below a certain price. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
+      'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
     imageSrc: trackrBot,
-    link: { href: 'https://telegram.me/PriceA1ertBot', label: 'github.com' },
+    link: { href: 'https://telegram.me/PriceA1ertBot', label: 'Telegram' },
+    github: 'https://github.com/rittikbasu/trackrBot',
   },
   {
-    title: 'Hate Speech Detector',
+    title: 'Amicon.',
     description:
-      'A machine learning model that detects hate speech in text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Volupta Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
-    imageSrc: twitch,
-    link: { href: 'https://telegram.me/PriceA1ertBot', label: 'telegram' },
+      'An intra campus networking web app for students of Amity University Mumbai to connect with each other and share information more conveniently.',
+    imageSrc: amicon,
+    link: { href: 'https://amicon-v1.web.app/', label: 'Website' },
+    github: '',
   },
   {
     title: 'Text Summarizer',
     description:
-      'A machine learning model that summarizes text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
-    imageSrc: crypto,
+      'Summarises text content from a web article or user input and provides an elegant summary of the provided text using extractive summarization.',
+    imageSrc: summariser,
     link: {
       href: 'https://summariser.rittikbasu.repl.co/',
-      label: 'github.com',
+      label: 'Website',
     },
+    github: 'https://github.com/rittikbasu/text-summarizer',
   },
 ]
 
 export default data
-
-//   {
-//     name: 'cosmOS',
-//     description:
-//       'The operating system that powers our Planetaria space shuttles.',
-//     link: { href: '#', label: 'github.com' },
-//     logo: trackrBot,
-//   },
