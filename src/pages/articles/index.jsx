@@ -7,18 +7,15 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { FormatDate } from '@/components/FormatDate'
 
-export const databaseId = process.env.NOTION_DATABASE_ID
-
 function Article({ article }) {
-  const date = FormatDate(article.created_time)
-  const articleUrl = article.properties.url.rich_text[0].plain_text
+  const date = FormatDate(article.properties.date.date.start)
+  const slug = article.properties.slug.rich_text[0].plain_text
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
-  // console.log(articleUrl)
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.id}`}>
+        <Card.Title href={`/articles/${slug}`}>
           <Text text={articleTitle} />
         </Card.Title>
 
@@ -64,8 +61,7 @@ export default function ArticlesIndex({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId)
-
+  const database = await getDatabase()
   return {
     props: {
       articles: database,
