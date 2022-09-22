@@ -5,6 +5,7 @@ import { Header } from '@/components/Header'
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
+import 'highlight.js/styles/github-dark.css'
 
 function usePrevious(value) {
   let ref = useRef()
