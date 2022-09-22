@@ -43,10 +43,10 @@ export default function Projects() {
                 </Card.Link>
               </h2>
               <Card.Description>{project.description}</Card.Description>
-              <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition group-hover:text-indigo-500 dark:text-zinc-200">
+              <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 md:group-hover:text-indigo-500">
                 {project.github && (
                   <span className="flex items-center space-x-2">
-                    <BsGithub className="h-4 w-4 flex-none fill-zinc-500 transition group-hover:fill-indigo-600 dark:fill-zinc-400 dark:group-hover:fill-indigo-500" />
+                    <BsGithub className="h-4 w-4 flex-none fill-zinc-500 transition dark:fill-zinc-400" />
                     <span className="ml-2">GitHub</span>
                   </span>
                 )}
