@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+
 import { getDatabase } from '@/lib/notion'
 
 import { Text } from '@/components/RenderNotion'
