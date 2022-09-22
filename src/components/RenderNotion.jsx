@@ -3,6 +3,19 @@ import Link from 'next/link'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Image from 'next/future/image'
 
+import hljs from 'highlight.js/lib/core'
+// import individual languages
+import javascript from 'highlight.js/lib/languages/javascript'
+hljs.registerLanguage('javascript', javascript)
+import typescript from 'highlight.js/lib/languages/typescript'
+hljs.registerLanguage('typescript', typescript)
+import python from 'highlight.js/lib/languages/python'
+hljs.registerLanguage('python', python)
+import html from 'highlight.js/lib/languages/xml'
+hljs.registerLanguage('html', html)
+import plaintext from 'highlight.js/lib/languages/plaintext'
+hljs.registerLanguage('plaintext', plaintext)
+
 export const Text = ({ text }) => {
   if (!text) {
     return null
@@ -160,12 +173,24 @@ export const renderBlock = (block) => {
     case 'quote':
       return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>
     case 'code':
-      //   console.log(value.language)
+      const language = value.language.replace(' ', '').toLowerCase()
+      const code = value.rich_text[0].plain_text
+      let codeHighlight
+      try {
+        codeHighlight = hljs.highlight(code, {
+          language: language,
+        }).value
+      } catch (err) {
+        codeHighlight = hljs.highlight(code, {
+          language: 'plaintext',
+        }).value
+      }
       return (
         <pre className="dark:prose-invert">
-          <code className={`language-${value.language}`} key={id}>
-            {value.rich_text[0].plain_text}
-          </code>
+          <code
+            dangerouslySetInnerHTML={{ __html: codeHighlight }}
+            key={id}
+          ></code>
         </pre>
       )
     case 'pdf':
