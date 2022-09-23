@@ -12,13 +12,13 @@ import { FormatDate } from '@/components/FormatDate'
 import { BsArrowLeft } from 'react-icons/bs'
 
 export default function Post({ article, blocks, previousPathname }) {
+  const router = useRouter()
   if (!article || !blocks) {
     return <div />
   }
   const date = FormatDate(article.created_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
-  let router = useRouter()
   return (
     <div>
       <Head>
