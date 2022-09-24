@@ -1,7 +1,7 @@
 
 # Digital Home of Rittik Basu
 
-This website is made with Next JS + Tailwind CSS and deployed on Vercel
+This website is made with Next.js + Tailwind CSS and deployed on Vercel
 
 ## Features
 
