@@ -204,7 +204,7 @@ export const renderBlock = (block) => {
         <figure>
           <div className="text-gray-300 no-underline">
             📎{' '}
-            <Link href={src_file} passHref>
+            <Link href={src_file} className="no-underline" passHref>
               {lastElementInArray.split('?')[0]}
             </Link>
           </div>
