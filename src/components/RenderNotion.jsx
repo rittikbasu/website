@@ -52,8 +52,9 @@ export const Text = ({ text }) => {
   })
 }
 
-const embed = (value, type) => {
+const Embed = (value, type) => {
   let src
+  const [isLoading, setLoading] = useState(true)
   try {
     src = value.type === 'external' ? value.external.url : value.file.url
   } catch {
@@ -73,7 +74,6 @@ const embed = (value, type) => {
       />
     )
   } else if (type === 'image') {
-    const [isLoading, setLoading] = useState(true)
     // const blurDataURL = src.split('?ik-sdk-version')[0]
     return (
       <>
@@ -177,7 +177,7 @@ export const renderBlock = (block) => {
     case 'image':
     case 'video':
     case 'embed':
-      return <figure>{embed(value, type)}</figure>
+      return <figure>{Embed(value, type)}</figure>
     case 'divider':
       return <hr key={id} />
     case 'quote':
