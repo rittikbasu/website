@@ -1,15 +1,16 @@
 import Image from 'next/future/image'
-import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
-
-import { Container } from '@/components/Container'
-import { Button } from '@/components/Button'
+import { NextSeo } from 'next-seo'
 
 import { BsTwitter, BsGithub, BsArrowDown } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
+
+import { Container } from '@/components/Container'
+import { Button } from '@/components/Button'
 import portraitImage from '@/images/avatar.jpg'
+import { baseUrl } from '../seo.config'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -46,13 +47,14 @@ function SocialLinkMobile({ className, icon: Icon, ...props }) {
 export default function About() {
   return (
     <>
-      <Head>
-        <title>About - Rittik Basu</title>
-        <meta
-          name="description"
-          content="I’m Rittik Basu. I live in India, where I design the future."
-        />
-      </Head>
+      <NextSeo
+        title="About"
+        canonical={`${baseUrl}about/`}
+        openGraph={{
+          url: `${baseUrl}about/`,
+          title: 'About',
+        }}
+      />
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="flex justify-center">
@@ -63,6 +65,7 @@ export default function About() {
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
                   className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                  placeholder="blur"
                 />
               </div>
             </div>

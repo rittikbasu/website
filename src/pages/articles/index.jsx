@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
-import { getDatabase } from '@/lib/notion'
+import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/RenderNotion'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { FormatDate } from '@/components/FormatDate'
+import { getDatabase } from '@/lib/notion'
+import { baseUrl } from '../../seo.config'
 
 function Article({ article }) {
   const date = FormatDate(article.properties.date.date.start)
@@ -38,13 +39,15 @@ function Article({ article }) {
 export default function ArticlesIndex({ articles }) {
   return (
     <>
-      <Head>
-        <title>Articles - Rittik Basu</title>
-        <meta
-          name="description"
-          content="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
-        />
-      </Head>
+      <NextSeo
+        title="Articles"
+        description="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        canonical={`${baseUrl}articles/`}
+        openGraph={{
+          url: `${baseUrl}articles/`,
+          title: 'Articles',
+        }}
+      />
       <SimpleLayout
         title="Writing on software design, company building, and the aerospace industry."
         intro="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."

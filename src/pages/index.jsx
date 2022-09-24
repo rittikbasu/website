@@ -1,15 +1,17 @@
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { NextSeo } from 'next-seo'
+
+import { BsTwitter, BsGithub } from 'react-icons/bs'
+import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import { BsTwitter, BsGithub } from 'react-icons/bs'
-import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 // import { generateRssFeed } from '@/lib/generateRssFeed'
 import { FormatDate } from '@/components/FormatDate'
+import { baseUrl } from '../seo.config'
 
 function Article({ article }) {
   return (
@@ -42,15 +44,7 @@ function SocialLink({ className, icon: Icon, ...props }) {
 export default function Home({ articles }) {
   return (
     <>
-      <Head>
-        <title>
-          Rittik Basu - Web Developer, founder, and amateur music composer
-        </title>
-        <meta
-          name="description"
-          content="I’m Rittik, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
-        />
-      </Head>
+      <NextSeo canonical={`${baseUrl}`} />
       <Container className="flex h-screen items-center justify-center">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

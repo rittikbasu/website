@@ -6,6 +6,8 @@ import { Header } from '@/components/Header'
 import '@/styles/tailwind.css'
 import 'focus-visible'
 import 'highlight.js/styles/github-dark.css'
+import { DefaultSeo } from 'next-seo'
+import seoOptions from '../seo.config'
 
 function usePrevious(value) {
   let ref = useRef()
@@ -22,6 +24,7 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
+      <DefaultSeo {...seoOptions} />
       <div className="fixed inset-0 flex justify-center sm:px-8">
         <div className="flex w-full max-w-7xl lg:px-8">
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
