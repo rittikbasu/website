@@ -45,10 +45,10 @@ export default function Projects() {
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
                 <Card.Link
+                  className="hidden md:block"
                   href={project.link ? project.link.href : project.github}
-                >
-                  {project.title}
-                </Card.Link>
+                />
+                {project.title}
               </h2>
               <Card.Description>{project.description}</Card.Description>
               <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 md:group-hover:text-indigo-500">
