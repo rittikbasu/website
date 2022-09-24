@@ -1,17 +1,17 @@
 import { Fragment } from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
-
-import { getDatabase, getPage, getBlocks } from '@/lib/notion'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
 import { Prose } from '@/components/Prose'
 import { FormatDate } from '@/components/FormatDate'
+import { getDatabase, getPage, getBlocks } from '@/lib/notion'
+import { baseUrl } from '../../seo.config'
 
 import { BsArrowLeft } from 'react-icons/bs'
 
-export default function Post({ article, blocks, previousPathname }) {
+export default function Post({ article, blocks, slug }) {
   if (!article || !blocks) {
     return <div />
   }
@@ -20,11 +20,32 @@ export default function Post({ article, blocks, previousPathname }) {
   const articleDescription = article.properties.description.rich_text
   return (
     <div>
-      <Head>
-        <title>{`${articleTitle[0].plain_text} - Rittik Basu`}</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={articleDescription[0].plain_text} />
-      </Head>
+      <NextSeo
+        title={articleTitle[0].plain_text}
+        description={articleDescription[0].plain_text}
+        canonical={`${baseUrl}articles/${slug}/`}
+        openGraph={{
+          url: `${baseUrl}articles/${slug}/`,
+          title: articleTitle[0].plain_text,
+          description: articleDescription[0].plain_text,
+          type: 'article',
+          article: {
+            authors: ['Rittik Basu'],
+            publishedTime: new Date(
+              article.properties.date.date.start
+            ).toISOString(),
+          },
+        }}
+      />
+      <ArticleJsonLd
+        url={`${baseUrl}articles/${slug}/`}
+        title={articleTitle[0].plain_text}
+        datePublished={new Date(
+          article.properties.date.date.start
+        ).toISOString()}
+        authorName="Rittik Basu"
+        description={articleDescription[0].plain_text}
+      />
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
@@ -106,6 +127,7 @@ export const getStaticProps = async (context) => {
     props: {
       article,
       blocks: blocksWithChildren,
+      slug: slug,
     },
     revalidate: 1,
   }
