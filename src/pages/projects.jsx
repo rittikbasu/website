@@ -1,23 +1,27 @@
+import { useState } from 'react'
 import Image from 'next/future/image'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import clsx from 'clsx'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-
 import data from '@/data/projects.js'
+import { baseUrl } from '../seo.config'
 
 import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
 export default function Projects() {
+  const [isLoading, setLoading] = useState(true)
   return (
     <>
-      <Head>
-        <title>Projects - Rittik Basu</title>
-        <meta
-          name="description"
-          content="Things I’ve made trying to put my dent in the universe."
-        />
-      </Head>
+      <NextSeo
+        title="Projects"
+        canonical={`${baseUrl}projects/`}
+        openGraph={{
+          url: `${baseUrl}projects/`,
+          title: 'Projects',
+        }}
+      />
       <SimpleLayout
         title="Things I’ve made trying to put my dent in the universe."
         intro="I’ve worked on tons of little projects over the past couple of years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
@@ -32,7 +36,11 @@ export default function Projects() {
                 <Image
                   src={project.imageSrc}
                   alt={`Screenshot of ${project.title}`}
-                  className="h-full w-full"
+                  className={clsx(
+                    'h-full w-full duration-1000 ease-in-out',
+                    isLoading ? 'blur-xl' : 'blur-0'
+                  )}
+                  onLoadingComplete={() => setLoading(false)}
                 />
               </div>
               <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">

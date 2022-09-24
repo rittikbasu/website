@@ -1,7 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
 import Image from 'next/future/image'
+
+import clsx from 'clsx'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
 
 import hljs from 'highlight.js/lib/core'
 // import individual languages
@@ -71,15 +73,23 @@ const embed = (value, type) => {
       />
     )
   } else if (type === 'image') {
+    const [isLoading, setLoading] = useState(true)
+    // const blurDataURL = src.split('?ik-sdk-version')[0]
     return (
       <>
         <div className="flex items-center justify-center">
           <Image
             src={src}
             alt={caption ? caption : 'Notion image'}
-            className="md:h-80 md:w-auto"
+            className={clsx(
+              'duration-700 ease-in-out md:h-80 md:w-auto',
+              isLoading ? 'blur-2xl' : 'blur-0 grayscale-0'
+            )}
             height="300"
             width="500"
+            // placeholder="blur"
+            // blurDataURL={blurDataURL}
+            onLoadingComplete={() => setLoading(false)}
           />
         </div>
         {caption && <figcaption className="text-center">{caption}</figcaption>}
@@ -225,3 +235,9 @@ export const renderBlock = (block) => {
       })`
   }
 }
+
+// const urlRegex = /https?:\/\/[^\s$.?#].[^\s]*/g
+// const string =
+//   'https://ik.imagekit.io/zwcfsadeijm/newplot_OFNy6lzFF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1642877044128'
+// const re = string.split('?ik-sdk-version')[0]
+// console.log(re)
