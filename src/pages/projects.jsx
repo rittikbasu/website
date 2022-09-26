@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Image from 'next/future/image'
+import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import clsx from 'clsx'
 
@@ -43,26 +44,33 @@ export default function Projects() {
                   onLoadingComplete={() => setLoading(false)}
                 />
               </div>
-              <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                <Card.Link
+              <h2 className="z-10 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                {/* <Card.Link
                   className="hidden md:block"
                   href={project.link ? project.link.href : project.github}
-                />
+                /> */}
                 {project.title}
               </h2>
+              <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-100/80 opacity-0 transition dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl md:group-hover:scale-100 md:group-hover:opacity-100" />
               <Card.Description>{project.description}</Card.Description>
-              <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 md:group-hover:text-indigo-500">
+              <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 ">
                 {project.github && (
-                  <span className="flex items-center space-x-2">
-                    <BsGithub className="h-4 w-4 flex-none fill-zinc-500 transition dark:fill-zinc-400" />
+                  <Link
+                    href="project.github"
+                    className="flex items-center space-x-2 md:hover:text-indigo-500"
+                  >
+                    <BsGithub className="h-4 w-4 flex-none fill-current transition" />
                     <span className="ml-2">GitHub</span>
-                  </span>
+                  </Link>
                 )}
                 {project.link && (
-                  <span className="flex items-center space-x-2">
-                    <BsLink45Deg className="h-4 w-4 flex-none fill-zinc-500 transition dark:fill-zinc-400" />
+                  <Link
+                    href="project.link.href"
+                    className="flex items-center space-x-2 md:hover:text-indigo-500"
+                  >
+                    <BsLink45Deg className="h-4 w-4 flex-none fill-current transition" />
                     <span className="-ml-4">{project.link.label}</span>
-                  </span>
+                  </Link>
                 )}
               </p>
             </Card>
