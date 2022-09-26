@@ -37,7 +37,7 @@ function SocialLinkMobile({ className, icon: Icon, ...props }) {
       <Icon
         className={clsx(
           className,
-          'h-5 w-5 fill-zinc-500 transition group-hover:fill-indigo-600 dark:fill-zinc-400 dark:group-hover:fill-indigo-300'
+          'h-5 w-5 fill-zinc-500 transition dark:fill-zinc-400 dark:group-hover:fill-indigo-300'
         )}
       />
     </Link>
