@@ -5,8 +5,9 @@ This website is made with Next.js + Tailwind CSS and deployed on Vercel
 
 ## Features
 
-* Notion: Uses the Notion API to fetch blogs written in Notion.
-* Prism.js: Syntax Highlighting (TODO)
+* Uses Notion as a CMS: 
+  * Using Notion API to fetch blog and project data from the Notion database.
+* Highlight.js: Syntax Highlighting
 * Pagination (TODO)
 * Styled Components
 
