@@ -56,7 +56,7 @@ export default function Projects() {
               <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 ">
                 {project.github && (
                   <Link
-                    href="project.github"
+                    href={project.github}
                     className="flex items-center space-x-2 md:hover:text-indigo-500"
                   >
                     <BsGithub className="h-4 w-4 flex-none fill-current transition" />
@@ -65,7 +65,7 @@ export default function Projects() {
                 )}
                 {project.link && (
                   <Link
-                    href="project.link.href"
+                    href={project.link.href}
                     className="flex items-center space-x-2 md:hover:text-indigo-500"
                   >
                     <BsLink45Deg className="h-4 w-4 flex-none fill-current transition" />
