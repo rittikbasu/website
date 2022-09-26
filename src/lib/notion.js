@@ -4,9 +4,7 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 })
 
-const databaseId = process.env.NOTION_DATABASE_ID
-
-export const getDatabase = async () => {
+export const getDatabase = async (databaseId, sortProperty, sort) => {
   // const response = await notion.databases.query({
   //   database_id: databaseId,
   // });
@@ -15,7 +13,7 @@ export const getDatabase = async () => {
     filter: {
       or: [
         {
-          property: 'published',
+          property: 'publish',
           checkbox: {
             equals: true,
           },
@@ -24,8 +22,8 @@ export const getDatabase = async () => {
     },
     sorts: [
       {
-        property: 'date',
-        direction: 'descending',
+        property: sortProperty,
+        direction: sort,
       },
     ],
   })

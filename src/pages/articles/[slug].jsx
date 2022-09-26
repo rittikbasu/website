@@ -12,6 +12,8 @@ import { baseUrl } from '../../seo.config'
 
 import { BsArrowLeft } from 'react-icons/bs'
 
+const databaseId = process.env.NOTION_BLOG_DB_ID
+
 export default function Post({ article, blocks, slug }) {
   if (!article || !blocks) {
     return <div />
@@ -19,13 +21,23 @@ export default function Post({ article, blocks, slug }) {
   const date = FormatDate(article.properties.date.date.start)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
-  const coverImgType = article.cover.type
-  const coverImg =
-    coverImgType === 'external'
-      ? article.cover.external.url
-      : article.cover.file.url
-  const coverImgCaption =
-    article.properties.coverImgCaption.rich_text[0].plain_text
+  // arrow function
+  const coverImgFn = () => {
+    if (article.cover) {
+      const imgType = article.cover.type
+      const image =
+        imgType === 'external'
+          ? article.cover.external.url
+          : article.cover.file.url
+      return image
+    } else {
+      return false
+    }
+  }
+  const coverImg = coverImgFn()
+  const coverImgCaption = article.properties.coverImgCaption.rich_text.length
+    ? article.properties.coverImgCaption.rich_text[0].plain_text
+    : false
   return (
     <div>
       <NextSeo
@@ -107,7 +119,7 @@ export default function Post({ article, blocks, slug }) {
 }
 
 export const getStaticPaths = async () => {
-  const database = await getDatabase()
+  const database = await getDatabase(databaseId, 'date', 'descending')
   return {
     paths: database.map((article) => ({
       params: { slug: article.properties.slug.rich_text[0].plain_text },
@@ -118,7 +130,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { slug } = context.params
-  const database = await getDatabase()
+  const database = await getDatabase(databaseId, 'date', 'descending')
   const id = database.find(
     (post) => post.properties.slug.rich_text[0].plain_text === slug
   ).id

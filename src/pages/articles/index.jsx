@@ -9,6 +9,8 @@ import { FormatDate } from '@/components/FormatDate'
 import { getDatabase } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
 
+const databaseId = process.env.NOTION_BLOG_DB_ID
+
 function Article({ article }) {
   const date = FormatDate(article.properties.date.date.start)
   const slug = article.properties.slug.rich_text[0].plain_text
@@ -65,7 +67,7 @@ export default function ArticlesIndex({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const database = await getDatabase()
+  const database = await getDatabase(databaseId, 'date', 'descending')
   return {
     props: {
       articles: database,
