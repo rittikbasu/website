@@ -1,7 +1,8 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import Image from 'next/future/image'
+import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
@@ -15,13 +16,13 @@ import { BsArrowLeft } from 'react-icons/bs'
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
 export default function Post({ article, blocks, slug }) {
+  const [isLoading, setLoading] = useState(true)
   if (!article || !blocks) {
     return <div />
   }
   const date = FormatDate(article.properties.date.date.start)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
-  // arrow function
   const coverImgFn = () => {
     if (article.cover) {
       const imgType = article.cover.type
@@ -72,7 +73,7 @@ export default function Post({ article, blocks, slug }) {
             <Link
               href="/articles"
               aria-label="Go back to articles"
-              className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
+              className="group mb-8 hidden h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 md:flex lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
             >
               <BsArrowLeft className="h-4 w-4 text-zinc-500 transition group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300" />
             </Link>
@@ -92,11 +93,15 @@ export default function Post({ article, blocks, slug }) {
                   <Image
                     src={coverImg}
                     alt={articleTitle[0].plain_text}
-                    className="h-48 w-full rounded-2xl object-cover shadow-md md:h-72"
+                    className={clsx(
+                      'h-48 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-72',
+                      isLoading ? 'blur-xl' : 'blur-0'
+                    )}
                     width={1200}
                     height={300}
                     layout="fill"
                     priority
+                    onLoadingComplete={() => setLoading(false)}
                   />
                 )}
                 {coverImgCaption && (
