@@ -62,6 +62,10 @@ const Embed = (value, type) => {
   }
   const caption = value.caption ? value.caption[0]?.plain_text : ''
   if (src.startsWith('https://twitter.com')) {
+    // dynamically importing TwitterTweetEmbed to improve performance
+    // const TwitterTweetEmbed = dynamic(() =>
+    //   import('react-twitter-embed').then((mod) => mod.TwitterTweetEmbed)
+    // )
     const tweetId = src.match(/status\/(\d+)/)[1]
     return <TwitterTweetEmbed tweetId={tweetId} />
   } else if (src.startsWith('https://www.youtube.com')) {
@@ -235,9 +239,3 @@ export const renderBlock = (block) => {
       })`
   }
 }
-
-// const urlRegex = /https?:\/\/[^\s$.?#].[^\s]*/g
-// const string =
-//   'https://ik.imagekit.io/zwcfsadeijm/newplot_OFNy6lzFF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1642877044128'
-// const re = string.split('?ik-sdk-version')[0]
-// console.log(re)
