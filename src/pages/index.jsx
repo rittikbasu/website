@@ -34,7 +34,7 @@ function SocialLink({ className, icon: Icon, ...props }) {
       <Icon
         className={clsx(
           className,
-          'h-5 w-5 fill-zinc-500 transition group-hover:fill-indigo-600 dark:fill-zinc-400 dark:group-hover:fill-indigo-500'
+          'h-5 w-5 fill-zinc-500 transition dark:fill-zinc-400 md:group-hover:fill-indigo-600 md:dark:group-hover:fill-indigo-500'
         )}
       />
     </Link>
