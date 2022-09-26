@@ -10,7 +10,12 @@ const nextConfig = {
     scrollRestoration: true,
   },
   images: {
-    domains: ['ik.imagekit.io', 's3.us-west-2.amazonaws.com'],
+    domains: [
+      'ik.imagekit.io',
+      's3.us-west-2.amazonaws.com',
+      'www.notion.so',
+      'images.unsplash.com',
+    ],
   },
 }
 

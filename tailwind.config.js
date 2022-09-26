@@ -179,6 +179,7 @@ module.exports = {
             fontSize: theme('fontSize.sm')[0],
             lineHeight: theme('lineHeight.6'),
             marginTop: theme('spacing.3'),
+            fontStyle: 'italic',
           },
           'figcaption > p': {
             margin: 0,

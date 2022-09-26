@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
+import Image from 'next/future/image'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
@@ -18,6 +19,13 @@ export default function Post({ article, blocks, slug }) {
   const date = FormatDate(article.properties.date.date.start)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
+  const coverImgType = article.cover.type
+  const coverImg =
+    coverImgType === 'external'
+      ? article.cover.external.url
+      : article.cover.file.url
+  const coverImgCaption =
+    article.properties.coverImgCaption.rich_text[0].plain_text
   return (
     <div>
       <NextSeo
@@ -68,6 +76,22 @@ export default function Post({ article, blocks, slug }) {
                   <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                   <span className="ml-3">{date}</span>
                 </time>
+                {coverImg && (
+                  <Image
+                    src={coverImg}
+                    alt={articleTitle[0].plain_text}
+                    className="h-48 w-full rounded-2xl object-cover shadow-md md:h-72"
+                    width={1200}
+                    height={300}
+                    layout="fill"
+                    priority
+                  />
+                )}
+                {coverImgCaption && (
+                  <figcaption className="mt-3 text-center text-sm italic text-zinc-400 dark:text-zinc-500">
+                    Photo by Luke Lung on Unsplash
+                  </figcaption>
+                )}
               </header>
               <Prose className="mt-8">
                 {blocks.map((block) => (
