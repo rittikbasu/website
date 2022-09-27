@@ -17,7 +17,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center text-sm font-medium tracking-widest text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+        className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
       >
         <Icon
           className={clsx(
@@ -49,6 +49,7 @@ export default function About() {
     <>
       <NextSeo
         title="About"
+        description="I'm a web developer and designer from India. I'm currently working at Notion as a Frontend Engineer."
         canonical={`${baseUrl}about/`}
         openGraph={{
           url: `${baseUrl}about/`,
@@ -66,13 +67,15 @@ export default function About() {
                   sizes="(min-width: 1024px) 32rem, 20rem"
                   className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
                   placeholder="blur"
+                  priority
                 />
               </div>
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Rittik Basu. I live in India, where I design the future.
+              I’m Rittik Basu. I live in India, where I break things and learn
+              fast.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
@@ -104,7 +107,7 @@ export default function About() {
             </div>
           </div>
           <div className="hidden lg:block lg:pl-20">
-            <div className="flex justify-center rounded-2xl border border-zinc-100 bg-zinc-100/30 p-6 shadow-lg dark:border-zinc-700/40 dark:bg-zinc-800/40">
+            <div className="flex justify-center rounded-2xl bg-zinc-100/30 dark:bg-transparent">
               <ul role="list" className="space-y-6">
                 {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
                   <span className="ml-3">Contact</span>
@@ -124,13 +127,13 @@ export default function About() {
                 <div className="flex justify-center">
                   <div className="w-24 border-t border-zinc-300 dark:border-zinc-600/40"></div>
                 </div>
-                <SocialLink
-                  href="mailto:irittik@gmail.com"
-                  icon={MdEmail}
-                  className="h-6 w-6"
+                <Link
+                  href="mailto:contact@rittikbasu.tech"
+                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition after:justify-center hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
                 >
-                  irittik@gmail.com
-                </SocialLink>
+                  <MdEmail className="mr-3 h-5 w-5 flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
+                  contact@rittikbasu.tech
+                </Link>
                 <Button href="#" variant="secondary" className="group w-full">
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
                   Download Resume
