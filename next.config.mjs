@@ -1,5 +1,3 @@
-// import rehypePrism from '@mapbox/rehype-prism'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
@@ -19,12 +17,11 @@ const nextConfig = {
   },
 }
 
-// const withMDX = nextMDX({
-//   extension: /\.mdx?$/,
-//   options: {
-//     remarkPlugins: [remarkGfm],
-//     rehypePlugins: [rehypePrism],
-//   },
+// /** @type {import('plaiceholder/next').withPlaiceholder} */
+// const { withPlaiceholder } = {}
+
+// module.exports = withPlaiceholder({
+//   // your Next.js config
 // })
 
 export default nextConfig
