@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Ubuntu'],
+        sans: ['Ubuntu', 'sans-serif'],
       },
       animation: {
         text: 'text 4s ease infinite',
