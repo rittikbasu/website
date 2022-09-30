@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        text: 'text 4s ease infinite',
+        gradient: 'text 4s ease infinite',
+        glow: 'glow 2s ease-in-out alternate infinite',
       },
       keyframes: {
         text: {
@@ -17,6 +18,11 @@ module.exports = {
           '50%': {
             'background-size': '200% 200%',
             'background-position': 'right center',
+          },
+        },
+        glow: {
+          to: {
+            'text-shadow': '0 0 1px #818cf8',
           },
         },
       },
