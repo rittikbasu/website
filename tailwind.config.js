@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Ubuntu', 'sans-serif'],
+        sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
       },
       animation: {
         text: 'text 4s ease infinite',
