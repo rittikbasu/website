@@ -13,12 +13,20 @@ import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_PROJECT_DB_ID
 const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
+// const techUsed = [
+//   'Python',
+//   'ScraperAPI',
+//   'Natural Language Processing',
+//   'Notion API',
+// ]
 
 function Project({ project, index }) {
   const [isLoading, setLoading] = useState(true)
   const projectTitle = project.properties.name.title[0].plain_text
   const projectDescription =
     project.properties.description.rich_text[0].plain_text
+  const techUsed =
+    project.properties.techUsed.rich_text[0].plain_text.split(',')
   const github = project.properties.github.rich_text.length
     ? project.properties.github.rich_text[0].plain_text
     : false
@@ -31,7 +39,7 @@ function Project({ project, index }) {
   const image = project.properties.image.rich_text[0].plain_text
   return (
     <Card as="li">
-      <div className="aspect-w-16 aspect-h-9 group relative z-10 flex h-56 w-full items-center justify-center rounded-xl shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0 tab:h-80 lg:h-64">
+      <div className="aspect-w-16 aspect-h-9 group relative z-10 flex h-56 w-full items-center justify-center rounded-xl shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition duration-300 dark:border dark:border-zinc-700/50 dark:ring-0 tab:h-80 md:group-hover:scale-105  lg:h-64">
         <Image
           src={image}
           alt={`Screenshot of ${projectTitle}`}
@@ -48,24 +56,41 @@ function Project({ project, index }) {
         {projectTitle}
       </h2>
       <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-100/80 opacity-0 transition dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl md:group-hover:scale-100 md:group-hover:opacity-100" />
+      <div className="z-10 pt-2">
+        {techUsed.map((item, i) => {
+          return (
+            <>
+              <span
+                className="mr-2 inline-flex rounded-md text-sm font-semibold text-indigo-500/80 dark:text-indigo-400/70"
+                key={i}
+              >
+                {item}
+              </span>
+              {techUsed.length - 1 !== i && (
+                <span className="mr-2 text-zinc-400 dark:text-zinc-500">|</span>
+              )}
+            </>
+          )
+        })}
+      </div>
       <Card.Description>{projectDescription}</Card.Description>
-      <p className="relative z-10 mt-6 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200 ">
+      <p className="relative z-10 mt-4 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200">
         {github && (
           <Link
             href={github}
-            className="flex items-center space-x-2 md:hover:text-indigo-500"
+            className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300 md:hover:text-indigo-500"
           >
             <BsGithub className="h-4 w-4 flex-none fill-current transition" />
-            <span className="ml-2">GitHub</span>
+            <span className="ml-2">Source Code</span>
           </Link>
         )}
         {link && (
           <Link
             href={link}
-            className="flex items-center space-x-2 md:hover:text-indigo-500"
+            className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300 md:hover:text-indigo-500"
           >
             <BsLink45Deg className="h-4 w-4 flex-none fill-current transition" />
-            <span className="-ml-4">{linkLabel}</span>
+            <span className="-ml-4">Live Demo</span>
           </Link>
         )}
       </p>
