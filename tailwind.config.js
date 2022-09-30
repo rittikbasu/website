@@ -1,15 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
-      // fontFamily: {
-      //   chillax: ['Chillax', 'sans-serif'],
-      //   supreme: ['Supreme', 'sans-serif'],
-      //   satoshi: ['Satoshi', 'sans-serif'],
-      // },
+      fontFamily: {
+        sans: ['Ubuntu', 'system-ui', ...defaultTheme.fontFamily.sans],
+      },
       animation: {
         text: 'text 4s ease infinite',
       },
