@@ -9,7 +9,7 @@ import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
-import portraitImage from '@/images/avatar.jpg'
+import portraitImage from '@/images/avatar.png'
 import { baseUrl } from '../seo.config'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -49,7 +49,7 @@ export default function About() {
     <>
       <NextSeo
         title="About"
-        description="I'm a web developer and designer from India. I'm currently working at Notion as a Frontend Engineer."
+        description="I'm a web developer and designer. I live in India, where I break things and learn fast."
         canonical={`${baseUrl}about/`}
         openGraph={{
           url: `${baseUrl}about/`,
@@ -57,25 +57,31 @@ export default function About() {
         }}
       />
       <Container className="mt-16 sm:mt-32">
-        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="flex justify-center">
-            <div className="pt-2 lg:pl-20">
+        <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          <div className="flex justify-center lg:col-span-5">
+            <div className="pt-2 lg:pl-10">
               <div className="max-w-xs px-2.5">
                 <Image
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
-                  placeholder="blur"
+                  className="transition duration-500 md:hover:scale-110"
                   priority
                 />
               </div>
             </div>
           </div>
-          <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Rittik Basu. I live in India, where I break things and learn
-              fast.
+          <div className="lg:order-first lg:col-span-7 lg:row-span-2">
+            <h1 className="text-4xl font-bold tracking-normal text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              I’m{' '}
+              <span
+                className="animate-text bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text
+            text-transparent dark:from-purple-400 dark:via-indigo-400
+            dark:to-pink-400"
+              >
+                Rittik Basu.
+              </span>{' '}
+              <br />I live in India, where I break things and learn fast.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
@@ -106,7 +112,7 @@ export default function About() {
               </p>
             </div>
           </div>
-          <div className="hidden lg:block lg:pl-20">
+          <div className="hidden lg:col-span-5 lg:block lg:pl-10">
             <div className="flex justify-center rounded-2xl bg-zinc-100/30 dark:bg-transparent">
               <ul role="list" className="space-y-6">
                 {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
