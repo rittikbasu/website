@@ -12,8 +12,9 @@ import { baseUrl } from '../seo.config'
 import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_PROJECT_DB_ID
+const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
 
-function Project({ project }) {
+function Project({ project, index }) {
   const [isLoading, setLoading] = useState(true)
   const projectTitle = project.properties.name.title[0].plain_text
   const projectDescription =
@@ -30,12 +31,12 @@ function Project({ project }) {
   const image = project.properties.image.rich_text[0].plain_text
   return (
     <Card as="li">
-      <div className="aspect-w-16 aspect-h-9 group relative z-10 flex h-64 w-full items-center justify-center rounded-xl shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0">
+      <div className="aspect-w-16 aspect-h-9 group relative z-10 flex h-56 w-full items-center justify-center rounded-xl shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:ring-0 tab:h-80 lg:h-64">
         <Image
           src={image}
           alt={`Screenshot of ${projectTitle}`}
           className={clsx(
-            'h-full w-full rounded-xl duration-1000 ease-in-out',
+            `h-full w-full rounded-xl duration-1000 ease-in-out ${delay[index]}`,
             isLoading ? 'blur-xl' : 'blur-0'
           )}
           height="300"
@@ -93,8 +94,8 @@ export default function ProjectsIndex({ projects }) {
           role="list"
           className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-1 lg:grid-cols-2"
         >
-          {projects.map((project) => (
-            <Project key={project.id} project={project} />
+          {projects.map((project, index) => (
+            <Project key={project.id} project={project} index={index} />
           ))}
         </ul>
       </SimpleLayout>
