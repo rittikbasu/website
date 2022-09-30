@@ -6,9 +6,6 @@ module.exports = {
   plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
-      },
       animation: {
         text: 'text 4s ease infinite',
       },
@@ -24,6 +21,9 @@ module.exports = {
           },
         },
       },
+    },
+    fontFamily: {
+      sans: ['Ubuntu', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
