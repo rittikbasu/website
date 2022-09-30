@@ -4,6 +4,28 @@ module.exports = {
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
+    extend: {
+      // fontFamily: {
+      //   chillax: ['Chillax', 'sans-serif'],
+      //   supreme: ['Supreme', 'sans-serif'],
+      //   satoshi: ['Satoshi', 'sans-serif'],
+      // },
+      animation: {
+        text: 'text 4s ease infinite',
+      },
+      keyframes: {
+        text: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
+      },
+    },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
@@ -18,6 +40,17 @@ module.exports = {
       '7xl': ['4.5rem', { lineHeight: '1' }],
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
+    },
+    screens: {
+      sm: '500px',
+
+      tab: '601px',
+
+      md: '768px',
+
+      lg: '1024px',
+
+      xl: '1280px',
     },
     typography: (theme) => ({
       invert: {
