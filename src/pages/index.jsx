@@ -54,11 +54,6 @@ export default function Home({ articles }) {
           >
             Web Developer, <br className="md:hidden" /> Designer & Amateur Music
             Composer
-            {/* <div class="words">
-              <span className="rotate-custom">Web developer</span>
-              <span className="rotate-custom">Founder</span>
-              <span className="rotate-custom">Amateur Music Composer</span>
-            </div> */}
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Rittik Basu, a computer engineer and technology enthusiast based
