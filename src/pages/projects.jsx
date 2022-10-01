@@ -13,12 +13,6 @@ import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_PROJECT_DB_ID
 const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
-// const techUsed = [
-//   'Python',
-//   'ScraperAPI',
-//   'Natural Language Processing',
-//   'Notion API',
-// ]
 
 function Project({ project, index }) {
   const [isLoading, setLoading] = useState(true)
@@ -32,9 +26,6 @@ function Project({ project, index }) {
     : false
   const link = project.properties.link.rich_text.length
     ? project.properties.link.rich_text[0].plain_text
-    : false
-  const linkLabel = project.properties.linkLabel.rich_text.length
-    ? project.properties.linkLabel.rich_text[0].plain_text
     : false
   const image = project.properties.image.rich_text[0].plain_text
   return (
