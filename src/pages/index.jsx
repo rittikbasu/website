@@ -48,17 +48,12 @@ export default function Home({ articles }) {
       <Container className="flex h-screen items-center justify-center">
         <div className="max-w-2xl">
           <h1
-            className="animate-text bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text text-4xl  font-bold 
+            className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text text-4xl  font-bold 
             tracking-wide text-transparent dark:from-purple-400
             dark:via-indigo-400 dark:to-pink-400 sm:text-5xl"
           >
             Web Developer, <br className="md:hidden" /> Designer & Amateur Music
             Composer
-            {/* <div class="words">
-              <span className="rotate-custom">Web developer</span>
-              <span className="rotate-custom">Founder</span>
-              <span className="rotate-custom">Amateur Music Composer</span>
-            </div> */}
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Rittik Basu, a computer engineer and technology enthusiast based

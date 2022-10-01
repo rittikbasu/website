@@ -17,14 +17,12 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+        className={clsx(
+          className,
+          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500 md:hover:scale-125'
+        )}
       >
-        <Icon
-          className={clsx(
-            className,
-            'mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500'
-          )}
-        />
+        <Icon className="mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -75,7 +73,7 @@ export default function About() {
             <h1 className="text-4xl font-bold tracking-normal text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               I’m{' '}
               <span
-                className="animate-text bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text
+                className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text
             text-transparent dark:from-purple-400 dark:via-indigo-400
             dark:to-pink-400"
               >
@@ -118,7 +116,7 @@ export default function About() {
                 {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
                   <span className="ml-3">Contact</span>
                 </h2> */}
-                <SocialLink href="#" icon={BsTwitter}>
+                <SocialLink href="#" icon={BsTwitter} className="">
                   Connect on Twitter
                 </SocialLink>
                 <SocialLink href="#" icon={FaDiscord} className="">
@@ -135,12 +133,16 @@ export default function About() {
                 </div>
                 <Link
                   href="mailto:contact@rittikbasu.tech"
-                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition after:justify-center hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500 md:hover:scale-125"
                 >
                   <MdEmail className="mr-3 h-5 w-5 flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
                   contact@rittikbasu.tech
                 </Link>
-                <Button href="#" variant="secondary" className="group w-full">
+                <Button
+                  href="#"
+                  variant="secondary"
+                  className="group w-full outline-2 outline-indigo-300 md:hover:outline"
+                >
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
                   Download Resume
                 </Button>
