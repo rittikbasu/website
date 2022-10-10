@@ -2,7 +2,10 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
   theme: {
     extend: {
       animation: {
