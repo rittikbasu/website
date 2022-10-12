@@ -86,7 +86,7 @@ const Embed = (value, type) => {
             src={src}
             alt={caption ? caption : 'Notion image'}
             className={clsx(
-              'duration-700 ease-in-out md:h-80 md:w-auto',
+              'h-52 w-full duration-700 ease-in-out tab:h-64 md:h-80 md:w-auto',
               isLoading ? 'blur-2xl' : 'blur-0 grayscale-0'
             )}
             height="300"
@@ -181,7 +181,7 @@ export const renderBlock = (block) => {
     case 'image':
     case 'video':
     case 'embed':
-      return <figure>{Embed(value, type)}</figure>
+      return <figure className="mb-4 mt-6">{Embed(value, type)}</figure>
     case 'divider':
       return <hr key={id} />
     case 'quote':
