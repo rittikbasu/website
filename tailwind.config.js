@@ -2,10 +2,7 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tailwind-scrollbar')({ nocompatible: true }),
-  ],
+  plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
       animation: {
@@ -134,8 +131,8 @@ module.exports = {
             marginBottom: theme('spacing.10'),
           },
           p: {
-            marginTop: theme('spacing.7'),
-            marginBottom: theme('spacing.7'),
+            marginTop: theme('spacing.3'),
+            marginBottom: theme('spacing.3'),
           },
 
           // Headings
@@ -151,13 +148,13 @@ module.exports = {
           },
           h2: {
             fontSize: theme('fontSize.xl')[0],
-            lineHeight: theme('lineHeight.7'),
+            lineHeight: theme('lineHeight.5'),
             marginTop: theme('spacing.10'),
             marginBottom: theme('spacing.4'),
           },
           h3: {
             fontSize: theme('fontSize.base')[0],
-            lineHeight: theme('lineHeight.7'),
+            lineHeight: theme('lineHeight.3'),
             marginTop: theme('spacing.10'),
             marginBottom: theme('spacing.4'),
           },
@@ -236,8 +233,8 @@ module.exports = {
             paddingLeft: theme('spacing.6'),
           },
           li: {
-            marginTop: theme('spacing.6'),
-            marginBottom: theme('spacing.6'),
+            marginTop: theme('spacing.3'),
+            marginBottom: theme('spacing.3'),
             paddingLeft: theme('spacing[3.5]'),
           },
           'li::marker': {
@@ -266,7 +263,7 @@ module.exports = {
             fontWeight: theme('fontWeight.medium'),
             backgroundColor: 'var(--tw-prose-pre-bg)',
             borderRadius: theme('borderRadius.3xl'),
-            padding: theme('spacing.8'),
+            padding: theme('spacing.6'),
             overflowX: 'auto',
             border: '1px solid',
             borderColor: 'var(--tw-prose-pre-border)',
