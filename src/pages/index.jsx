@@ -16,9 +16,7 @@ import { baseUrl } from '../seo.config'
 function Article({ article }) {
   return (
     <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
+      <Card.Title href={`/blog/${article.slug}`}>{article.title}</Card.Title>
       <Card.Eyebrow as="time" dateTime={article.date} decorate>
         {article.date}
       </Card.Eyebrow>
@@ -73,7 +71,7 @@ export default function Home({ articles }) {
           <Button
             href="/about"
             variant="primary"
-            className="group ml-1 h-8 tracking-widest outline outline-2 outline-indigo-300"
+            className="group ml-1 h-8 tracking-widest ring-2 ring-indigo-400"
           >
             Learn More
           </Button>

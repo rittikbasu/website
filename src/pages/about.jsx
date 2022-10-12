@@ -222,7 +222,7 @@ export default function About() {
                 <Button
                   href="#"
                   variant="secondary"
-                  className="group w-full outline-2 outline-indigo-300 md:hover:outline"
+                  className="group w-full ring-indigo-300 md:hover:ring-2"
                 >
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
                   Download Resume
