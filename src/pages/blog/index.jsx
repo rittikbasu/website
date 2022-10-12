@@ -19,7 +19,7 @@ function Article({ article }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${slug}`}>
+        <Card.Title href={`/blog/${slug}`}>
           <Text text={articleTitle} />
         </Card.Title>
 
@@ -42,12 +42,12 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
       <NextSeo
-        title="Articles"
+        title="Blog"
         description="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
-        canonical={`${baseUrl}articles/`}
+        canonical={`${baseUrl}blog/`}
         openGraph={{
-          url: `${baseUrl}articles/`,
-          title: 'Articles',
+          url: `${baseUrl}blog/`,
+          title: 'Blog',
         }}
       />
       <SimpleLayout

@@ -71,7 +71,7 @@ export default function Post({ article, blocks, slug }) {
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
             <Link
-              href="/articles"
+              href="/blog"
               aria-label="Go back to articles"
               className="group mb-8 hidden h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 md:flex lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
             >
