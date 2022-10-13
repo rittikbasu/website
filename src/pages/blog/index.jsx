@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
+import slugify from 'slugify'
 
 import { Text } from '@/components/RenderNotion'
 import { Card } from '@/components/Card'
@@ -13,16 +14,13 @@ const databaseId = process.env.NOTION_BLOG_DB_ID
 
 function Article({ article }) {
   const date = FormatDate(article.properties.date.date.start)
-  const slug = article.properties.slug.rich_text[0].plain_text
-  const articleTitle = article.properties.name.title
+  const articleTitle = article.properties.name.title[0].plain_text
   const articleDescription = article.properties.description.rich_text
+  const slug = slugify(articleTitle).toLowerCase()
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/blog/${slug}`}>
-          <Text text={articleTitle} />
-        </Card.Title>
-
+        <Card.Title href={`/blog/${slug}`}>{articleTitle}</Card.Title>
         <Card.Eyebrow as="time" dateTime={date} className="md:hidden" decorate>
           {date}
         </Card.Eyebrow>

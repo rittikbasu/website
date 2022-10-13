@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import Image from 'next/future/image'
 import clsx from 'clsx'
+import slugify from 'slugify'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
@@ -127,7 +128,11 @@ export const getStaticPaths = async () => {
   const database = await getDatabase(databaseId, 'date', 'descending')
   return {
     paths: database.map((article) => ({
-      params: { slug: article.properties.slug.rich_text[0].plain_text },
+      params: {
+        slug: slugify(
+          article.properties.name.title[0].plain_text
+        ).toLowerCase(),
+      },
     })),
     fallback: true,
   }
@@ -137,7 +142,8 @@ export const getStaticProps = async (context) => {
   const { slug } = context.params
   const database = await getDatabase(databaseId, 'date', 'descending')
   const id = database.find(
-    (post) => post.properties.slug.rich_text[0].plain_text === slug
+    (post) =>
+      slugify(post.properties.name.title[0].plain_text).toLowerCase() === slug
   ).id
   const article = await getPage(id)
   const blocks = await getBlocks(id)
