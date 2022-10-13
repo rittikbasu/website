@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import Image from 'next/future/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
@@ -8,6 +8,7 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getDatabase } from '@/lib/notion'
 import { baseUrl } from '../seo.config'
+import data from '@/data/projects.js'
 
 import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
@@ -16,30 +17,25 @@ const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
 
 function Project({ project, index }) {
   const [isLoading, setLoading] = useState(true)
-  const projectTitle = project.properties.name.title[0].plain_text
-  const projectDescription =
-    project.properties.description.rich_text[0].plain_text
-  const techUsed =
-    project.properties.techUsed.rich_text[0].plain_text.split(',')
-  const github = project.properties.github.rich_text.length
-    ? project.properties.github.rich_text[0].plain_text
-    : false
-  const link = project.properties.link.rich_text.length
-    ? project.properties.link.rich_text[0].plain_text
-    : false
-  const image = project.properties.image.rich_text[0].plain_text
+  const projectTitle = project.title
+  const projectDescription = project.description
+  const techUsed = project.techUsed
+  const github = project.github
+  const link = project.link
+  const image = project.image
   return (
     <Card as="li">
-      <div className="aspect-w-16 aspect-h-9 group relative z-10 flex h-56 w-full items-center justify-center rounded-xl shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition duration-300 dark:border dark:border-zinc-700/50 dark:ring-0 tab:h-80 md:group-hover:scale-105  lg:h-64">
+      <div className="aspect-w-16 aspect-h-9 justify-cente group relative z-10 flex h-56 w-full items-center ring-1 ring-zinc-900/5 transition duration-500 dark:ring-0 tab:h-80 md:group-hover:scale-110 lg:h-64">
         <Image
           src={image}
           alt={`Screenshot of ${projectTitle}`}
           className={clsx(
-            `h-full w-full rounded-xl duration-1000 ease-in-out ${delay[index]}`,
+            `h-full w-full rounded-xl object-contain duration-1000 ease-in-out ${delay[index]}`,
             isLoading ? 'blur-xl' : 'blur-0'
           )}
           height="300"
           width="500"
+          placeholder="blur"
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
@@ -50,17 +46,14 @@ function Project({ project, index }) {
       <div className="z-10 pt-2">
         {techUsed.map((item, i) => {
           return (
-            <>
-              <span
-                className="mr-2 inline-flex rounded-md text-sm font-semibold text-indigo-500/80 dark:text-indigo-400/70"
-                key={i}
-              >
+            <Fragment key={i}>
+              <span className="mr-2 inline-flex rounded-md text-sm font-semibold text-indigo-500/80 dark:text-indigo-400/70">
                 {item}
               </span>
               {techUsed.length - 1 !== i && (
                 <span className="mr-2 text-zinc-400 dark:text-zinc-500">|</span>
               )}
-            </>
+            </Fragment>
           )
         })}
       </div>
@@ -108,23 +101,13 @@ export default function ProjectsIndex({ projects }) {
       >
         <ul
           role="list"
-          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-1 lg:grid-cols-2"
+          className="grid grid-cols-1 gap-12 sm:grid-cols-1 lg:grid-cols-2"
         >
-          {projects.map((project, index) => (
-            <Project key={project.id} project={project} index={index} />
+          {data.map((project, index) => (
+            <Project key={index} project={project} index={index} />
           ))}
         </ul>
       </SimpleLayout>
     </>
   )
-}
-
-export const getStaticProps = async () => {
-  const database = await getDatabase(databaseId, 'order', 'ascending')
-  return {
-    props: {
-      projects: database,
-    },
-    revalidate: 1,
-  }
 }
