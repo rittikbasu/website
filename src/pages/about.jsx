@@ -101,22 +101,20 @@ export default function About() {
                 as a self taught developer. I was always obsessed with solving
                 problems and optmising things, and wrote my first program when I
                 was 6 years old, just two weeks after my mom brought home the
-                brand new Macintosh LC 550 that I taught myself to type on.
+                brand new Macintosh LC 550 that I taught myself to type on. The
+                only thing I loved more than computers as a kid was space. When
+                I was 8, I climbed the 40-foot oak tree at the back of our yard
+                while wearing my older sister’s motorcycle helmet, counted down
+                from three, and jumped — hoping the tree was tall enough that
+                with just a bit of momentum I’d be able to get to orbit.
               </p>
-              <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
-              </p>
-              <p>
+              <div>
                 <span className="font-bold tracking-widest underline">
                   Skills I have
                 </span>
                 <ul
                   role="list"
-                  className="grid grid-cols-2 gap-x-6 gap-y-4 pt-4 md:grid-cols-3"
+                  className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-3"
                 >
                   <div>
                     <Skills
@@ -191,7 +189,16 @@ export default function About() {
                     </Skills>
                   </div>
                 </ul>
-              </p>
+              </div>
+              <div className="flex justify-center md:justify-start">
+                <Button
+                  href="/projects"
+                  variant="primary"
+                  className="group h-8 tracking-widest ring-2 ring-indigo-400"
+                >
+                  See my projects
+                </Button>
+              </div>
             </div>
           </div>
           <div className="hidden lg:col-span-5 lg:block lg:pl-10">
