@@ -5,7 +5,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/avatar1.jpg'
+import avatarImage from '@/images/logo.png'
 import { Fragment, useEffect, useRef } from 'react'
 
 import { BsSun, BsMoonStars, BsChevronDown } from 'react-icons/bs'
@@ -148,15 +148,7 @@ function clamp(number, a, b) {
 }
 
 function AvatarContainer({ className, ...props }) {
-  return (
-    <div
-      className={clsx(
-        className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
-      )}
-      {...props}
-    />
-  )
+  return <div className={clsx(className, 'h-10 w-10')} {...props} />
 }
 
 function Avatar({ className, ...props }) {
@@ -171,10 +163,7 @@ function Avatar({ className, ...props }) {
         src={avatarImage}
         alt=""
         sizes="2.25rem"
-        className={clsx(
-          'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
-          'h-9 w-9'
-        )}
+        className="h-9 w-9 object-contain saturate-150 duration-150 md:h-10 md:w-10 md:hover:scale-110"
         priority
       />
     </Link>
@@ -237,7 +226,6 @@ export function Header() {
 
     function updateStyles() {
       updateHeaderStyles()
-      // updateAvatarStyles()
       isInitial.current = false
     }
 
