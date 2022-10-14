@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import clsx from 'clsx'
 import { NextSeo } from 'next-seo'
 
