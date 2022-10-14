@@ -100,17 +100,17 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Although I have a degree in computer science I consider myself
-                as a self taught developer. I didn't properly get into coding
-                until I was in the second year of my undergrad but what I always
-                had was the mindset of a developer.
+                as a self taught developer. I didn&apos;t properly get into
+                coding until I was in the second year of my undergrad but what I
+                always had was the mindset of a developer.
               </p>
               <p>
                 When I was very young I used to try to optimise the time it took
                 me to shower by changing the order of things I did in the
                 shower. I always had a love for tinkering and building on top of
                 things, it started with modifying my toys and tearing them apart
-                to see what's inside them and how they work. Now I do it with
-                code.
+                to see what&apos;s inside them and how they work. Now I do it
+                with code.
               </p>
               <p>
                 I started coding with Python because I wanted to automate some
@@ -118,7 +118,7 @@ export default function About() {
                 development. I have been working with web technologies for the
                 past 3 years and I am currently working on a project that lets
                 you create a website that serves as a public inbox for your
-                email newsletters. It's called{' '}
+                email newsletters. It&apos;s called{' '}
                 <a
                   href="https://letterhive.com"
                   className="inline-flex items-center font-medium text-indigo-500"
