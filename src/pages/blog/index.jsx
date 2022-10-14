@@ -41,7 +41,7 @@ function Article({ article }) {
 
 export default function ArticlesIndex({ articles }) {
   return (
-    <div className="h-screen">
+    <div className="h-full">
       <NextSeo
         title="Blog"
         description="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
