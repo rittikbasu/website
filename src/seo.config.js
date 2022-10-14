@@ -1,14 +1,14 @@
-export const baseUrl = 'https://website-rittikbasu.vercel.app/'
+export const baseUrl = 'https://www.rittikbasu.tech/'
 
 export default {
-  defaultTitle: 'Rittik Basu - Web Developer, founder & amateur music composer',
+  defaultTitle: 'Rittik Basu | Front End Developer',
   titleTemplate: '%s | Rittik Basu',
   description:
-    'A computer engineer and technology enthusiast based in India. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+    'I&apos;m a computer engineer specializing in building & designing scalable frontend products with great user experiences. Currently I&apos;m working with Next.js & Tailwind and I ocassionally dabble in datascience & blockchain technology.',
   openGraph: {
     title: 'Rittik Basu',
     description:
-      'A computer engineer and technology enthusiast based in India. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+      'I&apos;m a computer engineer specializing in building & designing scalable frontend products with great user experiences. Currently I&apos;m working with Next.js & Tailwind and I ocassionally dabble in datascience & blockchain technology.',
     type: 'website',
     locale: 'en_US',
     url: baseUrl,
