@@ -28,7 +28,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Ubuntu'],
+      sans: ['Ubuntu', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
@@ -85,9 +85,9 @@ module.exports = {
         css: {
           '--tw-prose-body': theme('colors.zinc.600'),
           '--tw-prose-headings': theme('colors.zinc.900'),
-          '--tw-prose-links': theme('colors.indigo.500'),
+          '--tw-prose-links': theme('colors.zinc.800'),
           '--tw-prose-links-hover': theme('colors.indigo.600'),
-          '--tw-prose-underline': theme('colors.indigo.500 / 0.2'),
+          '--tw-prose-underline': theme('colors.zinc.800 / 0.8'),
           '--tw-prose-underline-hover': theme('colors.indigo.500'),
           '--tw-prose-bold': theme('colors.zinc.900'),
           '--tw-prose-counters': theme('colors.zinc.900'),
@@ -105,9 +105,9 @@ module.exports = {
 
           '--tw-prose-invert-body': theme('colors.zinc.400'),
           '--tw-prose-invert-headings': theme('colors.zinc.200'),
-          '--tw-prose-invert-links': theme('colors.indigo.400'),
+          '--tw-prose-invert-links': theme('colors.zinc.300'),
           '--tw-prose-invert-links-hover': theme('colors.indigo.400'),
-          '--tw-prose-invert-underline': theme('colors.indigo.400 / 0.3'),
+          '--tw-prose-invert-underline': theme('colors.zinc.300 / 0.8'),
           '--tw-prose-invert-underline-hover': theme('colors.indigo.400'),
           '--tw-prose-invert-bold': theme('colors.zinc.200'),
           '--tw-prose-invert-counters': theme('colors.zinc.200'),
@@ -131,8 +131,8 @@ module.exports = {
             marginBottom: theme('spacing.10'),
           },
           p: {
-            marginTop: theme('spacing.7'),
-            marginBottom: theme('spacing.7'),
+            marginTop: theme('spacing.3'),
+            marginBottom: theme('spacing.3'),
           },
 
           // Headings
@@ -148,13 +148,13 @@ module.exports = {
           },
           h2: {
             fontSize: theme('fontSize.xl')[0],
-            lineHeight: theme('lineHeight.7'),
+            lineHeight: theme('lineHeight.5'),
             marginTop: theme('spacing.10'),
             marginBottom: theme('spacing.4'),
           },
           h3: {
             fontSize: theme('fontSize.base')[0],
-            lineHeight: theme('lineHeight.7'),
+            lineHeight: theme('lineHeight.3'),
             marginTop: theme('spacing.10'),
             marginBottom: theme('spacing.4'),
           },
@@ -170,7 +170,7 @@ module.exports = {
           // Inline elements
           a: {
             color: 'var(--tw-prose-links)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.normal'),
             textDecoration: 'underline',
             textDecorationColor: 'var(--tw-prose-underline)',
             transitionProperty: 'color, text-decoration-color',
@@ -233,8 +233,8 @@ module.exports = {
             paddingLeft: theme('spacing.6'),
           },
           li: {
-            marginTop: theme('spacing.6'),
-            marginBottom: theme('spacing.6'),
+            marginTop: theme('spacing.3'),
+            marginBottom: theme('spacing.3'),
             paddingLeft: theme('spacing[3.5]'),
           },
           'li::marker': {
@@ -263,7 +263,7 @@ module.exports = {
             fontWeight: theme('fontWeight.medium'),
             backgroundColor: 'var(--tw-prose-pre-bg)',
             borderRadius: theme('borderRadius.3xl'),
-            padding: theme('spacing.8'),
+            padding: theme('spacing.6'),
             overflowX: 'auto',
             border: '1px solid',
             borderColor: 'var(--tw-prose-pre-border)',

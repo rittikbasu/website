@@ -39,9 +39,7 @@ export const Text = ({ text }) => {
         style={color !== 'default' ? { color } : {}}
       >
         {text.link ? (
-          <a className="no-underline" href={text.link.url}>
-            {text.content}
-          </a>
+          <a href={text.link.url}>{text.content}</a>
         ) : code ? (
           <code className="text-red-500 dark:text-red-400">{text.content}</code>
         ) : (
@@ -78,7 +76,6 @@ const Embed = (value, type) => {
       />
     )
   } else if (type === 'image') {
-    // const blurDataURL = src.split('?ik-sdk-version')[0]
     return (
       <>
         <div className="flex items-center justify-center">
@@ -86,13 +83,11 @@ const Embed = (value, type) => {
             src={src}
             alt={caption ? caption : 'Notion image'}
             className={clsx(
-              'duration-700 ease-in-out md:h-80 md:w-auto',
+              'h-48 w-full duration-700 ease-in-out tab:h-64 md:h-80 md:w-auto',
               isLoading ? 'blur-2xl' : 'blur-0 grayscale-0'
             )}
             height="300"
             width="500"
-            // placeholder="blur"
-            // blurDataURL={blurDataURL}
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
@@ -120,7 +115,6 @@ const renderNestedList = (block) => {
 export const renderBlock = (block) => {
   const { type, id } = block
   const value = block[type]
-  //   console.log(id)
 
   switch (type) {
     case 'paragraph':
@@ -149,7 +143,6 @@ export const renderBlock = (block) => {
       )
     case 'bulleted_list_item':
     case 'numbered_list_item':
-      // console.log("")
       return (
         <li className={type === 'numbered_list_item' ? 'list-decimal' : ''}>
           <Text text={value.rich_text} />
@@ -181,7 +174,7 @@ export const renderBlock = (block) => {
     case 'image':
     case 'video':
     case 'embed':
-      return <figure>{Embed(value, type)}</figure>
+      return <figure className="mb-4 mt-6">{Embed(value, type)}</figure>
     case 'divider':
       return <hr key={id} />
     case 'quote':

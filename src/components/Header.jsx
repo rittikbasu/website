@@ -5,7 +5,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/avatar1.jpg'
+import avatarImage from '@/images/logo.png'
 import { Fragment, useEffect, useRef } from 'react'
 
 import { BsSun, BsMoonStars, BsChevronDown } from 'react-icons/bs'
@@ -23,8 +23,8 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 outline-none ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-        Learn More
+      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-1 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 outline-none ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+        <span className="tracking-wider">Menu</span>
         <BsChevronDown className="ml-3 h-auto w-2 stroke-zinc-600 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
       </Popover.Button>
       <Transition.Root>
@@ -56,7 +56,7 @@ function MobileNavigation(props) {
               <ul className="space-y-4 divide-zinc-100 text-center text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                 <MobileNavItem href="/">Home</MobileNavItem>
                 <MobileNavItem href="/about">About</MobileNavItem>
-                <MobileNavItem href="/articles">Articles</MobileNavItem>
+                <MobileNavItem href="/blog">Blog</MobileNavItem>
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="">
                   <span className="text-red-500">Close</span>
@@ -99,7 +99,7 @@ function DesktopNavigation(props) {
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
         <NavItem href="/">Home</NavItem>
         <NavItem href="/about">About</NavItem>
-        <NavItem href="/articles">Articles</NavItem>
+        <NavItem href="/blog">Blog</NavItem>
         <NavItem href="/projects">Projects</NavItem>
       </ul>
     </nav>
@@ -148,15 +148,7 @@ function clamp(number, a, b) {
 }
 
 function AvatarContainer({ className, ...props }) {
-  return (
-    <div
-      className={clsx(
-        className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'
-      )}
-      {...props}
-    />
-  )
+  return <div className={clsx(className, 'h-10 w-10')} {...props} />
 }
 
 function Avatar({ className, ...props }) {
@@ -171,10 +163,7 @@ function Avatar({ className, ...props }) {
         src={avatarImage}
         alt=""
         sizes="2.25rem"
-        className={clsx(
-          'rounded-full bg-zinc-100 object-cover dark:bg-zinc-800',
-          'h-9 w-9'
-        )}
+        className="h-9 w-9 object-contain saturate-150 duration-150 md:h-10 md:w-10 md:hover:scale-110"
         priority
       />
     </Link>
@@ -237,7 +226,6 @@ export function Header() {
 
     function updateStyles() {
       updateHeaderStyles()
-      // updateAvatarStyles()
       isInitial.current = false
     }
 

@@ -6,6 +6,19 @@ import { NextSeo } from 'next-seo'
 import { BsTwitter, BsGithub, BsArrowDown } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiPython,
+  SiTailwindcss,
+  SiBootstrap,
+  SiFirebase,
+  SiJupyter,
+  SiFlask,
+} from 'react-icons/si'
+
+import { FiExternalLink } from 'react-icons/fi'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
@@ -29,16 +42,19 @@ function SocialLink({ className, href, children, icon: Icon }) {
   )
 }
 
-function SocialLinkMobile({ className, icon: Icon, ...props }) {
+function Skills({ className, icon: Icon, children }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon
-        className={clsx(
-          className,
-          'h-5 w-5 fill-zinc-500 transition dark:fill-zinc-400'
-        )}
-      />
-    </Link>
+    <li>
+      <div className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 dark:text-zinc-200 md:hover:scale-110">
+        <Icon
+          className={clsx(
+            className,
+            'mr-3 h-[1.2rem] w-[1.2rem] fill-indigo-500/70 dark:fill-indigo-300'
+          )}
+        />
+        <span className="ml-4">{children}</span>
+      </div>
+    </li>
   )
 }
 
@@ -63,7 +79,7 @@ export default function About() {
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="transition duration-500 md:hover:scale-110"
+                  className="saturate-150 transition duration-500 md:hover:scale-110"
                   priority
                 />
               </div>
@@ -79,53 +95,153 @@ export default function About() {
               >
                 Rittik Basu.
               </span>{' '}
-              <br />I live in India, where I break things and learn fast.
+              <br />I live in India, where I break things & learn fast.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                Although I have a degree in computer science I consider myself
+                as a self taught developer. I didn&apos;t properly get into
+                coding until I was in the second year of my undergrad but what I
+                always had was the mindset of a developer.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
+                When I was very young I used to try to optimise the time it took
+                me to shower by changing the order of things I did in the
+                shower. I always had a love for tinkering and building on top of
+                things, it started with modifying my toys and tearing them apart
+                to see what&apos;s inside them and how they work. Now I do it
+                with code.
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
+                I started coding with Python because I wanted to automate some
+                monotonous tasks of my daily life and then moved to web
+                development. I have been working with web technologies for the
+                past 3 years and I am currently working on a project that lets
+                you create a website that serves as a public inbox for your
+                email newsletters. It&apos;s called{' '}
+                <a
+                  href="https://letterhive.com"
+                  className="inline-flex items-center font-medium text-indigo-500"
+                >
+                  Letterhive
+                  <FiExternalLink className="ml-1 inline-block h-4 w-4" />
+                </a>{' '}
               </p>
-              <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
-              </p>
+              <div>
+                <span className="font-bold tracking-widest underline">
+                  Skills I have
+                </span>
+                <ul
+                  role="list"
+                  className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-3"
+                >
+                  <div>
+                    <Skills
+                      icon={SiJavascript}
+                      className="md:group-hover:fill-yellow-400 dark:md:group-hover:fill-yellow-300"
+                    >
+                      Javascript
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiReact}
+                      className="md:group-hover:fill-blue-400 dark:md:group-hover:fill-blue-300"
+                    >
+                      React
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiNextdotjs}
+                      className="md:group-hover:fill-black dark:md:group-hover:fill-white"
+                    >
+                      Next.js
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiTailwindcss}
+                      className="md:group-hover:fill-blue-400"
+                    >
+                      Tailwind
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiBootstrap}
+                      className="md:group-hover:fill-purple-500"
+                    >
+                      Bootstrap
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiFirebase}
+                      className="md:group-hover:fill-yellow-400 dark:md:group-hover:fill-yellow-300"
+                    >
+                      Firebase
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiPython}
+                      className="md:group-hover:fill-blue-400 dark:md:group-hover:fill-blue-300"
+                    >
+                      Python
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiJupyter}
+                      className="md:group-hover:fill-orange-400"
+                    >
+                      Jupyter
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiFlask}
+                      className="md:group-hover:fill-black dark:md:group-hover:fill-white"
+                    >
+                      Flask
+                    </Skills>
+                  </div>
+                </ul>
+              </div>
+              <div className="flex justify-center md:justify-start">
+                <Button
+                  href="/projects"
+                  variant="primary"
+                  className="group h-8 tracking-widest ring-2 ring-indigo-400"
+                >
+                  See my projects
+                </Button>
+              </div>
             </div>
           </div>
           <div className="hidden lg:col-span-5 lg:block lg:pl-10">
-            <div className="flex justify-center rounded-2xl bg-zinc-100/30 dark:bg-transparent">
+            <div className="flex justify-center">
               <ul role="list" className="space-y-6">
-                {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
-                  <span className="ml-3">Contact</span>
-                </h2> */}
-                <SocialLink href="#" icon={BsTwitter} className="">
+                <SocialLink
+                  href="https://twitter.com/_rittik"
+                  icon={BsTwitter}
+                  className=""
+                >
                   Connect on Twitter
                 </SocialLink>
-                <SocialLink href="#" icon={FaDiscord} className="">
-                  Connect on Discord
-                </SocialLink>
-                <SocialLink href="#" icon={BsGithub} className="">
+                <SocialLink
+                  href="https://github.com/rittikbasu"
+                  icon={BsGithub}
+                  className=""
+                >
                   Connect on GitHub
                 </SocialLink>
-                <SocialLink href="#" icon={FaLinkedinIn} className="">
+                <SocialLink
+                  href="https://www.linkedin.com/in/rittikbasu/"
+                  icon={FaLinkedinIn}
+                  className=""
+                >
                   Connect on LinkedIn
                 </SocialLink>
                 <div className="flex justify-center">
@@ -141,7 +257,7 @@ export default function About() {
                 <Button
                   href="#"
                   variant="secondary"
-                  className="group w-full outline-2 outline-indigo-300 md:hover:outline"
+                  className="group w-full ring-indigo-300 md:hover:ring-2"
                 >
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
                   Download Resume
@@ -158,36 +274,6 @@ export default function About() {
                 Download Resume
                 <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
               </Button>
-            </div>
-            <div className="flex items-center justify-center gap-10">
-              <SocialLinkMobile
-                href="https://twitter.com"
-                aria-label="Follow on Twitter"
-                icon={BsTwitter}
-              />
-              <SocialLinkMobile
-                href="https://instagram.com"
-                aria-label="Follow on Instagram"
-                icon={FaDiscord}
-                className="h-6 w-6"
-              />
-              <SocialLinkMobile
-                href="https://github.com"
-                aria-label="Follow on GitHub"
-                icon={BsGithub}
-              />
-              <SocialLinkMobile
-                href="https://linkedin.com"
-                aria-label="Follow on LinkedIn"
-                icon={FaLinkedinIn}
-              />
-              <SocialLinkMobile
-                className="h-6 w-6"
-                href="mailto:irittik@gmail.com"
-                icon={MdEmail}
-              >
-                irittik@gmail.com
-              </SocialLinkMobile>
             </div>
           </div>
         </div>
