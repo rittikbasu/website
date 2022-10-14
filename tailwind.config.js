@@ -85,9 +85,9 @@ module.exports = {
         css: {
           '--tw-prose-body': theme('colors.zinc.600'),
           '--tw-prose-headings': theme('colors.zinc.900'),
-          '--tw-prose-links': theme('colors.indigo.500'),
+          '--tw-prose-links': theme('colors.zinc.800'),
           '--tw-prose-links-hover': theme('colors.indigo.600'),
-          '--tw-prose-underline': theme('colors.indigo.500 / 0.2'),
+          '--tw-prose-underline': theme('colors.zinc.800 / 0.8'),
           '--tw-prose-underline-hover': theme('colors.indigo.500'),
           '--tw-prose-bold': theme('colors.zinc.900'),
           '--tw-prose-counters': theme('colors.zinc.900'),
@@ -105,9 +105,9 @@ module.exports = {
 
           '--tw-prose-invert-body': theme('colors.zinc.400'),
           '--tw-prose-invert-headings': theme('colors.zinc.200'),
-          '--tw-prose-invert-links': theme('colors.indigo.400'),
+          '--tw-prose-invert-links': theme('colors.zinc.300'),
           '--tw-prose-invert-links-hover': theme('colors.indigo.400'),
-          '--tw-prose-invert-underline': theme('colors.indigo.400 / 0.3'),
+          '--tw-prose-invert-underline': theme('colors.zinc.300 / 0.8'),
           '--tw-prose-invert-underline-hover': theme('colors.indigo.400'),
           '--tw-prose-invert-bold': theme('colors.zinc.200'),
           '--tw-prose-invert-counters': theme('colors.zinc.200'),
@@ -170,7 +170,7 @@ module.exports = {
           // Inline elements
           a: {
             color: 'var(--tw-prose-links)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.normal'),
             textDecoration: 'underline',
             textDecorationColor: 'var(--tw-prose-underline)',
             transitionProperty: 'color, text-decoration-color',
