@@ -98,15 +98,28 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Although I have a degree in computer science I consider myself
-                as a self taught developer. I was always obsessed with solving
-                problems and optmising things, and wrote my first program when I
-                was 6 years old, just two weeks after my mom brought home the
-                brand new Macintosh LC 550 that I taught myself to type on. The
-                only thing I loved more than computers as a kid was space. When
-                I was 8, I climbed the 40-foot oak tree at the back of our yard
-                while wearing my older sister’s motorcycle helmet, counted down
-                from three, and jumped — hoping the tree was tall enough that
-                with just a bit of momentum I’d be able to get to orbit.
+                as a self taught developer. I didn't properly get into coding
+                until I was in the second year of my undergrad but I always had
+                the mindset of a developer.
+              </p>
+              <p>
+                When I was very young I used to try to optimise the time it took
+                me to shower by changing the order of things I did in the
+                shower. I always had a love for tinkering and building on top of
+                things. It started with modifying my toys and then moved on to
+                computers. Both of these qualities have helped me become a good
+                developer.
+              </p>
+              {/* started with HTML and CSS and then moved on to JavaScript and
+                Python. I have been working with JavaScript and Python for the
+                past 3 years and I have been working with React and Next.js for
+                the past 2 years. */}
+              <p>
+                I started with python because I wanted to automate some
+                monotonous tasks of my daily life and then moved to web
+                development. I have been working with web technologies for the
+                past 3 years. I am currently working on a project called
+                Letterhive.
               </p>
               <div>
                 <span className="font-bold tracking-widest underline">
@@ -207,13 +220,25 @@ export default function About() {
                 {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
                   <span className="ml-3">Contact</span>
                 </h2> */}
-                <SocialLink href="#" icon={BsTwitter} className="">
+                <SocialLink
+                  href="https://twitter.com/_rittik"
+                  icon={BsTwitter}
+                  className=""
+                >
                   Connect on Twitter
                 </SocialLink>
-                <SocialLink href="#" icon={BsGithub} className="">
+                <SocialLink
+                  href="https://github.com/rittikbasu"
+                  icon={BsGithub}
+                  className=""
+                >
                   Connect on GitHub
                 </SocialLink>
-                <SocialLink href="#" icon={FaLinkedinIn} className="">
+                <SocialLink
+                  href="https://www.linkedin.com/in/rittikbasu/"
+                  icon={FaLinkedinIn}
+                  className=""
+                >
                   Connect on LinkedIn
                 </SocialLink>
                 <div className="flex justify-center">
