@@ -79,7 +79,7 @@ export default function About() {
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="saturate-200 transition duration-500 dark:saturate-150 md:hover:scale-110"
+                  className="saturate-150 transition duration-500 md:hover:scale-110"
                   priority
                 />
               </div>
