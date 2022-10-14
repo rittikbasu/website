@@ -24,12 +24,12 @@ function Project({ project, index }) {
   const image = project.image
   return (
     <Card as="li">
-      <div className="aspect-w-16 aspect-h-9 justify-cente group relative z-10 flex h-56 w-full items-center ring-1 ring-zinc-900/5 transition duration-500 dark:ring-0 tab:h-80 md:group-hover:scale-110 lg:h-64">
+      <div className="aspect-w-16 aspect-h-9 justify-cente group relative z-10 flex h-56 w-full items-center transition duration-500 dark:ring-0 tab:h-80 md:group-hover:scale-110 lg:h-64">
         <Image
           src={image}
           alt={`Screenshot of ${projectTitle}`}
           className={clsx(
-            `h-full w-full rounded-xl object-contain duration-1000 ease-in-out ${delay[index]}`,
+            `h-full w-full object-contain duration-1000 ease-in-out ${delay[index]}`,
             isLoading ? 'blur-xl' : 'blur-0'
           )}
           height="300"
