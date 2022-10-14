@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import clsx from 'clsx'
 import { NextSeo } from 'next-seo'
 
@@ -7,24 +5,9 @@ import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
 
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 // import { generateRssFeed } from '@/lib/generateRssFeed'
-import { FormatDate } from '@/components/FormatDate'
 import { baseUrl } from '../seo.config'
-
-function Article({ article }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/blog/${article.slug}`}>{article.title}</Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {article.date}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
 
 function SocialLink({ className, icon: Icon, ...props }) {
   return (
