@@ -28,7 +28,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Ubuntu'],
+      sans: ['Ubuntu', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
