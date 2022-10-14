@@ -18,6 +18,8 @@ import {
   SiFlask,
 } from 'react-icons/si'
 
+import { FiExternalLink } from 'react-icons/fi'
+
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 import portraitImage from '@/images/avatar.png'
@@ -77,7 +79,7 @@ export default function About() {
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="transition duration-500 md:hover:scale-110"
+                  className="saturate-200 transition duration-500 dark:saturate-150 md:hover:scale-110"
                   priority
                 />
               </div>
@@ -93,33 +95,37 @@ export default function About() {
               >
                 Rittik Basu.
               </span>{' '}
-              <br />I live in India, where I break things and learn fast.
+              <br />I live in India, where I break things & learn fast.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Although I have a degree in computer science I consider myself
                 as a self taught developer. I didn't properly get into coding
-                until I was in the second year of my undergrad but I always had
-                the mindset of a developer.
+                until I was in the second year of my undergrad but what I always
+                had was the mindset of a developer.
               </p>
               <p>
                 When I was very young I used to try to optimise the time it took
                 me to shower by changing the order of things I did in the
                 shower. I always had a love for tinkering and building on top of
-                things. It started with modifying my toys and then moved on to
-                computers. Both of these qualities have helped me become a good
-                developer.
+                things, it started with modifying my toys and tearing them apart
+                to see what's inside them and how they work. Now I do it with
+                code.
               </p>
-              {/* started with HTML and CSS and then moved on to JavaScript and
-                Python. I have been working with JavaScript and Python for the
-                past 3 years and I have been working with React and Next.js for
-                the past 2 years. */}
               <p>
-                I started with python because I wanted to automate some
+                I started coding with Python because I wanted to automate some
                 monotonous tasks of my daily life and then moved to web
                 development. I have been working with web technologies for the
-                past 3 years. I am currently working on a project called
-                Letterhive.
+                past 3 years and I am currently working on a project that lets
+                you create a website that serves as a public inbox for your
+                email newsletters. It's called{' '}
+                <a
+                  href="https://letterhive.com"
+                  className="inline-flex items-center font-medium text-indigo-500"
+                >
+                  Letterhive
+                  <FiExternalLink className="ml-1 inline-block h-4 w-4" />
+                </a>{' '}
               </p>
               <div>
                 <span className="font-bold tracking-widest underline">
@@ -215,11 +221,8 @@ export default function About() {
             </div>
           </div>
           <div className="hidden lg:col-span-5 lg:block lg:pl-10">
-            <div className="flex justify-center rounded-2xl bg-zinc-100/30 dark:bg-transparent">
+            <div className="flex justify-center">
               <ul role="list" className="space-y-6">
-                {/* <h2 className="flex justify-center pb-4 font-semibold text-zinc-900 dark:text-zinc-100 lg:text-lg xl:text-2xl">
-                  <span className="ml-3">Contact</span>
-                </h2> */}
                 <SocialLink
                   href="https://twitter.com/_rittik"
                   icon={BsTwitter}
