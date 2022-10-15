@@ -27,7 +27,7 @@ export default function Home({ articles }) {
   return (
     <>
       <NextSeo canonical={`${baseUrl}`} />
-      <Container className="-mt-[64px] flex h-screen items-center justify-center">
+      <Container className="-mt-[64px] flex h-screen items-center justify-center md:mt-0">
         <div className="max-w-2xl">
           <div className="pl-1 text-sm font-bold tracking-widest text-zinc-600 dark:text-zinc-400 md:text-base">
             Hi, my name is
