@@ -27,7 +27,7 @@ export default function Home({ articles }) {
   return (
     <>
       <NextSeo canonical={`${baseUrl}`} />
-      <Container className="flex h-screen items-center justify-center">
+      <Container className="-mt-[64px] flex h-screen items-center justify-center">
         <div className="max-w-2xl">
           <div className="pl-1 text-sm font-bold tracking-widest text-zinc-600 dark:text-zinc-400 md:text-base">
             Hi, my name is
@@ -45,7 +45,7 @@ export default function Home({ articles }) {
           >
             I build things for the web.
           </h1>
-          <p className="my-6 pl-1 text-base text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 mb-6 pl-1 text-base text-zinc-600 dark:text-zinc-400 md:my-6">
             I&#39;m a computer engineer specializing in building & designing
             scalable frontend products with great user experiences. Currently
             I&#39;m working with Next.js & Tailwind and I ocassionally dabble in
