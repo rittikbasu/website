@@ -8,7 +8,7 @@ import { Container } from '@/components/Container'
 import avatarImage from '@/images/logo.png'
 import { Fragment, useEffect, useRef } from 'react'
 
-import { BsSun, BsMoonStars, BsChevronDown } from 'react-icons/bs'
+import { BsSun, BsMoon, BsChevronDown } from 'react-icons/bs'
 
 function MobileNavItem({ href, children }) {
   return (
@@ -135,8 +135,8 @@ function ModeToggle() {
       className="group mx-3 my-2 outline-none"
       onClick={toggleMode}
     >
-      <BsSun className="h-5 w-5 fill-zinc-400 stroke-zinc-500 transition group-hover:fill-zinc-500 group-hover:stroke-zinc-700 dark:hidden md:h-6 md:w-6" />
-      <BsMoonStars className="hidden h-5 w-5 fill-indigo-700 stroke-indigo-500 transition hover:fill-indigo-500 dark:block" />
+      <BsMoon className="h-[1.3rem] w-[1.3rem] fill-zinc-500 transition dark:hidden md:hover:fill-indigo-400" />
+      <BsSun className="hidden h-6 w-6 fill-indigo-600 transition dark:block md:hover:fill-indigo-500" />
     </button>
   )
 }
