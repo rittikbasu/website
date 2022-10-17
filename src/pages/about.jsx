@@ -17,13 +17,20 @@ import {
   SiJupyter,
   SiFlask,
 } from 'react-icons/si'
-
 import { FiExternalLink } from 'react-icons/fi'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 import portraitImage from '@/images/avatar.png'
 import { baseUrl } from '../seo.config'
+import { saveAs } from 'file-saver'
+
+const saveFile = () => {
+  saveAs(
+    'https://drive.google.com/uc?export=download&id=1Du5LHbJitFLXPWbJ00B1b8YdKJ2J8ooa',
+    'Rittik_Basu.pdf'
+  )
+}
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -257,6 +264,7 @@ export default function About() {
                 <Button
                   href="#"
                   variant="secondary"
+                  onClick={saveFile}
                   className="group w-full ring-indigo-300 md:hover:ring-2"
                 >
                   <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
@@ -270,7 +278,12 @@ export default function About() {
               <div className="my-4 w-24 border-t border-zinc-300 pt-8 dark:border-zinc-600/40"></div>
             </div>
             <div className="flex justify-center">
-              <Button href="#" variant="secondary" className="mb-10 w-4/5">
+              <Button
+                href="#"
+                variant="secondary"
+                onClick={saveFile}
+                className="mb-10 w-4/5"
+              >
                 Download Resume
                 <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
               </Button>
