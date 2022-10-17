@@ -108,7 +108,7 @@ export default function Post({ article, blocks, slug }) {
                 )}
                 {coverImgCaption && (
                   <figcaption className="mt-3 text-center text-sm italic text-zinc-400 dark:text-zinc-500">
-                    Photo by Luke Lung on Unsplash
+                    Photo by {coverImgCaption}
                   </figcaption>
                 )}
               </header>
