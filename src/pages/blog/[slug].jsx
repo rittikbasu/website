@@ -41,7 +41,6 @@ export default function Post({ article, blocks, slug }) {
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
-  console.log(article)
   return (
     <div>
       <NextSeo
