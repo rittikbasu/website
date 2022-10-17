@@ -147,7 +147,7 @@ module.exports = {
             marginBottom: theme('spacing.4'),
           },
           h2: {
-            fontSize: theme('fontSize.xl')[0],
+            fontSize: theme('fontSize.lg')[0],
             lineHeight: theme('lineHeight.5'),
             marginTop: theme('spacing.10'),
             marginBottom: theme('spacing.4'),
@@ -155,11 +155,20 @@ module.exports = {
           h3: {
             fontSize: theme('fontSize.base')[0],
             lineHeight: theme('lineHeight.3'),
-            marginTop: theme('spacing.10'),
-            marginBottom: theme('spacing.4'),
+            marginTop: theme('spacing.8'),
+            marginBottom: theme('spacing.3'),
           },
           ':is(h1, h2, h3) + *': {
-            marginTop: 0,
+            marginTop: theme('spacing.0'),
+          },
+          ':is(h1) + h3': {
+            marginTop: theme('spacing.6'),
+          },
+          ':is(h1) + h2': {
+            marginTop: theme('spacing.6'),
+          },
+          ':is(h2) + h3': {
+            marginTop: theme('spacing.6'),
           },
 
           // Images
