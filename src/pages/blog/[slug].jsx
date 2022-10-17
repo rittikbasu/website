@@ -22,6 +22,7 @@ export default function Post({ article, blocks, slug }) {
     return <div />
   }
   const date = FormatDate(article.properties.date.date.start)
+  const lastEdited = FormatDate(article.last_edited_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
   const coverImgFn = () => {
@@ -40,6 +41,7 @@ export default function Post({ article, blocks, slug }) {
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
+  console.log(article)
   return (
     <div>
       <NextSeo
@@ -84,11 +86,11 @@ export default function Post({ article, blocks, slug }) {
                   <Text text={articleTitle} />
                 </h1>
                 <time
-                  dateTime={date}
+                  dateTime={lastEdited}
                   className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
                 >
                   <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                  <span className="ml-3">{date}</span>
+                  <span className="ml-3">Last updated on {lastEdited}</span>
                 </time>
                 {coverImg && (
                   <Image
