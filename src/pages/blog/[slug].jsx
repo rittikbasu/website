@@ -11,6 +11,7 @@ import { Prose } from '@/components/Prose'
 import { FormatDate } from '@/components/FormatDate'
 import { getDatabase, getPage, getBlocks } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
+import { UpdateViews } from '@/components/PageViews'
 
 import { BsArrowLeft } from 'react-icons/bs'
 
@@ -41,6 +42,7 @@ export default function Post({ article, blocks, slug }) {
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
+  UpdateViews(slug)
   return (
     <div>
       <NextSeo

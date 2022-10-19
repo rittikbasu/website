@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { BiChevronRight } from 'react-icons/bi'
-
 export function Card({ as: Component = 'div', className, children }) {
   return (
     <Component
@@ -45,10 +43,9 @@ Card.Cta = function CardCta({ children }) {
   return (
     <div
       aria-hidden="true"
-      className="dark:text-indigo-500/7 relative z-10 mt-4 flex items-center text-sm font-medium text-indigo-500 dark:text-indigo-500/80"
+      className="dark:text-indigo-500/7 relative z-10 mt-4 flex w-full items-center justify-between text-sm font-medium text-indigo-500 dark:text-indigo-500/80"
     >
       {children}
-      <BiChevronRight className="ml-1 h-4 w-4 stroke-current" />
     </div>
   )
 }
@@ -64,7 +61,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex w-full items-center text-sm text-zinc-400 dark:text-zinc-500',
         decorate && 'pl-3.5'
       )}
       {...props}
