@@ -1,14 +1,7 @@
 import { useState } from 'react'
 import clsx from 'clsx'
-import { createClient } from '@supabase/supabase-js'
+import { SupabaseClient } from '@/lib/initSupabase'
 import { BsHeartFill } from 'react-icons/bs'
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const supabaseClientKey = process.env.SUPABASE_CLIENT_KEY || ''
-
-console.log(supabaseClientKey)
-
-const SupabaseClient = createClient(supabaseUrl, supabaseClientKey)
 
 const activeClass =
   'my-3 rounded-lg bg-gradient-to-br from-red-500 to-amber-500 p-0.5 text-xl font-medium text-zinc-500 dark:text-zinc-100 focus:outline-none w-1/3 md:w-1/5'
