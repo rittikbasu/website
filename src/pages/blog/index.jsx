@@ -22,13 +22,11 @@ function Article({ article }) {
   const status = article.properties.Status?.status?.name
   const slug = slugify(articleTitle).toLowerCase()
   const wordCount = article.properties.wordCount.number
-  const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 250)
+  const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title onClick={() => UpdateViews(slug)} href={`/blog/${slug}`}>
-          {articleTitle}
-        </Card.Title>
+        <Card.Title href={`/blog/${slug}`}>{articleTitle}</Card.Title>
         <Card.Eyebrow className="justify-between md:hidden" decorate>
           <span className="text-sm font-bold text-lime-400 dark:text-green-200">
             {status}
