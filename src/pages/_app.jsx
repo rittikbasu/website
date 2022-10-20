@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }) {
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
       </div>
-      <div className="relative">
+      <div className="relative selection:bg-indigo-500 selection:text-white dark:selection:bg-indigo-600">
         <Header />
         <main>
           <Component {...pageProps} />
