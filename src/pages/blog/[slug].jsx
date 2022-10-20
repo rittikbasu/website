@@ -7,6 +7,7 @@ import slugify from 'slugify'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
+import { LikeBtn } from '@/components/LikeButton'
 import { Prose } from '@/components/Prose'
 import { FormatDate } from '@/components/FormatDate'
 import { getDatabase, getPage, getBlocks } from '@/lib/notion'
@@ -14,11 +15,13 @@ import { baseUrl } from '../../seo.config'
 import { UpdateViews } from '@/components/PageViews'
 
 import { BsArrowLeft } from 'react-icons/bs'
+import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
 export default function Post({ article, blocks, slug }) {
   const [isLoading, setLoading] = useState(true)
+  // const [isLiked, setLiked] = useState(false)
   if (!article || !blocks) {
     return <div />
   }
@@ -26,6 +29,8 @@ export default function Post({ article, blocks, slug }) {
   const lastEdited = FormatDate(article.last_edited_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
+  const wordCount = article.properties.wordCount.number
+  const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   const coverImgFn = () => {
     if (article.cover) {
       const imgType = article.cover.type
@@ -42,6 +47,7 @@ export default function Post({ article, blocks, slug }) {
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
+
   UpdateViews(slug)
   return (
     <div>
@@ -86,13 +92,21 @@ export default function Post({ article, blocks, slug }) {
                 <h1 className="my-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
-                <time
-                  dateTime={lastEdited}
-                  className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
-                >
-                  <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                  <span className="ml-3">Last updated on {lastEdited}</span>
-                </time>
+                <div className="order-first flex items-center justify-between">
+                  <time
+                    dateTime={lastEdited}
+                    className="flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                  >
+                    <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                    <span className="ml-2 md:ml-3">
+                      Last updated {lastEdited}
+                    </span>
+                  </time>
+                  <span className="flex items-center text-sm text-zinc-400 dark:text-zinc-500">
+                    <BsBook className="mr-2 h-4 w-4 stroke-current" />
+                    {readingTime} min read
+                  </span>
+                </div>
                 {coverImg && (
                   <Image
                     src={coverImg}
@@ -119,6 +133,7 @@ export default function Post({ article, blocks, slug }) {
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
               </Prose>
+              <LikeBtn variant="bottom" slug={slug} />
             </article>
           </div>
         </div>
