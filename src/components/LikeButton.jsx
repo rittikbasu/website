@@ -4,7 +4,9 @@ import { createClient } from '@supabase/supabase-js'
 import { BsHeartFill } from 'react-icons/bs'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const supabaseClientKey = process.env.NEXT_PUBLIC_SUPABASE_CLIENT_KEY || ''
+const supabaseClientKey = process.env.SUPABASE_CLIENT_KEY || ''
+
+console.log(supabaseClientKey)
 
 const SupabaseClient = createClient(supabaseUrl, supabaseClientKey)
 
