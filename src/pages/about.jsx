@@ -118,7 +118,8 @@ export default function About() {
               <p>
                 Although I have a degree in computer science I consider myself
                 as a self taught developer. I got into coding in the second year
-                of my undergrad but I've always had the mindset of a developer.
+                of my undergrad but I&apos;ve always had the mindset of a
+                developer.
               </p>
               <p>
                 I had an obsession with optimisation since I was a kid. When I
@@ -126,8 +127,8 @@ export default function About() {
                 tried to optimise my journey by finding the shortest route and
                 the fastest train. I also used to play a lot of video games and
                 I was always trying to find the best way to beat the game. I
-                think that's what got me into coding. I wanted to find the best
-                way to solve a problem.
+                think that&apos;s what got me into coding. I wanted to find the
+                best way to solve a problem.
               </p>
               <p>
                 I started with Python because I wanted to automate some
