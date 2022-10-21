@@ -27,7 +27,7 @@ import { saveAs } from 'file-saver'
 
 const saveFile = () => {
   saveAs(
-    'https://drive.google.com/uc?export=download&id=1Du5LHbJitFLXPWbJ00B1b8YdKJ2J8ooa',
+    'https://doc-14-00-docs.googleusercontent.com/docs/securesc/9mq753fect86fvn38vmak7jpo737dm49/e55tnlohfpsiple5jlanc43vv3nighsc/1666394400000/08118691172474006346/08118691172474006346/1Du5LHbJitFLXPWbJ00B1b8YdKJ2J8ooa?e=download&ax=ALW9-sDGkIutcdfSfwL1xRIkzQWwkhUz_RUz8VmWewzOAl-YOyvsalRDC9PGkaliW38EAbi6dyrq4_0zApnmN5C1VGCS0-QoNJlvE9_6KZxuE26hwqje7rIPzbuISuo-sAOW8JkUPoKLNnkxSpaOsVXMfK_DjZv3YhC1_Hnu8Yb1WHp7OMhv0WCz0ycCuh8Bnttv3Iith3LPQuDuVXzVBuITc0BnHfeIWdS74bagGI_6n7lbug6K4aAd0iCSNV5xJnUGUdrz1qoausdg9CU0P0FogorYUrQEWEzlY-N1rTDrkU7MEITSrJjnvx6wOSymoKByHtCDv71wf4cmbjygTQMqJc1ptAjLqT8TJ6MeFjOTHjTwpb73zz1O5DjARuZuTqABV7fEyfsSdavxD4IIEn9D_GOPnaTmMUnn4yVVlN7cPBQM0_UNosie3c39S-gjpvdBJo6_qcDFOVSnLbOrLEnTLkaUeG_nXnQbhv57KALPSQz4jD4jpdFzluKhIkBh1RAq4y6qDM6y2VmG2rQxWn9-DW44c4UqzIw9r5-JFctMxQ2Fe6IhhuVQ0ueId8fEOtMQ7e7DDQS7zmgNDqFCQWes29Tx7w7K-bKu8Y0Ixl68Dl8oZhPvgk0XlW1379Jt-nzgot2CloJd9VyP2hONhip7rmzOiCR6Y4riLlgnY2l1yx3CVPcQFIs2O1rL3riKPaBRKcMwU0pxUvvxmNqWoiKujSrcZBWAzVx_GpfD7SsUsGLW7t_UrIyOMOLiNPZRrBTi2vgaDdhm6nxNBheNcsaRj3ovabVFCdqAtGN50hEFqMuZ4Ey5_bUi1oLrjd5EifuTx1uBLjExWxo_fO_Co5LK8ZeWc8RszkTiMSb4olkD9QR96kSCFWtT7f_0xNVFS_g42Fyz&uuid=e372e1bc-065f-48a4-b904-3be38fc7b405&authuser=0&nonce=23ger9qdllk3g&user=08118691172474006346&hash=am20v7ngkrij3s45kcoj49f862gsvas3',
     'Rittik_Basu.pdf'
   )
 }
@@ -117,32 +117,32 @@ export default function About() {
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
                 Although I have a degree in computer science I consider myself
-                as a self taught developer. I didn&apos;t properly get into
-                coding until I was in the second year of my undergrad but what I
-                always had was the mindset of a developer.
+                as a self taught developer. I got into coding in the second year
+                of my undergrad but I've always had the mindset of a developer.
               </p>
               <p>
-                When I was very young I used to try to optimise the time it took
-                me to shower by changing the order of things I did in the
-                shower. I always had a love for tinkering and building on top of
-                things, it started with modifying my toys and tearing them apart
-                to see what&apos;s inside them and how they work. Now I do it
-                with code.
+                I had an obsession with optimisation since I was a kid. When I
+                lived in Mumbai and had to travel in the local trains I always
+                tried to optimise my journey by finding the shortest route and
+                the fastest train. I also used to play a lot of video games and
+                I was always trying to find the best way to beat the game. I
+                think that's what got me into coding. I wanted to find the best
+                way to solve a problem.
               </p>
               <p>
-                I started coding with Python because I wanted to automate some
+                I started with Python because I wanted to automate some
                 monotonous tasks of my daily life and then moved to web
                 development. I have been working with web technologies for the
-                past 3 years and I am currently working on a project that lets
-                you create a website that serves as a public inbox for your
-                email newsletters. It&apos;s called{' '}
+                past 3 years. I am currently contributing to a project called{' '}
                 <a
                   href="https://letterhive.com"
                   className="inline-flex items-center font-medium text-indigo-500"
                 >
                   Letterhive
-                  <FiExternalLink className="ml-1 inline-block h-4 w-4" />
+                  <FiExternalLink className="ml-1 h-4 w-4" />
                 </a>{' '}
+                that lets you create a website which serves as a public inbox
+                for email newsletters.
               </p>
               <div>
                 <span className="font-bold tracking-widest underline">
