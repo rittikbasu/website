@@ -75,7 +75,8 @@ export default function About() {
         openGraph={{
           url: `${baseUrl}about/`,
           title: 'About',
-          description: "I'm a front end web developer and designer. I live in India, where I break things and learn fast."
+          description:
+            "I'm a front end web developer and designer. I live in India, where I break things and learn fast.",
           images: [
             {
               url: `${baseUrl}api/og?title=About`,
