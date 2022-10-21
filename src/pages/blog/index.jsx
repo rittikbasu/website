@@ -23,6 +23,7 @@ function Article({ article }) {
   const slug = slugify(articleTitle).toLowerCase()
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
+  console.log(process.env.NODE_ENV)
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
