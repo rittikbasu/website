@@ -19,13 +19,12 @@ import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
-export default function Post({ article, blocks, slug }) {
+export default function Post({ article, lastEdited, blocks, slug }) {
   const [isLoading, setLoading] = useState(true)
   if (!article || !blocks) {
     return <div />
   }
   const date = FormatDate(article.created_time)
-  const lastEdited = FormatDate(article.last_edited_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
   const wordCount = article.properties.wordCount.number
@@ -178,6 +177,12 @@ export const getStaticProps = async (context) => {
       slugify(post.properties.name.title[0].plain_text).toLowerCase() === slug
   ).id
   const article = await getPage(id)
+  const lastEditedUtc = article.last_edited_time
+  const lastEdited = new Date(lastEditedUtc).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  })
   const blocks = await getBlocks(id)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
@@ -205,6 +210,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       article,
+      lastEdited,
       blocks: blocksWithChildren,
       slug: slug,
     },
