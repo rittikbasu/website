@@ -1,4 +1,7 @@
-export const baseUrl = 'https://www.rittikbasu.tech/'
+export const baseUrl =
+  process.env.NODE_ENV !== 'development'
+    ? 'https://www.rittikbasu.tech/'
+    : 'https://website-git-feat-branch-rittikbasu.vercel.app/'
 
 export default {
   defaultTitle: 'Rittik Basu | Front End Developer',
