@@ -4,9 +4,9 @@ import { SupabaseClient } from '@/lib/initSupabase'
 import { BsHeartFill } from 'react-icons/bs'
 
 const activeClass =
-  'my-3 rounded-lg bg-gradient-to-br from-red-500 to-amber-500 p-0.5 text-xl font-medium text-zinc-500 dark:text-zinc-100 focus:outline-none w-1/3 md:w-1/5'
+  'rounded-lg bg-gradient-to-br from-red-500 to-amber-500 p-0.5 text-xl font-medium text-zinc-500 dark:text-zinc-100 focus:outline-none w-1/3 md:w-1/5'
 const inactiveClass =
-  'my-3 rounded-lg bg-gradient-to-br dark:from-indigo-500 dark:to-pink-500 p-0.5 text-xl font-medium text-zinc-500 dark:text-zinc-100 focus:outline-none w-1/3 md:w-1/5 from-indigo-400 to-pink-400'
+  'rounded-lg bg-gradient-to-br dark:from-indigo-500 dark:to-pink-500 p-0.5 text-xl font-medium text-zinc-500 dark:text-zinc-100 focus:outline-none w-1/3 md:w-1/5 from-indigo-400 to-pink-400'
 
 export function LikeBtn({ slug, variant }) {
   const [isLiked, setLiked] = useState(false)
@@ -31,7 +31,7 @@ export function LikeBtn({ slug, variant }) {
   }
   getLikes()
   return (
-    <div className="flex justify-center md:block">
+    <div className="mt-10 flex justify-center md:block">
       <button
         className={clsx(stopCounter >= 5 ? inactiveClass : activeClass)}
         onClick={updateLikes}
