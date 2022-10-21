@@ -43,7 +43,7 @@ function Article({ article }) {
             <BsBook className="mr-2 stroke-current" />
             {readingTime} min read
           </span>
-          <span className="mr-6 flex items-center">
+          <span className="flex items-center md:mr-6">
             Read article
             <BiChevronRight className="ml-1 h-4 w-4 stroke-current" />
           </span>
@@ -54,8 +54,7 @@ function Article({ article }) {
           {status}
         </span>
         <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-          <AiOutlineEye className="mr-2" />{' '}
-          <PageViews slug={slug} blogPage={true} />
+          <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
         </span>
       </Card.Eyebrow>
     </article>
@@ -67,11 +66,21 @@ export default function ArticlesIndex({ articles }) {
     <>
       <NextSeo
         title="Blog"
-        description="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        description="This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen."
         canonical={`${baseUrl}blog/`}
         openGraph={{
           url: `${baseUrl}blog/`,
           title: 'Blog',
+          description:
+            'This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen.',
+          images: [
+            {
+              url: `${baseUrl}api/og?title=Blog`,
+              width: 1200,
+              height: 600,
+              alt: `Blog | Rittik Basu`,
+            },
+          ],
         }}
       />
       <SimpleLayout

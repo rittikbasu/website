@@ -48,7 +48,6 @@ export default function Post({ article, blocks, slug }) {
     : false
 
   UpdateViews(slug)
-  console.log(date)
   return (
     <div>
       <NextSeo

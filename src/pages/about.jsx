@@ -70,11 +70,20 @@ export default function About() {
     <>
       <NextSeo
         title="About"
-        description="I'm a web developer and designer. I live in India, where I break things and learn fast."
+        description="I'm a front end web developer and designer. I live in India, where I break things and learn fast."
         canonical={`${baseUrl}about/`}
         openGraph={{
           url: `${baseUrl}about/`,
           title: 'About',
+          description: "I'm a front end web developer and designer. I live in India, where I break things and learn fast."
+          images: [
+            {
+              url: `${baseUrl}api/og?title=About`,
+              width: 1200,
+              height: 600,
+              alt: `Blog | Rittik Basu`,
+            },
+          ],
         }}
       />
       <Container className="mt-16 sm:mt-32">

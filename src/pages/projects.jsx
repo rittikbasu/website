@@ -92,6 +92,14 @@ export default function ProjectsIndex({ projects }) {
           url: `${baseUrl}projects/`,
           title: 'Projects',
           description: 'A collection of projects I’ve worked on.',
+          images: [
+            {
+              url: `${baseUrl}api/og?title=Projects`,
+              width: 1200,
+              height: 600,
+              alt: `Projects | Rittik Basu`,
+            },
+          ],
         }}
       />
       <SimpleLayout
