@@ -1,4 +1,4 @@
-export const baseUrl = 'https://website-git-feat-branch-rittikbasu.vercel.app/'
+export const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL
 
 export default {
   defaultTitle: 'Rittik Basu | Front End Developer',
