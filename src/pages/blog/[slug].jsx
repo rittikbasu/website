@@ -21,11 +21,10 @@ const databaseId = process.env.NOTION_BLOG_DB_ID
 
 export default function Post({ article, blocks, slug }) {
   const [isLoading, setLoading] = useState(true)
-  // const [isLiked, setLiked] = useState(false)
   if (!article || !blocks) {
     return <div />
   }
-  const date = FormatDate(article.properties.date.date.start)
+  const date = FormatDate(article.created_time)
   const lastEdited = FormatDate(article.last_edited_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
@@ -49,6 +48,7 @@ export default function Post({ article, blocks, slug }) {
     : false
 
   UpdateViews(slug)
+  console.log(date)
   return (
     <div>
       <NextSeo
@@ -59,6 +59,16 @@ export default function Post({ article, blocks, slug }) {
           url: `${baseUrl}articles/${slug}/`,
           title: articleTitle[0].plain_text,
           description: articleDescription[0].plain_text,
+          images: [
+            {
+              url: `${baseUrl}api/og?title=${encodeURIComponent(
+                articleTitle[0].plain_text
+              )}&date=${encodeURIComponent(lastEdited)}`,
+              width: 1200,
+              height: 600,
+              alt: `Card for ${articleTitle[0].plain_text} page`,
+            },
+          ],
           type: 'article',
           article: {
             authors: ['Rittik Basu'],
@@ -71,6 +81,11 @@ export default function Post({ article, blocks, slug }) {
       <ArticleJsonLd
         url={`${baseUrl}articles/${slug}/`}
         title={articleTitle[0].plain_text}
+        images={[
+          `${baseUrl}api/og?title=${encodeURIComponent(
+            articleTitle[0].plain_text
+          )}&date=${encodeURIComponent(lastEdited)}`,
+        ]}
         datePublished={new Date(
           article.properties.date.date.start
         ).toISOString()}
@@ -102,7 +117,7 @@ export default function Post({ article, blocks, slug }) {
                       Last updated {lastEdited}
                     </span>
                   </time>
-                  <span className="flex items-center text-sm text-zinc-400 dark:text-zinc-500">
+                  <span className="flex items-center text-sm text-zinc-400 dark:text-zinc-500 md:text-base">
                     <BsBook className="mr-2 h-4 w-4 stroke-current" />
                     {readingTime} min read
                   </span>
@@ -112,7 +127,7 @@ export default function Post({ article, blocks, slug }) {
                     src={coverImg}
                     alt={articleTitle[0].plain_text}
                     className={clsx(
-                      'h-48 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-72',
+                      'h-56 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-96',
                       isLoading ? 'blur-xl' : 'blur-0'
                     )}
                     width={1200}
