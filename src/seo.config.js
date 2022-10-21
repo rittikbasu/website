@@ -1,4 +1,4 @@
-export const baseUrl = process.env.WEBSITE_URL || 'http://localhost:3000/'
+export const baseUrl = 'https://website-git-feat-branch-rittikbasu.vercel.app/'
 
 export default {
   defaultTitle: 'Rittik Basu | Front End Developer',
