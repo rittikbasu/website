@@ -52,13 +52,13 @@ export default function Document() {
         /> */}
         <link
           rel="preload"
-          href="/fonts/Ubuntu-Bold.ttf"
+          href="/public/fonts/Ubuntu-Bold.ttf"
           as="font"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/fonts/Ubuntu-Regular.ttf"
+          href="/public/fonts/Ubuntu-Regular.ttf"
           as="font"
           crossOrigin="anonymous"
         />
