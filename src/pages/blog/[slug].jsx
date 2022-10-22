@@ -19,12 +19,18 @@ import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
-export default function Post({ article, lastEdited, blocks, slug }) {
+export default function Post({
+  article,
+  dateUtc,
+  lastEditedUtc,
+  lastEdited,
+  blocks,
+  slug,
+}) {
   const [isLoading, setLoading] = useState(true)
   if (!article || !blocks) {
     return <div />
   }
-  const date = FormatDate(article.created_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
   const wordCount = article.properties.wordCount.number
@@ -70,9 +76,8 @@ export default function Post({ article, lastEdited, blocks, slug }) {
           type: 'article',
           article: {
             authors: ['Rittik Basu'],
-            publishedTime: new Date(
-              article.properties.date.date.start
-            ).toISOString(),
+            publishedTime: new Date(dateUtc).toISOString(),
+            modifiedTime: new Date(lastEditedUtc).toISOString(),
           },
         }}
       />
@@ -84,9 +89,8 @@ export default function Post({ article, lastEdited, blocks, slug }) {
             articleTitle[0].plain_text
           )}&date=${encodeURIComponent(lastEdited)}`,
         ]}
-        datePublished={new Date(
-          article.properties.date.date.start
-        ).toISOString()}
+        datePublished={new Date(dateUtc).toISOString()}
+        dateModified={new Date(lastEditedUtc).toISOString()}
         authorName="Rittik Basu"
         description={articleDescription[0].plain_text}
       />
@@ -183,6 +187,7 @@ export const getStaticProps = async (context) => {
     month: 'short',
     day: '2-digit',
   })
+  const dateUtc = article.properties.date.date.start
   const blocks = await getBlocks(id)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
@@ -210,6 +215,8 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       article,
+      dateUtc,
+      lastEditedUtc,
       lastEdited,
       blocks: blocksWithChildren,
       slug: slug,
