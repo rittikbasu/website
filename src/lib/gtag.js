@@ -1,7 +1,7 @@
-export const GA_TRACKING_ID = 'G-WZ955LFQR5'
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID
 
-export const pageview = (url, title) => {
-  window.gtag('config', GA_TRACKING_ID, {
+export const pageView = (url, title) => {
+  window.gtag('config', GA_MEASUREMENT_ID, {
     page_location: url,
     page_title: title,
   })

@@ -8,31 +8,53 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getDatabase } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
+import { PageViews } from '@/components/PageViews'
+
+import { AiOutlineEye } from 'react-icons/ai'
+import { BiChevronRight } from 'react-icons/bi'
+import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
 function Article({ article }) {
-  const articleTitle = article.properties.name.title[0].plain_text
-  const articleDescription = article.properties.description.rich_text
-  const status = article.properties.Status.status.name
+  const articleTitle = article.properties?.name.title[0].plain_text
+  const articleDescription = article.properties.description?.rich_text
+  const status = article.properties.Status?.status?.name
   const slug = slugify(articleTitle).toLowerCase()
+  const wordCount = article.properties.wordCount.number
+  const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
         <Card.Title href={`/blog/${slug}`}>{articleTitle}</Card.Title>
-        <Card.Eyebrow className="md:hidden" decorate>
+        <Card.Eyebrow className="justify-between md:hidden" decorate>
           <span className="text-sm font-bold text-lime-400 dark:text-green-200">
             {status}
+          </span>
+          <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
+            <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
           </span>
         </Card.Eyebrow>
         <Card.Description>
           <Text text={articleDescription} />
         </Card.Description>
-        <Card.Cta>Read article</Card.Cta>
+        <Card.Cta>
+          <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
+            <BsBook className="mr-2 stroke-current" />
+            {readingTime} min read
+          </span>
+          <span className="flex items-center md:mr-6">
+            Read article
+            <BiChevronRight className="ml-1 h-4 w-4 stroke-current" />
+          </span>
+        </Card.Cta>
       </Card>
-      <Card.Eyebrow className="mt-1 hidden md:block">
+      <Card.Eyebrow className="mt-1 hidden space-y-2 md:block">
         <span className="font-bold text-lime-400 dark:text-green-200">
           {status}
+        </span>
+        <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
+          <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
         </span>
       </Card.Eyebrow>
     </article>
@@ -44,11 +66,21 @@ export default function ArticlesIndex({ articles }) {
     <>
       <NextSeo
         title="Blog"
-        description="All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order."
+        description="This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen."
         canonical={`${baseUrl}blog/`}
         openGraph={{
           url: `${baseUrl}blog/`,
           title: 'Blog',
+          description:
+            'This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen.',
+          images: [
+            {
+              url: `${baseUrl}api/og?title=Blog`,
+              width: 1200,
+              height: 600,
+              alt: `Blog | Rittik Basu`,
+            },
+          ],
         }}
       />
       <SimpleLayout

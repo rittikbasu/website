@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['jsx', 'mdx'],
+  pageExtensions: ['jsx', 'js'],
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
@@ -16,12 +16,5 @@ const nextConfig = {
     ],
   },
 }
-
-// /** @type {import('plaiceholder/next').withPlaiceholder} */
-// const { withPlaiceholder } = {}
-
-// module.exports = withPlaiceholder({
-//   // your Next.js config
-// })
 
 export default nextConfig

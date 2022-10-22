@@ -7,24 +7,28 @@ import slugify from 'slugify'
 
 import { Container } from '@/components/Container'
 import { Text, renderBlock } from '@/components/RenderNotion'
+import { LikeBtn } from '@/components/LikeButton'
 import { Prose } from '@/components/Prose'
 import { FormatDate } from '@/components/FormatDate'
 import { getDatabase, getPage, getBlocks } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
+import { UpdateViews } from '@/components/PageViews'
 
 import { BsArrowLeft } from 'react-icons/bs'
+import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
-export default function Post({ article, blocks, slug }) {
+export default function Post({ article, lastEdited, blocks, slug }) {
   const [isLoading, setLoading] = useState(true)
   if (!article || !blocks) {
     return <div />
   }
-  const date = FormatDate(article.properties.date.date.start)
-  const lastEdited = FormatDate(article.last_edited_time)
+  const date = FormatDate(article.created_time)
   const articleTitle = article.properties.name.title
   const articleDescription = article.properties.description.rich_text
+  const wordCount = article.properties.wordCount.number
+  const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   const coverImgFn = () => {
     if (article.cover) {
       const imgType = article.cover.type
@@ -41,6 +45,8 @@ export default function Post({ article, blocks, slug }) {
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
+
+  UpdateViews(slug)
   return (
     <div>
       <NextSeo
@@ -51,6 +57,16 @@ export default function Post({ article, blocks, slug }) {
           url: `${baseUrl}articles/${slug}/`,
           title: articleTitle[0].plain_text,
           description: articleDescription[0].plain_text,
+          images: [
+            {
+              url: `${baseUrl}api/og?title=${encodeURIComponent(
+                articleTitle[0].plain_text
+              )}&date=${encodeURIComponent(lastEdited)}`,
+              width: 1200,
+              height: 600,
+              alt: `Card for ${articleTitle[0].plain_text} page`,
+            },
+          ],
           type: 'article',
           article: {
             authors: ['Rittik Basu'],
@@ -63,6 +79,11 @@ export default function Post({ article, blocks, slug }) {
       <ArticleJsonLd
         url={`${baseUrl}articles/${slug}/`}
         title={articleTitle[0].plain_text}
+        images={[
+          `${baseUrl}api/og?title=${encodeURIComponent(
+            articleTitle[0].plain_text
+          )}&date=${encodeURIComponent(lastEdited)}`,
+        ]}
         datePublished={new Date(
           article.properties.date.date.start
         ).toISOString()}
@@ -84,19 +105,27 @@ export default function Post({ article, blocks, slug }) {
                 <h1 className="my-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
-                <time
-                  dateTime={lastEdited}
-                  className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
-                >
-                  <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                  <span className="ml-3">Last updated on {lastEdited}</span>
-                </time>
+                <div className="order-first flex items-center justify-between">
+                  <time
+                    dateTime={lastEdited}
+                    className="flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                  >
+                    <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                    <span className="ml-2 md:ml-3">
+                      Last updated {lastEdited}
+                    </span>
+                  </time>
+                  <span className="flex items-center text-sm text-zinc-400 dark:text-zinc-500 md:text-base">
+                    <BsBook className="mr-2 h-4 w-4 stroke-current" />
+                    {readingTime} min read
+                  </span>
+                </div>
                 {coverImg && (
                   <Image
                     src={coverImg}
                     alt={articleTitle[0].plain_text}
                     className={clsx(
-                      'h-48 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-72',
+                      'h-56 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-96',
                       isLoading ? 'blur-xl' : 'blur-0'
                     )}
                     width={1200}
@@ -117,6 +146,7 @@ export default function Post({ article, blocks, slug }) {
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
               </Prose>
+              <LikeBtn variant="bottom" slug={slug} />
             </article>
           </div>
         </div>
@@ -147,6 +177,12 @@ export const getStaticProps = async (context) => {
       slugify(post.properties.name.title[0].plain_text).toLowerCase() === slug
   ).id
   const article = await getPage(id)
+  const lastEditedUtc = article.last_edited_time
+  const lastEdited = new Date(lastEditedUtc).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+  })
   const blocks = await getBlocks(id)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
@@ -174,6 +210,7 @@ export const getStaticProps = async (context) => {
   return {
     props: {
       article,
+      lastEdited,
       blocks: blocksWithChildren,
       slug: slug,
     },
