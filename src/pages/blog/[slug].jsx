@@ -66,7 +66,7 @@ export default function Post({
           images: [
             {
               url: `${baseUrl}api/og?title=${encodeURIComponent(
-                articleTitle[0].plain_text
+                articleTitle[0].plain_text.replaceAll('&', '%26')
               )}&date=${encodeURIComponent(lastEdited)}`,
               width: 1200,
               height: 600,
@@ -86,7 +86,7 @@ export default function Post({
         title={articleTitle[0].plain_text}
         images={[
           `${baseUrl}api/og?title=${encodeURIComponent(
-            articleTitle[0].plain_text
+            articleTitle[0].plain_text.replaceAll('&', '%26')
           )}&date=${encodeURIComponent(lastEdited)}`,
         ]}
         datePublished={new Date(dateUtc).toISOString()}

@@ -11,7 +11,7 @@ export default {
       "I'm a computer engineer specializing in building & designing scalable frontend products with great user experiences. Currently I'm working with Next.js & Tailwind and I ocassionally dabble in datascience & blockchain technology.",
     images: [
       {
-        url: `${baseUrl}api/og?title=Rittik Basu`,
+        url: `${baseUrl}api/og?title=home`,
         width: 1200,
         height: 600,
         alt: `Rittik Basu | Front End Developer`,
