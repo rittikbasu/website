@@ -66,8 +66,8 @@ export default function Post({
           images: [
             {
               url: `${baseUrl}api/og?title=${encodeURIComponent(
-                articleTitle[0].plain_text.replaceAll('&', '%26')
-              )}&date=${encodeURIComponent(lastEdited)}`,
+                articleTitle[0].plain_text
+              ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited)}`,
               width: 1200,
               height: 600,
               alt: `Card for ${articleTitle[0].plain_text} page`,
@@ -86,8 +86,8 @@ export default function Post({
         title={articleTitle[0].plain_text}
         images={[
           `${baseUrl}api/og?title=${encodeURIComponent(
-            articleTitle[0].plain_text.replaceAll('&', '%26')
-          )}&date=${encodeURIComponent(lastEdited)}`,
+            articleTitle[0].plain_text
+          ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited)}`,
         ]}
         datePublished={new Date(dateUtc).toISOString()}
         dateModified={new Date(lastEditedUtc).toISOString()}
