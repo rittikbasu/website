@@ -26,7 +26,7 @@ export default async function handler(req) {
           style={{
             width: '100%',
             height: '100%',
-            padding: '30px',
+            padding: '48px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-start',
