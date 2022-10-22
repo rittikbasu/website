@@ -81,13 +81,19 @@ export default function Post({
           },
         }}
       />
+      {/* How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion
+      How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion
+      https://www.rittikbasu.tech/api/og?title=How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion&date=Oct%2020%2C%202022
+      https://www.rittikbasu.tech/api/og?title=How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion&date=20,%20Oct%202022 */}
       <ArticleJsonLd
         url={`${baseUrl}articles/${slug}/`}
         title={articleTitle[0].plain_text}
         images={[
           `${baseUrl}api/og?title=${encodeURIComponent(
             articleTitle[0].plain_text
-          ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited)}`,
+          ).replaceAll('&', '%26')}&date=${encodeURIComponent(
+            lastEdited
+          ).replace('%2C', '%2c')}`,
         ]}
         datePublished={new Date(dateUtc).toISOString()}
         dateModified={new Date(lastEditedUtc).toISOString()}
@@ -183,9 +189,9 @@ export const getStaticProps = async (context) => {
   const article = await getPage(id)
   const lastEditedUtc = article.last_edited_time
   const lastEdited = new Date(lastEditedUtc).toLocaleDateString('en-US', {
-    year: 'numeric',
     month: 'short',
     day: '2-digit',
+    year: 'numeric',
   })
   const dateUtc = article.properties.date.date.start
   const blocks = await getBlocks(id)
