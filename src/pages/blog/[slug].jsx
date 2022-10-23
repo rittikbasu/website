@@ -67,7 +67,9 @@ export default function Post({
             {
               url: `${baseUrl}api/og?title=${encodeURIComponent(
                 articleTitle[0].plain_text
-              ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited)}`,
+              ).replaceAll('&', '%26')}&date=${encodeURIComponent(
+                lastEdited
+              ).replace('%2C', '%2c')}`,
               width: 1200,
               height: 600,
               alt: `Card for ${articleTitle[0].plain_text} page`,
@@ -81,10 +83,7 @@ export default function Post({
           },
         }}
       />
-      {/* How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion
-      How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion
-      https://www.rittikbasu.tech/api/og?title=How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion&date=Oct%2020%2C%202022
-      https://www.rittikbasu.tech/api/og?title=How%20I%20built%20my%20Portfolio%20%26%20Blog%20using%20NextJS%20%26%20Notion&date=20,%20Oct%202022 */}
+
       <ArticleJsonLd
         url={`${baseUrl}articles/${slug}/`}
         title={articleTitle[0].plain_text}
