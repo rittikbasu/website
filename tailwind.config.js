@@ -127,8 +127,8 @@ module.exports = {
           color: 'var(--tw-prose-body)',
           lineHeight: theme('lineHeight.7'),
           '> *': {
-            marginTop: theme('spacing.10'),
-            marginBottom: theme('spacing.10'),
+            marginTop: theme('spacing.5'),
+            marginBottom: theme('spacing.5'),
           },
           p: {
             marginTop: theme('spacing.3'),
@@ -271,7 +271,7 @@ module.exports = {
             fontSize: theme('fontSize.sm')[0],
             fontWeight: theme('fontWeight.medium'),
             backgroundColor: 'var(--tw-prose-pre-bg)',
-            borderRadius: theme('borderRadius.3xl'),
+            borderRadius: theme('borderRadius.xl'),
             padding: theme('spacing.6'),
             overflowX: 'auto',
             border: '1px solid',
