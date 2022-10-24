@@ -142,12 +142,22 @@ export const renderBlock = (block) => {
         </h3>
       )
     case 'bulleted_list_item':
+      return (
+        <ul className="m-0 list-disc">
+          <li>
+            <Text text={value.rich_text} />
+            {!!value.children && renderNestedList(block)}
+          </li>
+        </ul>
+      )
     case 'numbered_list_item':
       return (
-        <li className={type === 'numbered_list_item' ? 'list-decimal' : ''}>
-          <Text text={value.rich_text} />
-          {!!value.children && renderNestedList(block)}
-        </li>
+        <ol className="m-0 list-decimal">
+          <li>
+            <Text text={value.rich_text} />
+            {!!value.children && renderNestedList(block)}
+          </li>
+        </ol>
       )
     case 'to_do':
       return (
@@ -193,7 +203,7 @@ export const renderBlock = (block) => {
         }).value
       }
       return (
-        <pre className="dark:prose-invert">
+        <pre className="md:custom-scrollbar text-xs dark:prose-invert md:text-sm">
           <code
             dangerouslySetInnerHTML={{ __html: codeHighlight }}
             key={id}
