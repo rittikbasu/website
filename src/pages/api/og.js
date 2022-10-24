@@ -39,7 +39,7 @@ export default async function handler(req) {
           }}
         >
           <div
-            tw={`flex font-bold text-${titleFontSize} tracking-${letterSpacing}`}
+            tw={`flex leading-tight font-bold text-${titleFontSize} tracking-${letterSpacing}`}
             style={{ textShadow: '1px 2px 2px #151515' }}
           >
             {title === 'home' ? (
