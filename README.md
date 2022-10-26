@@ -5,10 +5,9 @@ This website is made with Next.js + Tailwind CSS and deployed on Vercel
 
 ## Features
 
-* Uses Notion as a CMS: 
-  * Using Notion API to fetch blog and project data from the Notion database.
+* Uses Notion as a CMS for blog posts
+* Uses Supabase to keep count of likes and views
 * Highlight.js: Syntax Highlighting
-* Pagination (TODO)
 * Styled Components
 
 ## Setup
