@@ -2,8 +2,27 @@ import memeGenerator from '@/images/projects/memeGenerator.png'
 import summariser from '@/images/projects/summariser.png'
 import trackrBot from '@/images/projects/trackrBot.png'
 import amicon from '@/images/projects/amicon.png'
+import yc from '@/images/projects/yc.png'
 
 const data = [
+  {
+    title: 'Price Alert Bot  (24⭐ on GitHub)',
+    description:
+      'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
+    techUsed: ['Python', 'Telegram Bot API', 'ScraperAPI', 'Google Sheets API'],
+    image: trackrBot,
+    link: 'https://telegram.me/PriceA1ertBot',
+    github: 'https://github.com/rittikbasu/trackrBot',
+  },
+  {
+    title: 'Job Client for Hacker News',
+    description:
+      'A fast and lightweight job client for Hacker News that helps you find Y Combinator startups that are currently hiring.',
+    techUsed: ['Next.js', 'Tailwind', 'Hacker News API'],
+    image: yc,
+    link: 'https://yc.rittikbasu.tech',
+    github: 'https://github.com/rittikbasu/yc-job-client',
+  },
   {
     title: 'Meme Generator',
     description:
@@ -12,15 +31,6 @@ const data = [
     image: memeGenerator,
     link: 'https://rittikbasu.github.io/meme-generator',
     github: 'https://github.com/rittikbasu/meme-generator',
-  },
-  {
-    title: 'Price Alert Bot  (21⭐ on GitHub)',
-    description:
-      'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
-    techUsed: ['Python', 'Telegram Bot API', 'ScraperAPI', 'Google Sheets API'],
-    image: trackrBot,
-    link: 'https://telegram.me/PriceA1ertBot',
-    github: 'https://github.com/rittikbasu/trackrBot',
   },
   {
     title: 'Amicon.',
