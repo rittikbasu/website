@@ -39,7 +39,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         href={href}
         className={clsx(
           className,
-          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500 md:hover:scale-125'
+          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-125 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'
         )}
       >
         <Icon className="mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
@@ -52,7 +52,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
 function Skills({ className, icon: Icon, children }) {
   return (
     <li>
-      <div className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 dark:text-zinc-200 md:hover:scale-110">
+      <div className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-110 dark:text-zinc-200">
         <Icon
           className={clsx(
             className,
@@ -96,7 +96,7 @@ export default function About() {
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="saturate-150 transition duration-500 md:hover:scale-110"
+                  className="saturate-150 transition duration-500 hover:scale-110"
                   priority
                 />
               </div>
@@ -131,19 +131,12 @@ export default function About() {
                 best way to solve a problem.
               </p>
               <p>
-                I started with Python because I wanted to automate some
-                monotonous tasks of my daily life and then moved to web
-                development. I have been working with web technologies for the
-                past 3 years. I am currently contributing to a project called{' '}
-                <a
-                  href="https://letterhive.com"
-                  className="inline-flex items-center font-medium text-indigo-500"
-                >
-                  Letterhive
-                  <FiExternalLink className="ml-1 h-4 w-4" />
-                </a>{' '}
-                that lets you create a website which serves as a public inbox
-                for email newsletters.
+                I started learning Python because I wanted to automate some
+                monotonous tasks of my daily life but I quickly fell in love
+                with programming and started learning other languages too. I
+                have been working with web technologies for the past 3 years now
+                and I have been able to learn new tools & frameworks on my own
+                and apply them to solve real world problems.
               </p>
               <div>
                 <span className="font-bold tracking-widest underline">
@@ -156,7 +149,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiJavascript}
-                      className="md:group-hover:fill-yellow-400 dark:md:group-hover:fill-yellow-300"
+                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
                     >
                       Javascript
                     </Skills>
@@ -164,7 +157,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiReact}
-                      className="md:group-hover:fill-blue-400 dark:md:group-hover:fill-blue-300"
+                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
                     >
                       React
                     </Skills>
@@ -172,7 +165,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiNextdotjs}
-                      className="md:group-hover:fill-black dark:md:group-hover:fill-white"
+                      className="group-hover:fill-black dark:group-hover:fill-white"
                     >
                       Next.js
                     </Skills>
@@ -180,7 +173,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiTailwindcss}
-                      className="md:group-hover:fill-blue-400"
+                      className="group-hover:fill-blue-400"
                     >
                       Tailwind
                     </Skills>
@@ -188,7 +181,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiBootstrap}
-                      className="md:group-hover:fill-purple-500"
+                      className="group-hover:fill-purple-500"
                     >
                       Bootstrap
                     </Skills>
@@ -196,7 +189,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiFirebase}
-                      className="md:group-hover:fill-yellow-400 dark:md:group-hover:fill-yellow-300"
+                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
                     >
                       Firebase
                     </Skills>
@@ -204,7 +197,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiPython}
-                      className="md:group-hover:fill-blue-400 dark:md:group-hover:fill-blue-300"
+                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
                     >
                       Python
                     </Skills>
@@ -212,7 +205,7 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiJupyter}
-                      className="md:group-hover:fill-orange-400"
+                      className="group-hover:fill-orange-400"
                     >
                       Jupyter
                     </Skills>
@@ -220,14 +213,15 @@ export default function About() {
                   <div>
                     <Skills
                       icon={SiFlask}
-                      className="md:group-hover:fill-black dark:md:group-hover:fill-white"
+                      className="group-hover:fill-black dark:group-hover:fill-white"
                     >
                       Flask
                     </Skills>
                   </div>
                 </ul>
               </div>
-              <div className="flex justify-center md:justify-start">
+
+              <div className="flex justify-center pt-8 md:hidden">
                 <Button
                   href="/projects"
                   variant="primary"
@@ -267,39 +261,22 @@ export default function About() {
                 </div>
                 <Link
                   href="mailto:contact@rittikbasu.tech"
-                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500 md:hover:scale-125"
+                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:scale-125 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
                 >
                   <MdEmail className="mr-3 h-5 w-5 flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
                   contact@rittikbasu.tech
                 </Link>
                 <Button
-                  href="#"
-                  variant="secondary"
-                  onClick={saveFile}
-                  className="group w-full ring-indigo-300 md:hover:ring-2"
+                  href="/projects"
+                  variant="primary"
+                  className="group w-full tracking-widest ring-2 ring-indigo-400"
                 >
-                  <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-                  Download Resume
+                  See my projects
                 </Button>
               </ul>
             </div>
           </div>
-          <div className="lg:hidden">
-            <div className="flex justify-center">
-              <div className="my-4 w-24 border-t border-zinc-300 pt-8 dark:border-zinc-600/40"></div>
-            </div>
-            <div className="flex justify-center">
-              <Button
-                href="#"
-                variant="secondary"
-                onClick={saveFile}
-                className="mb-10 w-4/5"
-              >
-                Download Resume
-                <BsArrowDown className="h-3 w-3 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-              </Button>
-            </div>
-          </div>
+          <div className="lg:hidden"></div>
         </div>
       </Container>
     </>
