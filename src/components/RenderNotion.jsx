@@ -83,7 +83,7 @@ const Embed = (value, type) => {
             src={src}
             alt={caption ? caption : 'Notion image'}
             className={clsx(
-              'h-48 w-full duration-700 ease-in-out tab:h-64 md:h-80 md:w-auto',
+              'object-contain duration-700 ease-in-out tab:h-72 tab:w-auto md:h-80 md:w-auto',
               isLoading ? 'blur-2xl' : 'blur-0 grayscale-0'
             )}
             height="300"
