@@ -8,7 +8,6 @@ const nextConfig = {
     scrollRestoration: true,
   },
   images: {
-    unoptimized: true,
     domains: [
       'ik.imagekit.io',
       's3.us-west-2.amazonaws.com',
