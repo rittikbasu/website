@@ -2,6 +2,9 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   darkMode: 'class',
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [require('@tailwindcss/typography')],
   theme: {
     extend: {
