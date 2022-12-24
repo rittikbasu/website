@@ -4,17 +4,17 @@ export default {
   defaultTitle: 'Rittik Basu | Front End Developer',
   titleTemplate: '%s | Rittik Basu',
   description:
-    "I'm a computer engineer specializing in building & designing scalable frontend products with great user experiences. Currently I'm working with Next.js & Tailwind and I ocassionally dabble in datascience & blockchain technology.",
+    "A full-stack engineer specializing in building & designing scalable applications with great user experience.",
   openGraph: {
     title: 'Rittik Basu',
     description:
-      "I'm a computer engineer specializing in building & designing scalable frontend products with great user experiences. Currently I'm working with Next.js & Tailwind and I ocassionally dabble in datascience & blockchain technology.",
+      "A full-stack engineer specializing in building & designing scalable applications with great user experience.",
     images: [
       {
         url: `${baseUrl}api/og?title=home`,
         width: 1200,
         height: 600,
-        alt: `Rittik Basu | Front End Developer`,
+        alt: `Rittik Basu | Full Stack Developer`,
       },
     ],
     type: 'website',

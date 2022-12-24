@@ -46,10 +46,10 @@ export default function Home({ articles }) {
             I build things for the web.
           </h1>
           <p className="mt-4 mb-6 pl-1 text-base text-zinc-600 dark:text-zinc-400 md:my-6">
-            I&apos;m a computer engineer specializing in building & designing
-            scalable frontend products with great user experiences. Currently,
-            I&apos;m working with Next.js & Tailwind and I occasionally dabble
-            in data science & blockchain technology.
+            I&apos;m a full-stack engineer specializing in building & designing
+            scalable applications with great user experience. My current tech
+            stack includes Next.js, Typescript & Tailwind and I occasionally
+            dabble in machine learning & blockchain technology.
           </p>
 
           <Button
