@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo'
 
 import { BsTwitter, BsGithub, BsArrowDown } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
-import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
+import { FaLinkedinIn } from 'react-icons/fa'
 import {
   SiJavascript,
   SiReact,
@@ -17,20 +17,11 @@ import {
   SiJupyter,
   SiFlask,
 } from 'react-icons/si'
-import { FiExternalLink } from 'react-icons/fi'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
 import portraitImage from '@/images/avatar.png'
 import { baseUrl } from '../seo.config'
-import { saveAs } from 'file-saver'
-
-const saveFile = () => {
-  saveAs(
-    'https://drive.google.com/uc?export=download&id=1Du5LHbJitFLXPWbJ00B1b8YdKJ2J8ooa',
-    'Rittik_Basu.pdf'
-  )
-}
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
