@@ -20,7 +20,6 @@
     "clsx": "^1.2.0",
     "fast-glob": "^3.2.11",
     "feed": "^4.2.2",
-    "file-saver": "^2.0.5",
     "focus-visible": "^5.2.0",
     "highlight.js": "^11.6.0",
     "next": "^12.3.0",
