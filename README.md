@@ -1,5 +1,7 @@
 # Digital Home of Rittik Basu
 
+![screenshot of the website](https://ik.imagekit.io/zwcfsadeijm/screenshot-rocks__1__I_Dwm30CG.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672573644499)
+
 This website is made with Next.js + Tailwind CSS and deployed on Vercel
 
 ## Features
