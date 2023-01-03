@@ -1,5 +1,5 @@
 import { useState, Fragment } from 'react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import clsx from 'clsx'

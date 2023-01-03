@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 import clsx from 'clsx'
 import { TwitterTweetEmbed } from 'react-twitter-embed'

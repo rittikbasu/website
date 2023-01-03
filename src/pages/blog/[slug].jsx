@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import Link from 'next/link'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import clsx from 'clsx'
 import slugify from 'slugify'
 
@@ -139,7 +139,6 @@ export default function Post({
                     )}
                     width={1200}
                     height={300}
-                    layout="fill"
                     priority
                     onLoadingComplete={() => setLoading(false)}
                   />
