@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
@@ -31,7 +33,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Ubuntu', 'sans-serif'],
+      sans: ['var(--font-ubuntu)', ...fontFamily.sans],
     },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
@@ -185,6 +187,8 @@ module.exports = {
             fontWeight: theme('fontWeight.normal'),
             textDecoration: 'underline',
             textDecorationColor: 'var(--tw-prose-underline)',
+            // underline offset
+            textUnderlineOffset: 0.2 + 'em',
             transitionProperty: 'color, text-decoration-color',
             transitionDuration: theme('transitionDuration.150'),
             transitionTimingFunction: theme('transitionTimingFunction.in-out'),
