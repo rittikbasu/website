@@ -1,5 +1,4 @@
 import { ImageResponse } from '@vercel/og'
-import clsx from 'clsx'
 
 export const config = {
   runtime: 'experimental-edge',
