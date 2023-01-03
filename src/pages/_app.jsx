@@ -12,6 +12,13 @@ import 'highlight.js/styles/github-dark.css'
 import { DefaultSeo } from 'next-seo'
 import seoOptions from '../seo.config'
 import * as gtag from '@/lib/gtag'
+import { Ubuntu } from '@next/font/google'
+
+const ubuntu = Ubuntu({
+  subsets: ['latin'],
+  variable: '--font-ubuntu',
+  weight: ['400', '500', '700'],
+})
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID
 
@@ -28,7 +35,7 @@ export default function App({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <>
+    <main className={`${ubuntu.variable} font-sans`}>
       <DefaultSeo {...seoOptions} />
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -55,6 +62,6 @@ export default function App({ Component, pageProps }) {
         </main>
         <Footer />
       </div>
-    </>
+    </main>
   )
 }

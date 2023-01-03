@@ -50,10 +50,6 @@ export default function Document() {
           type="application/feed+json"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         /> */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&display=swap"
-          rel="stylesheet"
-        />
       </Head>
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         <Main />
