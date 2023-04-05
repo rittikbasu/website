@@ -1,13 +1,22 @@
 @import 'tailwindcss/base';
 
 @layer base {
+  .text-edge-outline-dark {
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.3);
+  }
+  
+  .text-edge-outline-light {
+    -webkit-text-stroke: 0.4px rgba(0,0,0,0.5);
+  }
+
   body {
     scrollbar-width: thin;
     scrollbar-color: #a5b4fc;
+    overflow-x: hidden;
   }
 
   body::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
 
   body::-webkit-scrollbar-thumb {
