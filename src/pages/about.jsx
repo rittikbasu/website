@@ -94,8 +94,8 @@ export default function About() {
             </div>
           </div>
           <div className="lg:order-first lg:col-span-7 lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-normal text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m{' '}
+            <h1 className="font-heading text-4xl font-bold tracking-wider text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              I'm{' '}
               <span
                 className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text
             text-transparent dark:from-purple-400 dark:via-indigo-400
@@ -130,12 +130,12 @@ export default function About() {
                 and apply them to solve real world problems.
               </p>
               <div>
-                <span className="font-bold tracking-widest underline">
+                <span className="font-poppins font-bold tracking-widest underline">
                   Skills I have
                 </span>
                 <ul
                   role="list"
-                  className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-3"
+                  className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 font-poppins md:grid-cols-3"
                 >
                   <div>
                     <Skills
@@ -223,7 +223,7 @@ export default function About() {
               </div>
             </div>
           </div>
-          <div className="hidden lg:col-span-5 lg:block lg:pl-10">
+          <div className="hidden font-poppins lg:col-span-5 lg:block lg:pl-10">
             <div className="flex justify-center">
               <ul role="list" className="space-y-6">
                 <SocialLink

@@ -38,7 +38,7 @@ function Project({ project, index }) {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
-      <h2 className="z-10 mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+      <h2 className="z-10 mt-6 font-heading text-xl tracking-wider text-zinc-800 dark:text-zinc-100">
         {projectTitle}
       </h2>
       <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-100/80 opacity-0 transition dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl md:group-hover:scale-100 md:group-hover:opacity-100" />
@@ -46,7 +46,7 @@ function Project({ project, index }) {
         {techUsed.map((item, i) => {
           return (
             <Fragment key={i}>
-              <span className="mr-2 inline-flex rounded-md text-sm font-semibold text-indigo-500/80 dark:text-indigo-400/70">
+              <span className="mr-2 inline-flex rounded-md font-poppins text-sm font-medium text-indigo-500/80 dark:text-indigo-400/70">
                 {item}
               </span>
               {techUsed.length - 1 !== i && (
@@ -57,13 +57,13 @@ function Project({ project, index }) {
         })}
       </div>
       <Card.Description>{projectDescription}</Card.Description>
-      <p className="relative z-10 mt-4 flex items-center space-x-4 text-sm font-medium text-zinc-500 transition dark:text-zinc-200">
+      <p className="relative z-10 mt-4 flex items-center space-x-4 font-poppins text-xs font-medium text-zinc-500 transition dark:text-zinc-200">
         {github && (
           <Link
             href={github}
             className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300 md:hover:text-indigo-500"
           >
-            <BsGithub className="h-4 w-4 flex-none fill-current transition" />
+            <BsGithub className="h-[0.9rem] w-[0.9rem] flex-none fill-current transition" />
             <span className="ml-2">Source Code</span>
           </Link>
         )}
@@ -91,7 +91,7 @@ export default function ProjectsIndex({ projects }) {
         openGraph={{
           url: `${baseUrl}projects/`,
           title: 'Projects',
-          description: 'A collection of projects I’ve worked on.',
+          description: "A collection of projects I've worked on.",
           images: [
             {
               url: `${baseUrl}api/og?title=Projects`,
@@ -105,7 +105,7 @@ export default function ProjectsIndex({ projects }) {
       <SimpleLayout
         preTitle="Things I've made"
         title="trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the past couple of years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        intro="I've worked on tons of little projects over the past couple of years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
       >
         <ul
           role="list"

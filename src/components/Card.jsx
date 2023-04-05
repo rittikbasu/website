@@ -25,7 +25,7 @@ Card.Link = function CardLink({ children, className, ...props }) {
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className="font-heading text-base tracking-wide text-zinc-800 dark:text-zinc-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -61,7 +61,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex w-full items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex w-full items-center font-poppins text-sm text-zinc-400 dark:text-zinc-500',
         decorate && 'pl-3.5'
       )}
       {...props}

@@ -4,7 +4,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 const font = fetch(
-  new URL('/public/fonts/Ubuntu-Bold.ttf', import.meta.url)
+  new URL('/public/fonts/CalSans-SemiBold.woff2', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req) {
@@ -30,7 +30,7 @@ export default async function handler(req) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             justifyContent: 'center',
-            fontFamily: 'Ubuntu, sans-serif',
+            fontFamily: 'Poppins, sans-serif',
             backgroundColor: 'black',
             color: 'white',
             position: 'relative',

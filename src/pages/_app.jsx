@@ -12,11 +12,28 @@ import 'highlight.js/styles/github-dark.css'
 import { DefaultSeo } from 'next-seo'
 import seoOptions from '../seo.config'
 import * as gtag from '@/lib/gtag'
-import { Ubuntu } from '@next/font/google'
+import { Work_Sans } from '@next/font/google'
+import { Poppins } from '@next/font/google'
+import localFont from '@next/font/local'
 
-const ubuntu = Ubuntu({
+const calSans = localFont({
+  display: 'swap',
   subsets: ['latin'],
-  variable: '--font-ubuntu',
+  src: '../../public/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-calsans',
+})
+
+const workSans = Work_Sans({
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-worksans',
+  weight: ['400', '500', '700'],
+})
+
+const poppins = Poppins({
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-poppins',
   weight: ['400', '500', '700'],
 })
 
@@ -35,7 +52,9 @@ export default function App({ Component, pageProps }) {
   }, [router.events])
 
   return (
-    <main className={`${ubuntu.variable} font-sans`}>
+    <main
+      className={`${workSans.variable} ${poppins.variable} ${calSans.variable} font-sans`}
+    >
       <DefaultSeo {...seoOptions} />
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -54,7 +73,7 @@ export default function App({ Component, pageProps }) {
           <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
         </div>
       </div>
-      <div className="relative selection:bg-indigo-500 selection:text-white dark:selection:bg-indigo-600">
+      <div className="relative selection:bg-indigo-500 selection:text-white dark:selection:bg-indigo-800">
         <Header />
         <main>
           <Component {...pageProps} />

@@ -53,6 +53,14 @@ export default function Post({
     : false
 
   UpdateViews(slug)
+  console.log(
+    `${baseUrl}api/og?title=${encodeURIComponent(
+      articleTitle[0].plain_text
+    ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited).replace(
+      '%2C',
+      '%2c'
+    )}`
+  )
   return (
     <div>
       <NextSeo
@@ -111,10 +119,10 @@ export default function Post({
             </Link>
             <article>
               <header className="flex flex-col">
-                <h1 className="my-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="my-6 font-heading text-4xl font-bold tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
-                <div className="order-first flex items-center justify-between">
+                <div className="order-first flex items-center justify-between font-poppins">
                   <time
                     dateTime={lastEdited}
                     className="flex items-center text-base text-zinc-400 dark:text-zinc-500"

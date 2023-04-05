@@ -28,32 +28,32 @@ function Article({ article }) {
       <Card className="md:col-span-3">
         <Card.Title href={`/blog/${slug}`}>{articleTitle}</Card.Title>
         <Card.Eyebrow className="justify-between md:hidden" decorate>
-          <span className="text-sm font-bold text-lime-400 dark:text-green-200">
+          <span className="text-xs text-lime-600 dark:text-green-200">
             {status}
           </span>
-          <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
-            <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
+          <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
+            <AiOutlineEye className="mr-0.5" /> <PageViews slug={slug} />
           </span>
         </Card.Eyebrow>
         <Card.Description>
           <Text text={articleDescription} />
         </Card.Description>
         <Card.Cta>
-          <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
+          <span className="flex items-center font-poppins text-xs text-zinc-600 dark:text-zinc-400">
             <BsBook className="mr-2 stroke-current" />
             {readingTime} min read
           </span>
-          <span className="flex items-center md:mr-6">
+          <span className="flex items-center font-poppins md:mr-6">
             Read article
             <BiChevronRight className="ml-1 h-4 w-4 stroke-current" />
           </span>
         </Card.Cta>
       </Card>
       <Card.Eyebrow className="mt-1 hidden space-y-2 md:block">
-        <span className="font-bold text-lime-400 dark:text-green-200">
+        <span className="text-xs font-bold text-lime-500 dark:text-green-200">
           {status}
         </span>
-        <span className="flex items-center text-sm text-zinc-600 dark:text-zinc-400">
+        <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
           <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
         </span>
       </Card.Eyebrow>

@@ -78,7 +78,7 @@ function NavItem({ href, children }) {
       <Link
         href={href}
         className={clsx(
-          'relative block px-3 py-2 transition',
+          'relative block px-3 py-2 font-poppins transition',
           isActive
             ? 'text-indigo-500 dark:text-indigo-400'
             : 'hover:text-indigo-500 dark:hover:text-indigo-400'
@@ -240,7 +240,7 @@ export function Header() {
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex flex-col"
+        className="pointer-events-none relative z-50 flex animate-fade-in flex-col"
         style={{
           height: 'var(--header-height)',
           marginBottom: 'var(--header-mb)',

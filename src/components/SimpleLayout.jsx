@@ -6,7 +6,9 @@ export function SimpleLayout({ title, intro, preTitle, postTitle, children }) {
   return (
     <Container className="mt-16 sm:mt-32">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+        <h1
+          className={`font-heading text-4xl font-bold tracking-wider text-zinc-800 dark:text-zinc-100 sm:text-5xl`}
+        >
           {' '}
           {preTitle && <span className={gradientClasses}>{preTitle}</span>}{' '}
           {title}{' '}

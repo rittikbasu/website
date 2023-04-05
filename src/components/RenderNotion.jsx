@@ -18,7 +18,7 @@ hljs.registerLanguage('html', html)
 import plaintext from 'highlight.js/lib/languages/plaintext'
 hljs.registerLanguage('plaintext', plaintext)
 
-export const Text = ({ text }) => {
+export const Text = ({ text, className }) => {
   if (!text) {
     return null
   }
@@ -30,13 +30,15 @@ export const Text = ({ text }) => {
     return (
       <span
         key={index}
-        className={[
-          bold ? 'font-bold' : '',
-          italic ? 'italic' : '',
-          strikethrough ? 'line-through' : '',
-          underline ? 'underline' : '',
-        ].join(' ')}
-        style={color !== 'default' ? { color } : {}}
+        className={clsx(
+          bold && 'font-bold',
+          italic && 'italic',
+          underline && 'underline',
+          strikethrough && 'line-through',
+          code && 'font-mono',
+          color && `text-${color}`,
+          className
+        )}
       >
         {text.link ? (
           <a href={text.link.url}>{text.content}</a>
@@ -126,19 +128,19 @@ export const renderBlock = (block) => {
     case 'heading_1':
       return (
         <h1>
-          <Text text={value.rich_text} />
+          <Text text={value.rich_text} className="font-heading tracking-wide" />
         </h1>
       )
     case 'heading_2':
       return (
         <h2>
-          <Text text={value.rich_text} />
+          <Text text={value.rich_text} className="font-heading tracking-wide" />
         </h2>
       )
     case 'heading_3':
       return (
         <h3>
-          <Text text={value.rich_text} />
+          <Text text={value.rich_text} className="font-heading tracking-wide" />
         </h3>
       )
     case 'bulleted_list_item':
