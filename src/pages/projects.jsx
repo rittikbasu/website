@@ -38,7 +38,7 @@ function Project({ project, index }) {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
-      <h2 className="z-10 mt-6 font-heading text-xl tracking-wider text-zinc-800 dark:text-zinc-100">
+      <h2 className="z-10 mt-6 font-poppins text-xl tracking-wider text-zinc-800 dark:text-zinc-100">
         {projectTitle}
       </h2>
       <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-100/80 opacity-0 transition dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl md:group-hover:scale-100 md:group-hover:opacity-100" />
