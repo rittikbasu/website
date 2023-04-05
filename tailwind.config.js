@@ -207,7 +207,6 @@ module.exports = {
           // Headings
           'h1, h2, h3': {
             color: 'var(--tw-prose-headings)',
-            fontWeight: theme('fontWeight.semibold'),
           },
           h1: {
             fontSize: theme('fontSize.2xl')[0],
