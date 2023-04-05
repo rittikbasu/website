@@ -119,20 +119,20 @@ export default function Post({
             </Link>
             <article>
               <header className="flex flex-col">
-                <h1 className="my-6 font-heading text-4xl font-bold tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="my-6 font-heading text-4xl tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
                 <div className="order-first flex items-center justify-between font-poppins">
                   <time
                     dateTime={lastEdited}
-                    className="flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                    className="flex items-center text-sm text-zinc-400 dark:text-zinc-500 md:text-base"
                   >
                     <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                     <span className="ml-2 md:ml-3">
                       Last updated {lastEdited}
                     </span>
                   </time>
-                  <span className="flex items-center text-sm text-zinc-400 dark:text-zinc-500 md:text-base">
+                  <span className="flex items-center text-xs text-zinc-400 dark:text-zinc-500 md:text-base">
                     <BsBook className="mr-2 h-4 w-4 stroke-current" />
                     {readingTime} min read
                   </span>

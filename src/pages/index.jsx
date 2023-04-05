@@ -13,20 +13,20 @@ export default function Home({ articles }) {
       <NextSeo canonical={`${baseUrl}`} />
       <Container className="-mt-[64px] flex h-screen items-center justify-center md:-mt-10">
         <div className="max-w-2xl">
-          <div className="animate-fade-in pb-4 pl-1 font-heading text-sm font-bold tracking-widest text-zinc-600 dark:text-zinc-400 md:text-base">
+          <div className="animate-fade-in pb-4 pl-1 font-poppins text-sm font-bold tracking-widest text-zinc-600 dark:text-zinc-400 md:text-base">
             Hi, my name is
           </div>
           <div className="animate-glow hidden h-px animate-fade-left bg-gradient-to-r from-zinc-500/0 via-zinc-300/50 to-zinc-500/0 dark:from-zinc-500/0 dark:via-zinc-500/50 dark:to-zinc-500/0 md:block" />
           <h1
-            className="md:dark:text-edge-outline-dark md:text-edge-outline-light text-edge-outline-light-sm dark:text-edge-outline-dark-sm z-10 animate-title bg-zinc-900 bg-clip-text  font-heading 
-            text-4xl font-bold tracking-wider text-zinc-800 text-transparent duration-1000 dark:bg-white sm:text-5xl"
+            className="md:dark:text-edge-outline-dark md:text-edge-outline-light z-10 animate-title bg-zinc-900 bg-clip-text font-heading 
+            text-4xl tracking-wider text-zinc-800 text-transparent duration-1000 dark:bg-white sm:text-5xl"
           >
             Rittik Basu.
           </h1>
           <div className="animate-glow hidden h-px animate-fade-right bg-gradient-to-r from-zinc-500/0 via-zinc-300/50 to-zinc-500/0 dark:from-zinc-500/0 dark:via-zinc-500/50 dark:to-zinc-500/0 md:block" />
           <div className="animate-fade-in">
             <h1
-              className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text pt-4 font-heading text-[1.6rem]  font-bold 
+              className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text pt-4 font-heading text-[1.6rem]
             tracking-wider text-transparent dark:from-purple-400
             dark:via-indigo-400 dark:to-pink-400 sm:text-5xl"
             >
