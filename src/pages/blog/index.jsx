@@ -32,7 +32,7 @@ function Article({ article }) {
             {status}
           </span>
           <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
-            <AiOutlineEye className="mr-0.5" /> <PageViews slug={slug} />
+            <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
           </span>
         </Card.Eyebrow>
         <Card.Description>
@@ -54,7 +54,7 @@ function Article({ article }) {
           {status}
         </span>
         <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
-          <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
+          <AiOutlineEye className="mr-1" /> <PageViews slug={slug} />
         </span>
       </Card.Eyebrow>
     </article>
@@ -66,13 +66,13 @@ export default function ArticlesIndex({ articles }) {
     <>
       <NextSeo
         title="Blog"
-        description="This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen."
+        description="This is a collection of my long-form thoughts on Web Dev, AI, Blockchains, and more in various stages of completion from Seedling to Evergreen."
         canonical={`${baseUrl}blog/`}
         openGraph={{
           url: `${baseUrl}blog/`,
           title: 'Blog',
           description:
-            'This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen.',
+            'This is a collection of my long-form thoughts on Web Dev, AI, Blockchains, and more in various stages of completion from Seedling to Evergreen.',
           images: [
             {
               url: `${baseUrl}api/og?title=Blog`,
@@ -86,7 +86,7 @@ export default function ArticlesIndex({ articles }) {
       <SimpleLayout
         title="Welcome to my"
         postTitle="Digital Garden."
-        intro="This is a collection of my long-form thoughts on Web Dev, Data Science, Blockchains, and more in various stages of completion from Seedling to Evergreen. I hope you find something that piques your interest."
+        intro="This is a collection of my long-form thoughts on Web Dev, AI, Blockchains, and more in various stages of completion from Seedling to Evergreen. I hope you find something that piques your interest."
       >
         <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-16">

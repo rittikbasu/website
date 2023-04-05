@@ -30,7 +30,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         href={href}
         className={clsx(
           className,
-          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-125 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'
+          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'
         )}
       >
         <Icon className="mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
@@ -107,27 +107,27 @@ export default function About() {
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Although I have a degree in computer science I consider myself
-                as a self taught developer. I got into coding in the second year
-                of my undergrad but I&apos;ve always had the mindset of a
-                developer.
+                Although I have a degree in computer science, I still consider
+                myself a self taught developer. I got into coding in the second
+                year of my undergrad, but I think I&apos;ve always had the
+                mindset of a developer.
               </p>
               <p>
-                I had an obsession with optimisation since I was a kid. When I
-                lived in Mumbai and had to travel in the local trains I always
-                tried to optimise my journey by finding the shortest route and
-                the fastest train. I also used to play a lot of video games and
-                I was always trying to find the best way to beat the game. I
-                think that&apos;s what got me into coding. I wanted to find the
-                best way to solve a problem.
+                As a child, I had an obsession with optimization which has
+                stayed with me till this day. During my time in Mumbai, I would
+                take local trains and constantly find ways to optimise my
+                journey by discovering the shortest routes and fastest trains. I
+                also loved playing video games, and I was always trying to find
+                the best way to beat the game. I think that&apos;s what got me
+                into coding. I wanted to find the best way to solve a problem.
               </p>
               <p>
-                I started learning Python because I wanted to automate some
-                monotonous tasks of my daily life but I quickly fell in love
-                with programming and started learning other languages too. I
-                have been working with web technologies for the past 3 years now
-                and I have been able to learn new tools & frameworks on my own
-                and apply them to solve real world problems.
+                Initially, I started learning Python to automate mundane tasks
+                in my daily life, but I soon fell in love with programming and
+                began exploring other languages as well. I have been working
+                with web technologies for the past 4 years now and I have been
+                able to learn new tools & frameworks independently, applying
+                them to real-world problems.
               </p>
               <div>
                 <span className="font-poppins font-bold tracking-widest underline">
@@ -252,7 +252,7 @@ export default function About() {
                 </div>
                 <Link
                   href="mailto:contact@rittikbasu.tech"
-                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:scale-125 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
                 >
                   <MdEmail className="mr-3 h-5 w-5 flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
                   contact@rittikbasu.tech
