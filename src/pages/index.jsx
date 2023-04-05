@@ -18,7 +18,7 @@ export default function Home({ articles }) {
           </div>
           <div className="animate-glow hidden h-px animate-fade-left bg-gradient-to-r from-zinc-500/0 via-zinc-300/50 to-zinc-500/0 dark:from-zinc-500/0 dark:via-zinc-500/50 dark:to-zinc-500/0 md:block" />
           <h1
-            className="md:dark:text-edge-outline-dark md:text-edge-outline-light z-10 animate-title bg-zinc-900 bg-clip-text font-heading 
+            className="dark:text-edge-outline-dark text-edge-outline-light z-10 animate-title bg-zinc-900 bg-clip-text font-heading 
             text-4xl tracking-wider text-zinc-800 text-transparent duration-1000 dark:bg-white sm:text-5xl"
           >
             Rittik Basu.
