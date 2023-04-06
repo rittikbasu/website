@@ -4,7 +4,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 const font = fetch(
-  new URL('/public/fonts/CalSans-SemiBold.woff2', import.meta.url)
+  new URL('/public/fonts/CalSans-SemiBold.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req) {
