@@ -4,7 +4,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 const font = fetch(
-  new URL('../../public/fonts/CalSans-SemiBold.woff2', import.meta.url)
+  new URL('/public/fonts/CalSans-SemiBold.woff2', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req) {
@@ -17,7 +17,7 @@ export default async function handler(req) {
     const titleFontSize = hasDate ? '6xl' : '7xl'
     const marginTop = hasDate ? '12' : '24'
     const letterSpacing = hasDate ? 'normal' : 'widest'
-    
+
     const fontData = await font
 
     return new ImageResponse(
