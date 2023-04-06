@@ -4,7 +4,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 const font = fetch(
-  new URL('/public/fonts/CalSans-SemiBold.woff2', import.meta.url)
+  new URL('../../public/fonts/CalSans-SemiBold.woff2', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req) {
@@ -17,6 +17,7 @@ export default async function handler(req) {
     const titleFontSize = hasDate ? '6xl' : '7xl'
     const marginTop = hasDate ? '12' : '24'
     const letterSpacing = hasDate ? 'normal' : 'widest'
+    
     const fontData = await font
 
     return new ImageResponse(
@@ -30,7 +31,7 @@ export default async function handler(req) {
             flexDirection: 'column',
             alignItems: 'flex-start',
             justifyContent: 'center',
-            fontFamily: 'Poppins, sans-serif',
+            fontFamily: 'Cal Sans, sans-serif',
             backgroundColor: 'black',
             color: 'white',
             position: 'relative',
@@ -38,7 +39,7 @@ export default async function handler(req) {
           }}
         >
           <div
-            tw={`flex leading-tight font-bold text-${titleFontSize} tracking-${letterSpacing}`}
+            tw={`flex leading-tight text-${titleFontSize} tracking-${letterSpacing}`}
             style={{ textShadow: '1px 2px 2px #151515' }}
           >
             {title === 'home' ? (
@@ -90,7 +91,7 @@ export default async function handler(req) {
         height: 630,
         fonts: [
           {
-            name: 'Ubuntu',
+            name: 'Cal Sans',
             data: fontData,
             style: 'normal',
           },
