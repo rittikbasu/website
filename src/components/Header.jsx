@@ -240,7 +240,11 @@ export function Header() {
   return (
     <>
       <header
-        className="pointer-events-none relative z-50 flex animate-fade-in flex-col"
+        // use animate-fade-in only on the home page
+        className={clsx(
+          'pointer-events-none z-10 w-full',
+          isHomePage && 'animate-fade-in'
+        )}
         style={{
           height: 'var(--header-height)',
           marginBottom: 'var(--header-mb)',
