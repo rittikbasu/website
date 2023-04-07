@@ -98,7 +98,7 @@ export default function Post({
         images={[
           `${baseUrl}api/og?title=${encodeURIComponent(
             articleTitle[0].plain_text
-          ).replaceAll('&', '%26')}&&date=${encodeURIComponent(
+          ).replaceAll('&', '%26')}&date=${encodeURIComponent(
             lastEdited
           ).replace('%2C', '%2c')}`,
         ]}
