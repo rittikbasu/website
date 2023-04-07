@@ -4,7 +4,7 @@ export const config = {
   runtime: 'experimental-edge',
 }
 const font = fetch(
-  new URL('/public/fonts/CalSans-SemiBold.woff2', import.meta.url)
+  new URL('/public/fonts/CalSans-SemiBold.ttf', import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export default async function handler(req) {
@@ -13,7 +13,7 @@ export default async function handler(req) {
     const title = searchParams.get('title')
     const hasDate = searchParams.has('date')
     const date = hasDate ? searchParams.get('date') : hasDate
-    const footerFontSize = hasDate ? 'lg' : 'xl'
+    const footerFontSize = hasDate ? 'xl' : '2xl'
     const titleFontSize = hasDate ? '6xl' : '7xl'
     const marginTop = hasDate ? '12' : '24'
     const letterSpacing = hasDate ? 'normal' : 'widest'
@@ -78,7 +78,7 @@ export default async function handler(req) {
               <span style={{ textShadow: '1px 2px 2px #151515' }}>{date}</span>
             )}
             <span
-              tw="text-indigo-400"
+              tw={`text-indigo-400 text-${footerFontSize} tracking-widest`}
               style={{ textShadow: '1px 2px 2px #151515' }}
             >
               rittikbasu.tech
