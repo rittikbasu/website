@@ -242,7 +242,7 @@ export function Header() {
       <header
         // use animate-fade-in only on the home page
         className={clsx(
-          'pointer-events-none z-10 w-full',
+          'pointer-events-none relative z-50 flex w-full flex-col',
           isHomePage && 'animate-fade-in'
         )}
         style={{
