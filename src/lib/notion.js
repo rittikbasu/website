@@ -13,7 +13,7 @@ export const getDatabase = async (databaseId, sortProperty, sort) => {
     filter: {
       or: [
         {
-          property: 'publish',
+          property: 'preview',
           checkbox: {
             equals: true,
           },
