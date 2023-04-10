@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import clsx from 'clsx'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
+import { Tweet } from 'react-tweet'
 
 import hljs from 'highlight.js/lib/core'
 // import individual languages
@@ -52,6 +52,11 @@ export const Text = ({ text, className }) => {
   })
 }
 
+const components = {
+  AvatarImg: (props) => <Image {...props} />,
+  MediaImg: (props) => <Image {...props} fill />,
+}
+
 const Embed = (value, type) => {
   let src
   const [isLoading, setLoading] = useState(true)
@@ -62,12 +67,12 @@ const Embed = (value, type) => {
   }
   const caption = value.caption ? value.caption[0]?.plain_text : ''
   if (src.startsWith('https://twitter.com')) {
-    // dynamically importing TwitterTweetEmbed to improve performance
-    // const TwitterTweetEmbed = dynamic(() =>
-    //   import('react-twitter-embed').then((mod) => mod.TwitterTweetEmbed)
-    // )
     const tweetId = src.match(/status\/(\d+)/)[1]
-    return <TwitterTweetEmbed tweetId={tweetId} />
+    return (
+      <div className="light justify-center md:flex">
+        <Tweet id={tweetId} components={components} />
+      </div>
+    )
   } else if (src.startsWith('https://www.youtube.com')) {
     src = src.replace('watch?v=', 'embed/')
     return (

@@ -7,7 +7,12 @@ const nextConfig = {
     newNextLinkBehavior: true,
     scrollRestoration: true,
   },
+  transpilePackages: ['react-tweet'],
   images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
+    ],
     domains: [
       'ik.imagekit.io',
       's3.us-west-2.amazonaws.com',
