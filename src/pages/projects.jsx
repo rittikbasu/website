@@ -30,7 +30,7 @@ function Project({ project, index }) {
           alt={`Screenshot of ${projectTitle}`}
           className={clsx(
             `h-full w-full object-contain duration-1000 ease-in-out ${delay[index]}`,
-            isLoading ? 'blur-xl' : 'blur-0'
+            isLoading ? 'blur-lg' : 'blur-0'
           )}
           height="300"
           width="500"
