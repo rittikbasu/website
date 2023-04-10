@@ -62,6 +62,8 @@ function Article({ article, index }) {
               height="300"
               width="500"
               onLoadingComplete={() => setLoading(false)}
+              placeholder="blur"
+              blurDataURL={coverImg}
             />
           </div>
         ) : (
@@ -81,7 +83,7 @@ function Article({ article, index }) {
         </p>
         <div className="mt-4 flex items-center justify-between">
           <span className="flex items-center font-poppins text-xs tracking-wide text-zinc-900 dark:text-zinc-100">
-            <AiOutlineEye className="mr-2" />
+            <AiOutlineEye className="mr-2 h-4 w-4" />
             <PageViews slug={slug} />
           </span>
           <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
