@@ -34,6 +34,8 @@ export default function Post({
   const articleDescription = article.properties.description.rich_text
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
+  const env = process.env.NODE_ENV
+
   const coverImgFn = () => {
     if (article.cover) {
       const imgType = article.cover.type
@@ -50,16 +52,18 @@ export default function Post({
   const coverImgCaption = article.properties.coverImgCaption.rich_text.length
     ? article.properties.coverImgCaption.rich_text[0].plain_text
     : false
-
-  UpdateViews(slug)
-  console.log(
-    `${baseUrl}api/og?title=${encodeURIComponent(
-      articleTitle[0].plain_text
-    ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited).replace(
-      '%2C',
-      '%2c'
-    )}`
-  )
+  // if env is production, update the views
+  if (env === 'production') {
+    UpdateViews(slug)
+  }
+  // console.log(
+  //   `${baseUrl}api/og?title=${encodeURIComponent(
+  //     articleTitle[0].plain_text
+  //   ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited).replace(
+  //     '%2C',
+  //     '%2c'
+  //   )}`
+  // )
   return (
     <div>
       <NextSeo
@@ -118,7 +122,7 @@ export default function Post({
             </Link>
             <article>
               <header className="flex flex-col">
-                <h1 className="my-6 font-heading text-4xl tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="my-8 font-heading text-4xl tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
                 <div className="order-first flex items-center justify-between font-poppins">
@@ -139,7 +143,7 @@ export default function Post({
                 {coverImg && (
                   <Image
                     src={coverImg}
-                    alt={articleTitle[0].plain_text}
+                    alt={'Cover Image for ' + articleTitle[0].plain_text}
                     className={clsx(
                       'h-56 w-full rounded-2xl object-cover shadow-md duration-1000 ease-in-out md:h-96',
                       isLoading ? 'blur-xl' : 'blur-0'
@@ -156,7 +160,8 @@ export default function Post({
                   </figcaption>
                 )}
               </header>
-              <Prose className="mt-8">
+              {/* if cover image is present, add a margin to the prose */}
+              <Prose className={coverImg ? 'mt-8' : 'mt-0'}>
                 {blocks.map((block) => (
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
