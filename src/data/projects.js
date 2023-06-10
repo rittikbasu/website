@@ -6,7 +6,7 @@ import yc from '@/images/projects/yc.png'
 
 const data = [
   {
-    title: 'Price Alert Bot  (25⭐ on GitHub)',
+    title: 'Price Alert Bot  (27⭐ on GitHub)',
     description:
       'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
     techUsed: ['Python', 'Telegram Bot API', 'ScraperAPI', 'Google Sheets API'],
@@ -40,7 +40,7 @@ const data = [
   {
     title: 'Amicon',
     description:
-      'An intra campus networking web app for students of Amity University Mumbai to connect with each other and share information more conveniently.',
+      'An intra campus networking web app for students of Amity University, Mumbai to connect with each other and share information more conveniently.',
     techUsed: ['Javascript', 'Firebase', 'Bootstrap'],
     image: amicon,
     link: 'https://amicon-v1.web.app/',
