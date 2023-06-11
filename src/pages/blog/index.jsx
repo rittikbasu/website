@@ -1,67 +1,135 @@
-import Head from 'next/head'
 import Link from 'next/link'
+import { useState } from 'react'
+import Image from 'next/image'
 import { NextSeo } from 'next-seo'
 import slugify from 'slugify'
+import clsx from 'clsx'
 
 import { Text } from '@/components/RenderNotion'
-import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getDatabase } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
 import { PageViews } from '@/components/PageViews'
 
 import { AiOutlineEye } from 'react-icons/ai'
-import { BiChevronRight } from 'react-icons/bi'
 import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
-function Article({ article }) {
+function Article({ article, index }) {
   const articleTitle = article.properties?.name.title[0].plain_text
   const articleDescription = article.properties.description?.rich_text
-  const status = article.properties.Status?.status?.name
+  const [status, setStatus] = useState(article.properties.Status?.status?.name)
+  const fixedStatus = article.properties.Status?.status?.name
   const slug = slugify(articleTitle).toLowerCase()
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
+  const published = article.properties.publish.checkbox
+  const coverImgFn = () => {
+    if (article.cover) {
+      const imgType = article.cover.type
+      const image =
+        imgType === 'external'
+          ? article.cover.external.url
+          : article.cover.file.url
+      return image
+    } else {
+      return false
+    }
+  }
+  const coverImg = coverImgFn()
+
+  const [isLoading, setLoading] = useState(true)
+  const [statusBg, setStatusBg] = useState('bg-indigo-500/90')
+  const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
+
+  const handleClick = () => {
+    if (status !== '🌱  Seedling') return
+    setStatus('✍🏾  In Progress')
+    setStatusBg('bg-orange-500/90')
+    setTimeout(() => {
+      setStatus(article.properties.Status?.status?.name)
+      setStatusBg('bg-indigo-500/90')
+    }, 3000)
+  }
   return (
-    <article className="md:grid md:grid-cols-4 md:items-baseline">
-      <Card className="md:col-span-3">
-        <Card.Title href={`/blog/${slug}`}>{articleTitle}</Card.Title>
-        <Card.Eyebrow className="justify-between md:hidden" decorate>
-          <span className="text-xs text-lime-600 dark:text-green-200">
-            {status}
-          </span>
-          <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
-            <AiOutlineEye className="mr-2" /> <PageViews slug={slug} />
-          </span>
-        </Card.Eyebrow>
-        <Card.Description>
+    <div
+      className={`break-inside group relative h-auto max-w-full rounded-lg border border-gray-200 p-4 transition-all hover:shadow dark:border-gray-700`}
+      key={slug}
+    >
+      <Link
+        href={fixedStatus === '🌱  Seedling' ? 'javascript:;' : '/blog/' + slug}
+        className={`${
+          fixedStatus === '🌱  Seedling'
+            ? 'cursor-default group-hover:animate-pulse'
+            : 'cursor-pointer'
+        }`}
+        onClick={handleClick}
+      >
+        {!!coverImg ? (
+          <div className="aspect-w-16 aspect-h-9 relative h-64 w-full">
+            <div
+              className={`absolute top-0 right-0 z-10 flex h-6 w-24 items-center justify-center rounded-l-md rounded-t-none rounded-tr-md ${statusBg}`}
+            >
+              <span className="font-poppins text-xs font-medium text-zinc-100">
+                {status}
+              </span>
+            </div>
+            <Image
+              src={coverImg}
+              alt={'Cover Image for ' + articleTitle}
+              className={clsx(
+                `h-full w-full rounded-md object-cover duration-1000 ease-in-out ${delay[index]}`,
+                isLoading ? 'blur-md' : 'blur-0'
+              )}
+              height="300"
+              width="500"
+              onLoadingComplete={() => setLoading(false)}
+              placeholder="blur"
+              blurDataURL={coverImg}
+            />
+          </div>
+        ) : (
+          <div
+            className={`absolute top-0 right-0 z-10 flex h-6 w-24 items-center justify-center rounded-l-md rounded-t-none rounded-tr-md ${statusBg}`}
+          >
+            <span className="font-poppins text-xs font-medium text-zinc-100">
+              {status}
+            </span>
+          </div>
+        )}
+        <h3 className="mt-4 text-lg">
+          <div
+            className={`font-heading tracking-wider text-zinc-900 no-underline dark:text-zinc-100 ${
+              fixedStatus !== '🌱  Seedling' && 'group-hover:underline'
+            }`}
+          >
+            {articleTitle}
+          </div>
+        </h3>
+        <p className="mt-4 block max-w-full break-all text-base text-gray-500 dark:text-gray-400">
           <Text text={articleDescription} />
-        </Card.Description>
-        <Card.Cta>
-          <span className="flex items-center font-poppins text-xs text-zinc-600 dark:text-zinc-400">
-            <BsBook className="mr-2 stroke-current" />
+        </p>
+        <div className="mt-4 flex items-center justify-between">
+          <span className="flex items-center font-poppins text-xs tracking-wide text-zinc-900 dark:text-zinc-100">
+            <AiOutlineEye className="mr-2 h-4 w-4" />
+            <PageViews slug={slug} />
+          </span>
+          <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
+            <BsBook className="mr-2" />
             {readingTime} min read
           </span>
-          <span className="flex items-center font-poppins md:mr-6">
-            Read article
-            <BiChevronRight className="ml-1 h-4 w-4 stroke-current" />
-          </span>
-        </Card.Cta>
-      </Card>
-      <Card.Eyebrow className="mt-1 hidden space-y-2 md:block">
-        <span className="text-xs font-bold text-lime-500 dark:text-green-200">
-          {status}
-        </span>
-        <span className="flex items-center text-xs text-zinc-600 dark:text-zinc-400">
-          <AiOutlineEye className="mr-1" /> <PageViews slug={slug} />
-        </span>
-      </Card.Eyebrow>
-    </article>
+        </div>
+      </Link>
+    </div>
   )
 }
 
 export default function ArticlesIndex({ articles }) {
+  // split articles array into two
+  const articles1 = articles.slice(0, Math.ceil(articles.length / 2))
+  const articles2 = articles.slice(Math.ceil(articles.length / 2))
+
   return (
     <>
       <NextSeo
@@ -88,12 +156,10 @@ export default function ArticlesIndex({ articles }) {
         postTitle="Digital Garden."
         intro="This is a collection of my long-form thoughts on Web Dev, AI, Blockchains, and more in various stages of completion from Seedling to Evergreen. I hope you find something that piques your interest."
       >
-        <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-          <div className="flex max-w-3xl flex-col space-y-16">
-            {articles.map((article) => (
-              <Article key={article.id} article={article} />
-            ))}
-          </div>
+        <div className="masonry lg:masonry-md md:masonry-sm space-y-10">
+          {articles.map((article, index) => (
+            <Article key={article.id} article={article} index={index} />
+          ))}
         </div>
       </SimpleLayout>
     </>

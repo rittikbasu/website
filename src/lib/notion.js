@@ -8,12 +8,14 @@ export const getDatabase = async (databaseId, sortProperty, sort) => {
   // const response = await notion.databases.query({
   //   database_id: databaseId,
   // });
+  const env = process.env.NODE_ENV
+  const status = env === 'development' ? 'preview' : 'publish'
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
       or: [
         {
-          property: 'publish',
+          property: status,
           checkbox: {
             equals: true,
           },
