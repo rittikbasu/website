@@ -20,6 +20,7 @@ function Article({ article, index }) {
   const articleTitle = article.properties?.name.title[0].plain_text
   const articleDescription = article.properties.description?.rich_text
   const [status, setStatus] = useState(article.properties.Status?.status?.name)
+  const fixedStatus = article.properties.Status?.status?.name
   const slug = slugify(articleTitle).toLowerCase()
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
@@ -57,9 +58,9 @@ function Article({ article, index }) {
       key={slug}
     >
       <Link
-        href={!published ? 'javascript:;' : '/blog/' + slug}
+        href={fixedStatus === '🌱  Seedling' ? 'javascript:;' : '/blog/' + slug}
         className={`${
-          !published
+          fixedStatus === '🌱  Seedling'
             ? 'cursor-default group-hover:animate-pulse'
             : 'cursor-pointer'
         }`}
@@ -68,9 +69,7 @@ function Article({ article, index }) {
         {!!coverImg ? (
           <div className="aspect-w-16 aspect-h-9 relative h-64 w-full">
             <div
-              className={`absolute top-0 right-0 z-10 flex h-6 w-24 items-center justify-center rounded-l-md rounded-t-none rounded-tr-md ${statusBg} ${
-                !published && ''
-              }`}
+              className={`absolute top-0 right-0 z-10 flex h-6 w-24 items-center justify-center rounded-l-md rounded-t-none rounded-tr-md ${statusBg}`}
             >
               <span className="font-poppins text-xs font-medium text-zinc-100">
                 {status}
@@ -80,9 +79,7 @@ function Article({ article, index }) {
               src={coverImg}
               alt={'Cover Image for ' + articleTitle}
               className={clsx(
-                `h-full w-full rounded-md object-cover duration-1000 ease-in-out ${
-                  (delay[index], !published && '')
-                }`,
+                `h-full w-full rounded-md object-cover duration-1000 ease-in-out ${delay[index]}`,
                 isLoading ? 'blur-md' : 'blur-0'
               )}
               height="300"
@@ -104,7 +101,7 @@ function Article({ article, index }) {
         <h3 className="mt-4 text-lg">
           <div
             className={`font-heading tracking-wider text-zinc-900 no-underline dark:text-zinc-100 ${
-              published && 'group-hover:underline'
+              fixedStatus !== '🌱  Seedling' && 'group-hover:underline'
             }`}
           >
             {articleTitle}
