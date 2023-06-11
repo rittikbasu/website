@@ -41,7 +41,6 @@ function Article({ article, index }) {
 
   const [isLoading, setLoading] = useState(true)
   const [statusBg, setStatusBg] = useState('bg-indigo-500/90')
-  const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
 
   const handleClick = () => {
     if (status !== '🌱  Seedling') return
@@ -79,7 +78,7 @@ function Article({ article, index }) {
               src={coverImg}
               alt={'Cover Image for ' + articleTitle}
               className={clsx(
-                `h-full w-full rounded-md object-cover duration-1000 ease-in-out ${delay[index]}`,
+                `h-full w-full rounded-md object-cover duration-1000 ease-in-out`,
                 isLoading ? 'blur-md' : 'blur-0'
               )}
               height="300"
