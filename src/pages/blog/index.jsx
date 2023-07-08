@@ -60,7 +60,7 @@ function Article({ article, index }) {
         href={fixedStatus === '🌱  Seedling' ? 'javascript:;' : '/blog/' + slug}
         className={`${
           fixedStatus === '🌱  Seedling'
-            ? 'cursor-default group-hover:animate-pulse'
+            ? 'cursor-default opacity-40'
             : 'cursor-pointer'
         }`}
         onClick={handleClick}
