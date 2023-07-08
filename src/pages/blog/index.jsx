@@ -53,15 +53,16 @@ function Article({ article, index }) {
   }
   return (
     <div
-      className={`break-inside group relative h-auto max-w-full rounded-lg border border-gray-200 p-4 transition-all hover:shadow dark:border-gray-700`}
+      className={clsx(
+        `break-inside group relative h-auto max-w-full rounded-lg border border-gray-200 p-4 transition-all hover:shadow dark:border-gray-700`,
+        fixedStatus === '🌱  Seedling' && 'opacity-40'
+      )}
       key={slug}
     >
       <Link
         href={fixedStatus === '🌱  Seedling' ? 'javascript:;' : '/blog/' + slug}
         className={`${
-          fixedStatus === '🌱  Seedling'
-            ? 'cursor-default opacity-40'
-            : 'cursor-pointer'
+          fixedStatus === '🌱  Seedling' ? 'cursor-default' : 'cursor-pointer'
         }`}
         onClick={handleClick}
       >
@@ -109,16 +110,18 @@ function Article({ article, index }) {
         <p className="mt-4 block max-w-full break-all text-base text-gray-500 dark:text-gray-400">
           <Text text={articleDescription} />
         </p>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="flex items-center font-poppins text-xs tracking-wide text-zinc-900 dark:text-zinc-100">
-            <AiOutlineEye className="mr-2 h-4 w-4" />
-            <PageViews slug={slug} />
-          </span>
-          <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
-            <BsBook className="mr-2" />
-            {readingTime} min read
-          </span>
-        </div>
+        {fixedStatus !== '🌱  Seedling' && (
+          <div className="mt-4 flex items-center justify-between">
+            <span className="flex items-center font-poppins text-xs tracking-wide text-zinc-900 dark:text-zinc-100">
+              <AiOutlineEye className="mr-2 h-4 w-4" />
+              <PageViews slug={slug} />
+            </span>
+            <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
+              <BsBook className="mr-2" />
+              {readingTime} min read
+            </span>
+          </div>
+        )}
       </Link>
     </div>
   )
