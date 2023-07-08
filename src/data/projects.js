@@ -20,7 +20,7 @@ const data = [
       'A fast and lightweight job client for Hacker News that helps you find Y Combinator startups that are currently hiring.',
     techUsed: ['Next.js', 'Tailwind', 'Hacker News API'],
     image: yc,
-    link: 'https://yc.rittikbasu.tech',
+    link: 'https://yc.rittik.io',
     github: 'https://github.com/rittikbasu/yc-job-client',
   },
   {
