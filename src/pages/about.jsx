@@ -129,7 +129,7 @@ export default function About() {
                 able to learn new tools & frameworks independently, applying
                 them to real-world problems.
               </p>
-              <div>
+              <div className="cursor-default">
                 <span className="font-poppins font-bold tracking-widest underline">
                   Skills I have
                 </span>
@@ -250,13 +250,13 @@ export default function About() {
                 <div className="flex justify-center">
                   <div className="w-24 border-t border-zinc-300 dark:border-zinc-600/40"></div>
                 </div>
-                <Link
-                  href="mailto:contact@rittikbasu.tech"
-                  className="group flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 after:justify-center hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+                <SocialLink
+                  href="mailto:hello@rittik.io"
+                  icon={MdEmail}
+                  className=""
                 >
-                  <MdEmail className="mr-3 h-5 w-5 flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
-                  contact@rittikbasu.tech
-                </Link>
+                  hello@rittik.io
+                </SocialLink>
                 <Button
                   href="/projects"
                   variant="primary"
