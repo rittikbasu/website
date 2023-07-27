@@ -81,7 +81,7 @@ export default async function handler(req) {
               tw={`text-indigo-400 text-${footerFontSize} tracking-widest`}
               style={{ textShadow: '1px 2px 2px #151515' }}
             >
-              rittikbasu.tech
+              rittik.io
             </span>
           </div>
         </div>
