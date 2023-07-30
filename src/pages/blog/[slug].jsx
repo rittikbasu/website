@@ -14,15 +14,15 @@ import { baseUrl } from '../../seo.config'
 import { UpdateViews } from '@/components/PageViews'
 
 import { BsArrowLeft } from 'react-icons/bs'
-import { BsBook } from 'react-icons/bs'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
 export default function Post({
   article,
   dateUtc,
+  dateFormatted,
   lastEditedUtc,
-  lastEdited,
+  lastEditedFormatted,
   blocks,
   slug,
 }) {
@@ -59,7 +59,7 @@ export default function Post({
   // console.log(
   //   `${baseUrl}api/og?title=${encodeURIComponent(
   //     articleTitle[0].plain_text
-  //   ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEdited).replace(
+  //   ).replaceAll('&', '%26')}&date=${encodeURIComponent(lastEditedFormatted).replace(
   //     '%2C',
   //     '%2c'
   //   )}`
@@ -79,7 +79,7 @@ export default function Post({
               url: `${baseUrl}api/og?title=${encodeURIComponent(
                 articleTitle[0].plain_text
               ).replaceAll('&', '%26')}&date=${encodeURIComponent(
-                lastEdited
+                dateFormatted
               ).replace('%2C', '%2c')}`,
               width: 1200,
               height: 600,
@@ -102,7 +102,7 @@ export default function Post({
           `${baseUrl}api/og?title=${encodeURIComponent(
             articleTitle[0].plain_text
           ).replaceAll('&', '%26')}&date=${encodeURIComponent(
-            lastEdited
+            lastEditedFormatted
           ).replace('%2C', '%2c')}`,
         ]}
         datePublished={new Date(dateUtc).toISOString()}
@@ -122,21 +122,20 @@ export default function Post({
             </Link>
             <article>
               <header className="flex flex-col">
-                <h1 className="my-8 font-heading text-4xl tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="mb-4 font-heading text-4xl tracking-wide text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   <Text text={articleTitle} />
                 </h1>
-                <div className="order-first flex items-center justify-between font-poppins">
+                <div className="mb-6 flex items-center font-poppins">
                   <time
-                    dateTime={lastEdited}
+                    dateTime={dateFormatted}
                     className="flex items-center text-sm text-zinc-400 dark:text-zinc-500 md:text-base"
                   >
-                    <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                    <span className="ml-2 md:ml-3">
-                      Last updated {lastEdited}
-                    </span>
+                    {dateFormatted}
                   </time>
+                  <span className="mx-2 text-zinc-400 dark:text-zinc-500 md:text-base">
+                    •
+                  </span>
                   <span className="flex items-center text-xs text-zinc-400 dark:text-zinc-500 md:text-base">
-                    <BsBook className="mr-2 h-4 w-4 stroke-current" />
                     {readingTime} min read
                   </span>
                 </div>
@@ -166,6 +165,10 @@ export default function Post({
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
               </Prose>
+              {/*  add this blog was last updated on */}
+              <div className="my-8 text-center text-sm italic text-zinc-400 dark:text-zinc-500 md:my-12">
+                This post was last updated on {lastEditedFormatted}
+              </div>
               <LikeBtn variant="bottom" slug={slug} />
             </article>
           </div>
@@ -198,12 +201,20 @@ export const getStaticProps = async (context) => {
   ).id
   const article = await getPage(id)
   const lastEditedUtc = article.last_edited_time
-  const lastEdited = new Date(lastEditedUtc).toLocaleDateString('en-US', {
+  const lastEditedFormatted = new Date(lastEditedUtc).toLocaleDateString(
+    'en-US',
+    {
+      month: 'short',
+      day: '2-digit',
+      year: 'numeric',
+    }
+  )
+  const dateUtc = article.properties.date.date.start
+  const dateFormatted = new Date(dateUtc).toLocaleDateString('en-US', {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
   })
-  const dateUtc = article.properties.date.date.start
   const blocks = await getBlocks(id)
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
@@ -232,8 +243,9 @@ export const getStaticProps = async (context) => {
     props: {
       article,
       dateUtc,
+      dateFormatted,
       lastEditedUtc,
-      lastEdited,
+      lastEditedFormatted,
       blocks: blocksWithChildren,
       slug: slug,
     },
