@@ -29,6 +29,10 @@ export const getDatabase = async (databaseId, sortProperty, sort) => {
       },
     ],
   })
+  // remove databaseId from response
+  response.results.forEach((result) => {
+    delete result.parent.database_id
+  })
   return response.results
 }
 
