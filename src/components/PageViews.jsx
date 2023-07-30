@@ -10,7 +10,7 @@ export function PageViews({ slug }) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher)
   const views = new Number(data?.total)
 
-  return `${views >= 0 ? views.toLocaleString() : '---'} views`
+  return views >= 0 ? views.toLocaleString() : 0
 }
 
 export function UpdateViews(slug) {

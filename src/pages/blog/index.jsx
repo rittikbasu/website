@@ -9,10 +9,12 @@ import { Text } from '@/components/RenderNotion'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getDatabase } from '@/lib/notion'
 import { baseUrl } from '../../seo.config'
-import { PageViews } from '@/components/PageViews'
+// import { PageViews } from '@/components/PageViews'
 
 import { AiOutlineEye } from 'react-icons/ai'
 import { BsBook } from 'react-icons/bs'
+import CountUp from 'react-countup'
+import { createClient } from '@supabase/supabase-js'
 
 const databaseId = process.env.NOTION_BLOG_DB_ID
 
@@ -25,6 +27,7 @@ function Article({ article, index }) {
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   const published = article.properties.publish.checkbox
+  const views = article.pageViews
   const coverImgFn = () => {
     if (article.cover) {
       const imgType = article.cover.type
@@ -37,6 +40,7 @@ function Article({ article, index }) {
       return false
     }
   }
+
   const coverImg = coverImgFn()
 
   const [isLoading, setLoading] = useState(true)
@@ -114,7 +118,7 @@ function Article({ article, index }) {
           <div className="mt-4 flex items-center justify-between">
             <span className="flex items-center font-poppins text-xs tracking-wide text-zinc-900 dark:text-zinc-100">
               <AiOutlineEye className="mr-2 h-4 w-4" />
-              <PageViews slug={slug} />
+              <CountUp end={views} duration={3} />
             </span>
             <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
               <BsBook className="mr-2" />
@@ -128,10 +132,6 @@ function Article({ article, index }) {
 }
 
 export default function ArticlesIndex({ articles }) {
-  // split articles array into two
-  const articles1 = articles.slice(0, Math.ceil(articles.length / 2))
-  const articles2 = articles.slice(Math.ceil(articles.length / 2))
-
   return (
     <>
       <NextSeo
@@ -167,9 +167,26 @@ export default function ArticlesIndex({ articles }) {
     </>
   )
 }
-
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId, 'date', 'descending')
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+  const supabaseServerKey = process.env.SUPABASE_SERVICE_KEY || ''
+  const SupabaseAdmin = createClient(supabaseUrl, supabaseServerKey)
+
+  // Fetch pageViews data for each article and update the database object
+  for (const article of database) {
+    const title = slugify(
+      article.properties?.name.title[0].plain_text
+    ).toLowerCase()
+    const response = await SupabaseAdmin.from('analytics')
+      .select('views')
+      .filter('slug', 'eq', title)
+    const pageViews = response.data[0]?.views || 0
+
+    // Update the article object with the pageViews data
+    article.pageViews = pageViews
+  }
+
   return {
     props: {
       articles: database,
