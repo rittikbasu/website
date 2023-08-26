@@ -1,7 +1,7 @@
 export const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL
 
 export default {
-  defaultTitle: 'Rittik Basu | Front End Developer',
+  defaultTitle: 'Rittik Basu | Full Stack Developer',
   titleTemplate: '%s | Rittik Basu',
   description:
     "A full-stack engineer specializing in building & designing scalable applications with great user experience.",
