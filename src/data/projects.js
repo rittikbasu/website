@@ -35,7 +35,7 @@ const data = [
   {
     title: 'Amicon',
     description:
-      'An intra campus networking web app for students of Amity University, Mumbai to connect with each other, see where their peers are from and find and share information more conveniently.',
+      'An intra campus networking web app for students of Amity University to connect with each other, see where their peers are from and find and share information more easily.',
     techUsed: ['Javascript', 'Firebase', 'Bootstrap'],
     image: amicon,
     link: 'https://amicon-v1.web.app/',
