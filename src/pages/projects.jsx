@@ -36,6 +36,7 @@ function Project({ project, index }) {
           width="500"
           placeholder="blur"
           onLoadingComplete={() => setLoading(false)}
+          unoptimized
         />
       </div>
       <h2 className="z-10 mt-6 font-heading text-xl tracking-wider text-zinc-800 dark:text-zinc-100">
