@@ -40,11 +40,7 @@ export default function Home({ articles }) {
             dabble in AI & blockchain technology.
           </p>
 
-          <Button
-            href="/about"
-            variant="primary"
-            className="group ml-1 h-8 animate-fade-in tracking-widest ring-2 ring-indigo-400"
-          >
+          <Button href="/about" className="animate-fade-in py-1.5 md:py-2">
             Learn More
           </Button>
         </div>

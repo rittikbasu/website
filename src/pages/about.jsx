@@ -12,15 +12,16 @@ import {
   SiNextdotjs,
   SiPython,
   SiTailwindcss,
-  SiBootstrap,
   SiFirebase,
   SiJupyter,
   SiFlask,
+  SiPostgresql,
 } from 'react-icons/si'
+import { BiLogoPostgresql } from 'react-icons/bi'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
-import portraitImage from '@/images/avatar.png'
+import portraitImage from '@/images/avatarNew.png'
 import { baseUrl } from '../seo.config'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -87,7 +88,7 @@ export default function About() {
                   src={portraitImage}
                   alt="Rittik Basu"
                   sizes="(min-width: 1024px) 32rem, 20rem"
-                  className="saturate-150 transition duration-500 hover:scale-110"
+                  className="transition duration-500 hover:scale-110"
                   priority
                 />
               </div>
@@ -163,6 +164,14 @@ export default function About() {
                   </div>
                   <div>
                     <Skills
+                      icon={SiFlask}
+                      className="group-hover:fill-black dark:group-hover:fill-white"
+                    >
+                      Flask
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
                       icon={SiTailwindcss}
                       className="group-hover:fill-blue-400"
                     >
@@ -171,26 +180,10 @@ export default function About() {
                   </div>
                   <div>
                     <Skills
-                      icon={SiBootstrap}
-                      className="group-hover:fill-purple-500"
+                      icon={SiPostgresql}
+                      className="group-hover:fill-blue-500"
                     >
-                      Bootstrap
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiFirebase}
-                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
-                    >
-                      Firebase
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiPython}
-                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
-                    >
-                      Python
+                      PostgreSQL
                     </Skills>
                   </div>
                   <div>
@@ -203,21 +196,25 @@ export default function About() {
                   </div>
                   <div>
                     <Skills
-                      icon={SiFlask}
-                      className="group-hover:fill-black dark:group-hover:fill-white"
+                      icon={SiPython}
+                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
                     >
-                      Flask
+                      Python
+                    </Skills>
+                  </div>
+                  <div>
+                    <Skills
+                      icon={SiFirebase}
+                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
+                    >
+                      Firebase
                     </Skills>
                   </div>
                 </ul>
               </div>
 
               <div className="flex justify-center pt-8 md:hidden">
-                <Button
-                  href="/projects"
-                  variant="primary"
-                  className="group h-8 tracking-widest ring-2 ring-indigo-400"
-                >
+                <Button href="/projects" className="py-2">
                   See my projects
                 </Button>
               </div>
@@ -231,21 +228,21 @@ export default function About() {
                   icon={BsTwitter}
                   className=""
                 >
-                  Connect on Twitter
+                  _rittik
                 </SocialLink>
                 <SocialLink
                   href="https://github.com/rittikbasu"
                   icon={BsGithub}
                   className=""
                 >
-                  Connect on GitHub
+                  rittikbasu
                 </SocialLink>
                 <SocialLink
                   href="https://www.linkedin.com/in/rittikbasu/"
                   icon={FaLinkedinIn}
                   className=""
                 >
-                  Connect on LinkedIn
+                  rittikbasu
                 </SocialLink>
                 <div className="flex justify-center">
                   <div className="w-24 border-t border-zinc-300 dark:border-zinc-600/40"></div>
@@ -257,11 +254,7 @@ export default function About() {
                 >
                   hello@rittik.io
                 </SocialLink>
-                <Button
-                  href="/projects"
-                  variant="primary"
-                  className="group w-full tracking-widest ring-2 ring-indigo-400"
-                >
+                <Button href="/projects" className="py-2">
                   See my projects
                 </Button>
               </ul>
