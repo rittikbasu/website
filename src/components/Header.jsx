@@ -161,7 +161,7 @@ function Avatar({ className, ...props }) {
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
-      <div className="flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-100 via-indigo-600 to-indigo-100 shadow-inner duration-300 hover:scale-110 dark:from-indigo-900/10 dark:via-violet-800 dark:to-violet-900/10">
+      <div className="flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-100 via-indigo-600 to-indigo-100 shadow-inner duration-300 hover:scale-110 dark:from-indigo-900/10 dark:via-violet-300 dark:to-violet-900/10">
         <Image
           src={avatarImage}
           alt=""
