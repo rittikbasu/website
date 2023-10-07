@@ -2,7 +2,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { BsTwitter, BsGithub } from 'react-icons/bs'
-import { FaDiscord, FaLinkedinIn } from 'react-icons/fa'
+import { FaLinkedinIn } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
 import { Container } from '@/components/Container'
@@ -68,7 +68,7 @@ export function Footer() {
                   icon={MdEmail}
                 />
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
+              <p className="font-poppins text-sm tracking-wider text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} Rittik Basu. All rights
                 reserved.
               </p>
