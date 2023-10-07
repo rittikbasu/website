@@ -149,7 +149,7 @@ function clamp(number, a, b) {
 
 function AvatarContainer({ className, ...props }) {
   return (
-    <div className={clsx(className, 'h-9 w-9 md:h-10 md:w-10 ')} {...props} />
+    <div className={clsx(className, 'h-9 w-9 md:h-10 md:w-10')} {...props} />
   )
 }
 
@@ -174,7 +174,7 @@ function Avatar({ className, ...props }) {
   )
 }
 
-export function Header() {
+export function Header({ previousPathname }) {
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()
@@ -247,7 +247,7 @@ export function Header() {
         // use animate-fade-in only on the home page
         className={clsx(
           'pointer-events-none relative z-50 flex w-full flex-col',
-          isHomePage && 'animate-fade-in'
+          isHomePage && previousPathname === undefined && 'animate-fade-in'
         )}
         style={{
           height: 'var(--header-height)',

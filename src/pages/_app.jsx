@@ -39,17 +39,28 @@ const poppins = Poppins({
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID
 
-export default function App({ Component, pageProps }) {
-  const router = useRouter()
+function usePrevious(value) {
+  let ref = useRef()
+
+  useEffect(() => {
+    ref.current = value
+  }, [value])
+
+  return ref.current
+}
+
+export default function App({ Component, pageProps, router }) {
+  let previousPathname = usePrevious(router.pathname)
+  const pageRouter = useRouter()
   useEffect(() => {
     const handleRouteChange = (url) => {
       gtag.pageView(url)
     }
-    router.events.on('routeChangeComplete', handleRouteChange)
+    pageRouter.events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+      pageRouter.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.events])
+  }, [pageRouter.events])
 
   return (
     <main
@@ -74,9 +85,9 @@ export default function App({ Component, pageProps }) {
         </div>
       </div>
       <div className="relative selection:bg-indigo-500 selection:text-white dark:selection:bg-indigo-800">
-        <Header />
+        <Header previousPathname={previousPathname} />
         <main>
-          <Component {...pageProps} />
+          <Component previousPathname={previousPathname} {...pageProps} />
           <Analytics />
         </main>
         <Footer />
