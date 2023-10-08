@@ -164,7 +164,7 @@ function Avatar({ className, ...props }) {
       <div className="flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-100 via-indigo-600 to-indigo-100 shadow-inner duration-300 hover:scale-110 dark:from-indigo-900/10 dark:via-violet-300 dark:to-violet-900/10">
         <Image
           src={avatarImage}
-          alt=""
+          alt="Avatar Image of Rittik Basu"
           sizes="2.25rem"
           className="flex h-9 w-9 items-center rounded-full bg-indigo-500/10 saturate-150 backdrop-blur-sm  dark:bg-indigo-500/10 md:h-10 md:w-10"
           priority
