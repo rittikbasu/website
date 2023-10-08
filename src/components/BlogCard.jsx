@@ -48,6 +48,10 @@ export function BlogCard({ article }) {
       setStatusBg('bg-indigo-500/90 duration-[3000ms]')
     }, 3000)
   }
+
+  const ArticleWrapper = fixedStatus === '🌱  Seedling' ? 'div' : Link
+  const linkProps =
+    fixedStatus === '🌱  Seedling' ? {} : { href: '/blog/' + slug }
   return (
     <div
       className={clsx(
@@ -68,8 +72,8 @@ export function BlogCard({ article }) {
           {status}
         </span>
       </div>
-      <Link
-        href={fixedStatus === '🌱  Seedling' ? '' : '/blog/' + slug}
+      <ArticleWrapper
+        {...linkProps}
         className={`${
           fixedStatus === '🌱  Seedling'
             ? 'cursor-default opacity-60 dark:opacity-40'
@@ -118,7 +122,7 @@ export function BlogCard({ article }) {
             </span>
           </div>
         )}
-      </Link>
+      </ArticleWrapper>
     </div>
   )
 }
