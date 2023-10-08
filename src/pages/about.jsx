@@ -3,7 +3,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { NextSeo } from 'next-seo'
 
-import { BsTwitter, BsGithub, BsArrowDown } from 'react-icons/bs'
+import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { FaLinkedinIn } from 'react-icons/fa'
 import {
@@ -17,11 +17,10 @@ import {
   SiFlask,
   SiPostgresql,
 } from 'react-icons/si'
-import { BiLogoPostgresql } from 'react-icons/bi'
 
 import { Container } from '@/components/Container'
 import { Button } from '@/components/Button'
-import portraitImage from '@/images/avatarNew.png'
+import portraitImage from '@/images/avatar.png'
 import { baseUrl } from '../seo.config'
 
 function SocialLink({ className, href, children, icon: Icon }) {
@@ -106,7 +105,7 @@ export default function About() {
               </span>{' '}
               <br />I live in India, where I break things & learn fast.
             </h1>
-            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400 md:text-justify">
               <p>
                 Although I have a degree in computer science, I still consider
                 myself a self taught developer. I got into coding in the second
