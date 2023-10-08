@@ -4,11 +4,15 @@ import slugify from 'slugify'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { BlogCard } from '@/components/BlogCard'
 import { getDatabase } from '@/lib/notion'
+import { getArticlePositions } from '@/lib/getArticlePositions'
 import { baseUrl } from '../../seo.config'
 
 import { createClient } from '@supabase/supabase-js'
 
-export default function Blog({ articles }) {
+export default function Blog({ articles, articlePositions }) {
+  const rearrangedArticles = Object.values(articlePositions).map(
+    (pos) => articles[pos - 1]
+  )
   return (
     <>
       <NextSeo
@@ -35,10 +39,17 @@ export default function Blog({ articles }) {
         postTitle="Digital Garden."
         intro="This is a collection of my long-form thoughts on Web Dev, AI, Blockchains, and more in various stages of completion from Seedling to Evergreen. I hope you find something that piques your interest."
       >
-        <div className="masonry lg:masonry-md md:masonry-sm space-y-10">
-          {articles.map((article, index) => (
-            <BlogCard key={index} article={article} index={index} />
-          ))}
+        <div className="masonry lg:masonry-md md:masonry-sm">
+          <div className="hidden space-y-10 md:block">
+            {rearrangedArticles.map((article, index) => (
+              <BlogCard key={index} article={article} index={index} />
+            ))}
+          </div>
+          <div className="space-y-10 md:hidden">
+            {articles.map((article, index) => (
+              <BlogCard key={index} article={article} index={index} />
+            ))}
+          </div>
         </div>
       </SimpleLayout>
     </>
@@ -68,6 +79,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       articles: database,
+      articlePositions: getArticlePositions(database.length),
     },
     revalidate: 1,
   }
