@@ -1,14 +1,14 @@
 export const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL
 
-export default {
+const seoConfig = {
   defaultTitle: 'Rittik Basu | Full Stack Developer',
   titleTemplate: '%s | Rittik Basu',
   description:
-    "A full-stack engineer specializing in building & designing scalable applications with great user experience.",
+    'A full-stack engineer specializing in building & designing scalable applications with great user experience.',
   openGraph: {
     title: 'Rittik Basu',
     description:
-      "A full-stack engineer specializing in building & designing scalable applications with great user experience.",
+      'A full-stack engineer specializing in building & designing scalable applications with great user experience.',
     images: [
       {
         url: `${baseUrl}api/og?title=home`,
@@ -28,3 +28,5 @@ export default {
     cardType: 'summary_large_image',
   },
 }
+
+export default seoConfig
