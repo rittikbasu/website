@@ -38,8 +38,9 @@ export function BlogCard({ article }) {
   const [isLoading, setLoading] = useState(true)
   const [statusBg, setStatusBg] = useState('bg-indigo-500/90')
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (status !== '🌱  Seedling') return
+    e.preventDefault()
     setStatus('✍🏾  In Progress')
     setStatusBg('bg-pink-600/80 dark:bg-pink-500/80 duration-[5000ms]')
     setTimeout(() => {
@@ -68,7 +69,7 @@ export function BlogCard({ article }) {
         </span>
       </div>
       <Link
-        href={fixedStatus === '🌱  Seedling' ? 'javascript:;' : '/blog/' + slug}
+        href={fixedStatus === '🌱  Seedling' ? '' : '/blog/' + slug}
         className={`${
           fixedStatus === '🌱  Seedling'
             ? 'cursor-default opacity-60 dark:opacity-40'
