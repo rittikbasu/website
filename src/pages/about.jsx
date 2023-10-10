@@ -137,78 +137,60 @@ export default function About() {
                   role="list"
                   className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 font-poppins md:grid-cols-3"
                 >
-                  <div>
-                    <Skills
-                      icon={SiJavascript}
-                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
-                    >
-                      Javascript
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiReact}
-                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
-                    >
-                      React
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiNextdotjs}
-                      className="group-hover:fill-black dark:group-hover:fill-white"
-                    >
-                      Next.js
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiFlask}
-                      className="group-hover:fill-black dark:group-hover:fill-white"
-                    >
-                      Flask
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiTailwindcss}
-                      className="group-hover:fill-blue-400"
-                    >
-                      Tailwind
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiPostgresql}
-                      className="group-hover:fill-blue-500"
-                    >
-                      PostgreSQL
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiJupyter}
-                      className="group-hover:fill-orange-400"
-                    >
-                      Jupyter
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiPython}
-                      className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
-                    >
-                      Python
-                    </Skills>
-                  </div>
-                  <div>
-                    <Skills
-                      icon={SiFirebase}
-                      className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
-                    >
-                      Firebase
-                    </Skills>
-                  </div>
+                  <Skills
+                    icon={SiJavascript}
+                    className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
+                  >
+                    Javascript
+                  </Skills>
+                  <Skills
+                    icon={SiReact}
+                    className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
+                  >
+                    React
+                  </Skills>
+                  <Skills
+                    icon={SiNextdotjs}
+                    className="group-hover:fill-black dark:group-hover:fill-white"
+                  >
+                    Next.js
+                  </Skills>
+                  <Skills
+                    icon={SiFlask}
+                    className="group-hover:fill-black dark:group-hover:fill-white"
+                  >
+                    Flask
+                  </Skills>
+                  <Skills
+                    icon={SiTailwindcss}
+                    className="group-hover:fill-blue-400"
+                  >
+                    Tailwind
+                  </Skills>
+                  <Skills
+                    icon={SiPostgresql}
+                    className="group-hover:fill-blue-500"
+                  >
+                    PostgreSQL
+                  </Skills>
+                  <Skills
+                    icon={SiJupyter}
+                    className="group-hover:fill-orange-400"
+                  >
+                    Jupyter
+                  </Skills>
+                  <Skills
+                    icon={SiPython}
+                    className="group-hover:fill-blue-400 dark:group-hover:fill-blue-300"
+                  >
+                    Python
+                  </Skills>
+                  <Skills
+                    icon={SiFirebase}
+                    className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
+                  >
+                    Firebase
+                  </Skills>
                 </ul>
               </div>
 

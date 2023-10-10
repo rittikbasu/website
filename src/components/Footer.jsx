@@ -65,6 +65,7 @@ export function Footer() {
                 <SocialLinkMobile
                   className="h-6 w-6"
                   href="mailto:hello@rittik.io"
+                  aria-label="Send an email"
                   icon={MdEmail}
                 />
               </div>
