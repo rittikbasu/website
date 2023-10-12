@@ -7,7 +7,7 @@ import slugify from 'slugify'
 import { Text } from '@/components/RenderNotion'
 
 import { AiOutlineEye } from 'react-icons/ai'
-import { BsBook } from 'react-icons/bs'
+import { GoBook } from 'react-icons/go'
 import CountUp from 'react-countup'
 
 export function BlogCard({ article }) {
@@ -82,7 +82,7 @@ export function BlogCard({ article }) {
         onClick={handleClick}
       >
         {!!coverImg && (
-          <div className="aspect-w-16 aspect-h-9 relative h-64 w-full">
+          <div className="aspect-w-16 aspect-h-9 h-64 w-full overflow-hidden rounded-md">
             <Image
               src={coverImg}
               alt={'Cover Image for ' + articleTitle}
@@ -117,7 +117,7 @@ export function BlogCard({ article }) {
               <CountUp end={views} duration={3} />
             </span>
             <span className="flex items-center font-poppins text-xs text-zinc-900 dark:text-zinc-100">
-              <BsBook className="mr-2" />
+              <GoBook className="mr-2 h-[0.9rem] w-[0.9rem]" />
               {readingTime} min read
             </span>
           </div>
