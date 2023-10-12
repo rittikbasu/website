@@ -149,7 +149,13 @@ function clamp(number, a, b) {
 
 function AvatarContainer({ className, ...props }) {
   return (
-    <div className={clsx(className, 'h-9 w-9 md:h-10 md:w-10')} {...props} />
+    <div
+      className={clsx(
+        className,
+        'h-9 w-9 rounded-full ring-indigo-500/10 ring-offset-2 duration-300 hover:scale-110 hover:ring-purple-500/80 dark:ring-indigo-500/20 dark:ring-offset-zinc-900 hover:dark:ring-indigo-500/80 md:h-10 md:w-10 md:ring-1'
+      )}
+      {...props}
+    />
   )
 }
 
@@ -161,12 +167,12 @@ function Avatar({ className, ...props }) {
       className={clsx(className, 'pointer-events-auto')}
       {...props}
     >
-      <div className="flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-100 via-indigo-600 to-indigo-100 shadow-inner duration-300 hover:scale-110 dark:from-indigo-900/10 dark:via-violet-300 dark:to-violet-900/10">
+      <div className="flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-indigo-100 via-indigo-600 to-indigo-100 duration-300 dark:from-indigo-900/10 dark:via-violet-400 dark:to-violet-900/10">
         <Image
           src={avatarImage}
           alt="Avatar Image of Rittik Basu"
           sizes="2.25rem"
-          className="flex h-9 w-9 items-center rounded-full bg-indigo-500/10 saturate-150 backdrop-blur-sm  dark:bg-indigo-500/10 md:h-10 md:w-10"
+          className="flex items-center bg-indigo-500/10 saturate-150 backdrop-blur-sm"
           priority
         />
       </div>
