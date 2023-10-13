@@ -159,13 +159,11 @@ export default function Post({
                   </figcaption>
                 )}
               </header>
-              {/* if cover image is present, add a margin to the prose */}
               <Prose className={coverImg ? 'mt-8' : 'mt-0'}>
                 {blocks.map((block) => (
                   <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
               </Prose>
-              {/*  add this blog was last updated on */}
               <div className="my-8 text-center text-sm italic text-zinc-400 dark:text-zinc-500 md:my-12">
                 This post was last updated on {lastEditedFormatted}
               </div>
