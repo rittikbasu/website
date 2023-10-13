@@ -17,6 +17,7 @@ module.exports = {
         title: 'title 3s ease-out forwards',
         'fade-left': 'fade-left 3s ease-in-out forwards',
         'fade-right': 'fade-right 3s ease-in-out forwards',
+        heartbeat: 'heartbeat 1s ease-in-out',
       },
       keyframes: {
         text: {
@@ -90,6 +91,23 @@ module.exports = {
           '100%': {
             'line-height': '100%',
             opacity: '100%',
+          },
+        },
+        heartbeat: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '25%': {
+            transform: 'scale(1.4)',
+          },
+          '50%': {
+            transform: 'scale(1)',
+          },
+          '75%': {
+            transform: 'scale(1.4)',
+          },
+          '100%': {
+            transform: 'scale(1)',
           },
         },
       },
