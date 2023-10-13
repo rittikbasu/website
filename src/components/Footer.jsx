@@ -39,7 +39,7 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
               <div className="hidden gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200 md:flex">
-                <NavLink href="https://twitter.com/_rittik">Twitter</NavLink>
+                <NavLink href="https://x.com/_rittik">Twitter</NavLink>
                 <NavLink href="https://github.com/rittikbasu">GitHub</NavLink>
                 <NavLink href="https://www.linkedin.com/in/rittikbasu/">
                   LinkedIn
@@ -48,17 +48,17 @@ export function Footer() {
               </div>
               <div className="flex gap-x-12 md:hidden">
                 <SocialLinkMobile
-                  href="https://twitter.com"
+                  href="https://x.com/_rittik"
                   aria-label="Follow on Twitter"
                   icon={BsTwitter}
                 />
                 <SocialLinkMobile
-                  href="https://github.com"
+                  href="https://github.com/rittikbasu"
                   aria-label="Follow on GitHub"
                   icon={BsGithub}
                 />
                 <SocialLinkMobile
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/rittikbasu/"
                   aria-label="Follow on LinkedIn"
                   icon={FaLinkedinIn}
                 />
