@@ -10,7 +10,7 @@ const variantStyles = {
 
 export function Button({ className, href, ...props }) {
   className = clsx(
-    'group relative mx-auto inline-flex items-center overflow-hidden rounded-full bg-zinc-300 px-6 transition hover:shadow-md dark:bg-zinc-800',
+    'group relative mx-auto inline-flex items-center overflow-hidden rounded-full bg-zinc-300 px-6 transition dark:bg-zinc-800',
     className
   )
 
