@@ -11,7 +11,6 @@ import data from '@/data/projects.js'
 
 import { BsLink45Deg, BsGithub } from 'react-icons/bs'
 
-const databaseId = process.env.NOTION_PROJECT_DB_ID
 const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
 
 function Project({ project, index }) {
@@ -81,7 +80,7 @@ function Project({ project, index }) {
   )
 }
 
-export default function ProjectsIndex({ projects }) {
+export default function ProjectsIndex() {
   return (
     <>
       <NextSeo
