@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.4",
     "@vercel/analytics": "^0.1.1",
     "@vercel/og": "^0.0.19",
+    "@vercel/speed-insights": "^1.0.2",
     "autoprefixer": "^10.4.7",
     "clsx": "^1.2.0",
     "eslint": "^7.32.0",
