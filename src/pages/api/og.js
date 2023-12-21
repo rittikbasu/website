@@ -1,7 +1,7 @@
 import { ImageResponse } from '@vercel/og'
 
 export const config = {
-  runtime: 'experimental-edge',
+  runtime: 'edge',
 }
 const font = fetch(
   new URL('/public/fonts/CalSans-SemiBold.ttf', import.meta.url)
