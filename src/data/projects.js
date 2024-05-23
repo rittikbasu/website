@@ -1,10 +1,19 @@
-import summariser from '@/images/projects/summariser.png'
 import trackrBot from '@/images/projects/trackrBot.png'
 import amicon from '@/images/projects/amicon.png'
 import yc from '@/images/projects/yc.png'
 import frize from '@/images/projects/frize.png'
+import formulator from '@/images/projects/formulator.png'
 
 const data = [
+  {
+    title: 'Formulator',
+    description:
+      "A Formula 1 client that keeps you updated with all the stats, scores, and standings in a beautifully designed UI that's as fast as your favourite team on race day!",
+    techUsed: ['Next.js', 'Tailwind', 'OpenF1', 'Ergast'],
+    image: formulator,
+    link: 'https://formu1ator.vercel.app',
+    github: 'https://github.com/rittikbasu/formulator',
+  },
   {
     title: 'Frize',
     description:
@@ -40,20 +49,6 @@ const data = [
     image: amicon,
     link: 'https://amicon-v1.web.app/',
     github: '',
-  },
-  {
-    title: 'Text Summarizer',
-    description:
-      'Summarises text content from a web article or user input and provides an elegant summary of the provided text using extractive summarization.',
-    image: summariser,
-    techUsed: [
-      'Python',
-      'Flask',
-      'Natural Language Processing',
-      'Machine Learning',
-    ],
-    link: 'https://summariser.rittikbasu.repl.co/',
-    github: 'https://github.com/rittikbasu/text-summarizer',
   },
 ]
 
