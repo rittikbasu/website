@@ -150,7 +150,7 @@ export default function Post({
                     width={1200}
                     height={300}
                     priority
-                    onLoadingComplete={() => setLoading(false)}
+                    onLoad={() => setLoading(false)}
                   />
                 )}
                 {coverImgCaption && (

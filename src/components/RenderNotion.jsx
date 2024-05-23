@@ -95,7 +95,7 @@ const Embed = (value, type) => {
             )}
             height="300"
             width="500"
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
           />
         </div>
         {caption && <figcaption className="text-center">{caption}</figcaption>}

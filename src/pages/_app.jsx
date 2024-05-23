@@ -13,9 +13,9 @@ import 'highlight.js/styles/github-dark.css'
 import { DefaultSeo } from 'next-seo'
 import seoOptions from '../seo.config'
 import * as gtag from '@/lib/gtag'
-import { Work_Sans } from '@next/font/google'
-import { Poppins } from '@next/font/google'
-import localFont from '@next/font/local'
+import { Work_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 
 const calSans = localFont({
   display: 'swap',

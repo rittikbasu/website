@@ -11,7 +11,6 @@
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
     "@headlessui/react": "^1.7.0",
-    "@next/font": "^13.1.1",
     "@notionhq/client": "^2.2.0",
     "@supabase/supabase-js": "^2.0.1",
     "@tailwindcss/typography": "^0.5.4",

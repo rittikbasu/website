@@ -34,7 +34,7 @@ function Project({ project, index }) {
           height="300"
           width="500"
           placeholder="blur"
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
         />
       </div>
       <h2 className="z-10 mt-6 font-heading text-xl tracking-wider text-zinc-800 dark:text-zinc-100">

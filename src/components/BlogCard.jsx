@@ -92,7 +92,7 @@ export function BlogCard({ article }) {
               )}
               height="300"
               width="500"
-              onLoadingComplete={() => setLoading(false)}
+              onLoad={() => setLoading(false)}
               placeholder="blur"
               blurDataURL={coverImg}
             />
