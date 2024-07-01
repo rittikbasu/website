@@ -181,9 +181,10 @@ export const getStaticPaths = async () => {
   return {
     paths: database.map((article) => ({
       params: {
-        slug: slugify(
-          article.properties.name.title[0].plain_text
-        ).toLowerCase(),
+        slug: slugify(article.properties.name.title[0].plain_text, {
+          strict: true,
+          lower: true,
+        }),
       },
     })),
     fallback: true,
@@ -195,7 +196,10 @@ export const getStaticProps = async (context) => {
   const database = await getDatabase(databaseId, 'date', 'descending')
   const id = database.find(
     (post) =>
-      slugify(post.properties.name.title[0].plain_text).toLowerCase() === slug
+      slugify(post.properties.name.title[0].plain_text, {
+        strict: true,
+        lower: true,
+      }) === slug
   ).id
   const article = await getPage(id)
   const lastEditedUtc = article.last_edited_time

@@ -64,9 +64,10 @@ export const getStaticProps = async () => {
 
   // Fetch pageViews data for each article and update the database object
   for (const article of database) {
-    const title = slugify(
-      article.properties?.name.title[0].plain_text
-    ).toLowerCase()
+    const title = slugify(article.properties?.name.title[0].plain_text, {
+      strict: true,
+      lower: true,
+    })
     const response = await SupabaseAdmin.from('analytics')
       .select('views')
       .filter('slug', 'eq', title)

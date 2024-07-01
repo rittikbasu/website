@@ -15,7 +15,7 @@ export function BlogCard({ article }) {
   const articleDescription = article.properties.description?.rich_text
   const [status, setStatus] = useState(article.properties.Status?.status?.name)
   const fixedStatus = article.properties.Status?.status?.name
-  const slug = slugify(articleTitle).toLowerCase()
+  const slug = slugify(articleTitle, { strict: true, lower: true })
   const wordCount = article.properties.wordCount.number
   const readingTime = Math.ceil(wordCount === null ? 0 : wordCount / 265)
   const published = article.properties.publish.checkbox
