@@ -3,6 +3,7 @@ import amicon from '@/images/projects/amicon.png'
 import yc from '@/images/projects/yc.png'
 import frize from '@/images/projects/frize.png'
 import formulator from '@/images/projects/formulator.png'
+import shouldreads from '@/images/projects/shouldreads.png'
 
 const data = [
   {
@@ -24,13 +25,22 @@ const data = [
     github: 'https://github.com/rittikbasu/frize',
   },
   {
-    title: 'Price Alert Bot  (28 ⭐ on GitHub)',
+    title: 'Price Alert Bot  (31 ⭐ on GitHub)',
     description:
       'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
     techUsed: ['Python', 'Telegram Bot API', 'ScraperAPI', 'Google Sheets API'],
     image: trackrBot,
     link: 'https://telegram.me/PriceA1ertBot',
     github: 'https://github.com/rittikbasu/trackrBot',
+  },
+  {
+    title: 'Shouldreads',
+    description:
+      'A compilation of the most important books to read, scraped from twitter with natural language search and advanced filtering functionality',
+    techUsed: ['Next.js', 'Tailwind', 'SQLite', 'OpenAI'],
+    image: shouldreads,
+    link: 'https://shouldreads.vercel.app/',
+    github: 'https://github.com/rittikbasu/shouldreads',
   },
   {
     title: 'Job Client for Hacker News',
