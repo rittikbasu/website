@@ -1,11 +1,19 @@
 import trackrBot from '@/images/projects/trackrBot.png'
-import amicon from '@/images/projects/amicon.png'
 import yc from '@/images/projects/yc.png'
 import frize from '@/images/projects/frize.png'
 import formulator from '@/images/projects/formulator.png'
 import shouldreads from '@/images/projects/shouldreads.png'
+import total_recall from '@/images/projects/total_recall.png'
 
 const data = [
+  {
+    title: 'Total Recall',
+    description:
+      'The smartest way to recall, summarise or chat with a YouTube video. Just paste the link, hit enter, and ask questions about the video in seconds and get lightning fast answers.',
+    techUsed: ['Next.js', 'Tailwind', 'Supabase', 'Groq', 'AWS Lambda'],
+    image: total_recall,
+    link: 'https://totalrecall.rittik.io',
+  },
   {
     title: 'Formulator',
     description:
@@ -50,15 +58,6 @@ const data = [
     image: yc,
     link: 'https://yc.rittik.io',
     github: 'https://github.com/rittikbasu/yc-job-client',
-  },
-  {
-    title: 'Amicon',
-    description:
-      'An intra campus networking web app for students of Amity University to connect with each other, see where their peers are from and find and share information more easily.',
-    techUsed: ['Javascript', 'Firebase', 'Bootstrap'],
-    image: amicon,
-    link: 'https://amicon-v1.web.app/',
-    github: '',
   },
 ]
 
