@@ -9,9 +9,13 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { baseUrl } from '../seo.config'
 import data from '@/data/projects.js'
 
-import { BsLink45Deg, BsGithub } from 'react-icons/bs'
+import { BsLink45Deg, BsGithub, BsStarFill } from 'react-icons/bs'
 
 const delay = ['', 'delay-200', 'delay-500', 'delay-1000']
+const externalLinkProps = {
+  target: '_blank',
+  rel: 'noreferrer noopener',
+}
 
 function Project({ project, index }) {
   const [isLoading, setLoading] = useState(true)
@@ -19,6 +23,7 @@ function Project({ project, index }) {
   const projectDescription = project.description
   const techUsed = project.techUsed
   const github = project.github
+  const githubStars = project.stars
   const link = project.link
   const image = project.image
   return (
@@ -56,11 +61,12 @@ function Project({ project, index }) {
         })}
       </div>
       <Card.Description>{projectDescription}</Card.Description>
-      <p className="relative z-10 mt-4 flex items-center space-x-4 font-poppins text-xs font-medium text-zinc-500 transition dark:text-zinc-200">
+      <p className="relative z-10 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-poppins text-xs font-medium text-zinc-500 transition dark:text-zinc-200">
         {github && (
           <Link
             href={github}
             className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300 md:hover:text-indigo-500"
+            {...externalLinkProps}
           >
             <BsGithub className="h-[0.9rem] w-[0.9rem] flex-none fill-current transition" />
             <span className="ml-2">Source Code</span>
@@ -70,10 +76,17 @@ function Project({ project, index }) {
           <Link
             href={link}
             className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300 md:hover:text-indigo-500"
+            {...externalLinkProps}
           >
             <BsLink45Deg className="h-4 w-4 flex-none fill-current transition" />
             <span className="-ml-4">Live Demo</span>
           </Link>
+        )}
+        {githubStars && (
+          <span className="flex items-center space-x-2 text-zinc-600 dark:text-zinc-300">
+            <BsStarFill className="h-[0.8rem] w-[0.8rem] flex-none fill-current text-zinc-500 dark:text-zinc-400" />
+            <span>{githubStars} Stars</span>
+          </span>
         )}
       </p>
     </Card>
