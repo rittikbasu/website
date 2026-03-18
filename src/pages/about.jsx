@@ -28,6 +28,8 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li>
       <Link
         href={href}
+        target="_blank"
+        rel="noreferrer noopener"
         className={clsx(
           className,
           'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'

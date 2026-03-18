@@ -11,6 +11,8 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
+      target="_blank"
+      rel="noreferrer noopener"
       className="font-poppins transition md:hover:text-indigo-500 md:dark:hover:text-indigo-400"
     >
       {children}
@@ -20,7 +22,12 @@ function NavLink({ href, children }) {
 
 function SocialLinkMobile({ className, icon: Icon, ...props }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link
+      className="group -m-1 p-1"
+      target="_blank"
+      rel="noreferrer noopener"
+      {...props}
+    >
       <Icon
         className={clsx(
           className,

@@ -41,7 +41,9 @@ export const Text = ({ text, className }) => {
         )}
       >
         {text.link ? (
-          <a href={text.link.url}>{text.content}</a>
+          <a href={text.link.url} target="_blank" rel="noreferrer noopener">
+            {text.content}
+          </a>
         ) : code ? (
           <code className="text-red-500 dark:text-red-400">{text.content}</code>
         ) : (
@@ -228,7 +230,13 @@ export const renderBlock = (block) => {
         <figure>
           <div className="text-gray-300 no-underline">
             📎{' '}
-            <Link href={src_file} className="no-underline" passHref>
+            <Link
+              href={src_file}
+              className="no-underline"
+              target="_blank"
+              rel="noreferrer noopener"
+              passHref
+            >
               {lastElementInArray.split('?')[0]}
             </Link>
           </div>
