@@ -7,12 +7,12 @@ import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { FaLinkedinIn } from 'react-icons/fa'
 import {
-  SiJavascript,
+  SiRust,
   SiReact,
   SiNextdotjs,
   SiPython,
   SiTailwindcss,
-  SiFirebase,
+  SiGo,
   SiJupyter,
   SiFlask,
   SiPostgresql,
@@ -32,7 +32,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         rel="noreferrer noopener"
         className={clsx(
           className,
-          'group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'
+          'inline-flex items-center text-sm font-medium tracking-wide transition duration-300 group text-zinc-800 hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500'
         )}
       >
         <Icon className="mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
@@ -45,7 +45,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
 function Skills({ className, icon: Icon, children }) {
   return (
     <li>
-      <div className="group inline-flex items-center text-sm font-medium tracking-wide text-zinc-800 transition duration-300 hover:scale-110 dark:text-zinc-200">
+      <div className="inline-flex items-center text-sm font-medium tracking-wide transition duration-300 group text-zinc-800 hover:scale-110 dark:text-zinc-200">
         <Icon
           className={clsx(
             className,
@@ -96,12 +96,10 @@ export default function About() {
             </div>
           </div>
           <div className="lg:order-first lg:col-span-7 lg:row-span-2">
-            <h1 className="font-heading text-4xl tracking-wider text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            <h1 className="text-4xl tracking-wider font-heading text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               I&apos;m{' '}
               <span
-                className="animate-gradient bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 bg-clip-text
-            text-transparent dark:from-purple-400 dark:via-indigo-400
-            dark:to-pink-400"
+                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 animate-gradient dark:from-purple-400 dark:via-indigo-400 dark:to-pink-400"
               >
                 Rittik Basu.
               </span>{' '}
@@ -132,18 +130,18 @@ export default function About() {
                 them to real-world problems.
               </p>
               <div className="cursor-default">
-                <span className="font-poppins font-bold tracking-widest underline">
+                <span className="font-bold tracking-widest underline font-poppins">
                   Skills I have
                 </span>
                 <ul
                   role="list"
-                  className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 font-poppins md:grid-cols-3"
+                  className="grid grid-cols-2 gap-y-4 gap-x-6 mt-4 font-poppins md:grid-cols-3"
                 >
                   <Skills
-                    icon={SiJavascript}
-                    className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
+                    icon={SiRust}
+                    className="group-hover:fill-orange-400 dark:group-hover:fill-orange-300"
                   >
-                    Javascript
+                    Rust
                   </Skills>
                   <Skills
                     icon={SiReact}
@@ -158,10 +156,10 @@ export default function About() {
                     Next.js
                   </Skills>
                   <Skills
-                    icon={SiFlask}
-                    className="group-hover:fill-black dark:group-hover:fill-white"
+                    icon={SiGo}
+                    className="group-hover:fill-sky-300 dark:group-hover:fill-sky-400"
                   >
-                    Flask
+                    Go
                   </Skills>
                   <Skills
                     icon={SiTailwindcss}
@@ -188,10 +186,10 @@ export default function About() {
                     Python
                   </Skills>
                   <Skills
-                    icon={SiFirebase}
+                    icon={SiFlask}
                     className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
                   >
-                    Firebase
+                    Flask
                   </Skills>
                 </ul>
               </div>
