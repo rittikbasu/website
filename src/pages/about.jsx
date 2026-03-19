@@ -3,9 +3,12 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { NextSeo } from 'next-seo'
 
+import { useState } from 'react'
+
 import { BsTwitter, BsGithub } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { FaLinkedinIn } from 'react-icons/fa'
+import { LuCopy, LuCopyCheck } from 'react-icons/lu'
 import {
   SiRust,
   SiReact,
@@ -38,6 +41,56 @@ function SocialLink({ className, href, children, icon: Icon }) {
         <Icon className="mr-3 h-[1.2rem] w-[1.2rem] flex-none fill-zinc-500 transition group-hover:fill-indigo-500" />
         <span className="ml-4">{children}</span>
       </Link>
+    </li>
+  )
+}
+
+function CopyEmailLink() {
+  const [copied, setCopied] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  function handleCopy() {
+    navigator.clipboard.writeText('hello@rittik.io')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <li>
+      <button
+        onClick={handleCopy}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="inline-flex items-center text-sm font-medium tracking-wide transition duration-300 group text-zinc-800 hover:scale-110 hover:text-indigo-500 dark:text-zinc-200 dark:hover:text-indigo-500"
+      >
+        <div className="relative mr-3 h-[1.2rem] w-[1.2rem] flex-none">
+          <MdEmail
+            className={clsx(
+              'absolute inset-0 h-[1.2rem] w-[1.2rem] fill-zinc-500 transition-all duration-300 group-hover:fill-indigo-500',
+              hovered || copied ? 'opacity-0 scale-75' : 'opacity-100 scale-100'
+            )}
+          />
+          <LuCopyCheck
+            className={clsx(
+              'absolute inset-0 h-[1.2rem] w-[1.2rem] transition-all duration-300',
+              copied
+                ? 'opacity-100 scale-100 text-green-500 dark:text-green-400'
+                : 'opacity-0 scale-75 text-green-500 dark:text-green-400'
+            )}
+          />
+          <LuCopy
+            className={clsx(
+              'absolute inset-0 h-[1.2rem] w-[1.2rem] transition-all duration-300 group-hover:text-indigo-500',
+              hovered && !copied
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-75'
+            )}
+          />
+        </div>
+        <span className="ml-4 transition-all duration-300">
+          {copied ? 'Copied!' : 'hello@rittik.io'}
+        </span>
+      </button>
     </li>
   )
 }
@@ -115,9 +168,9 @@ export default function About() {
               <p>
                 As a child, I had an obsession with optimization which has
                 stayed with me till this day. During my time in Mumbai, I would
-                take local trains and constantly find ways to optimise my
+                travel in local trains and constantly try to find ways to optimise my
                 journey by discovering the shortest routes and fastest trains. I
-                also loved playing video games, and I was always trying to find
+                also loved playing video games and I was always trying to find
                 the best way to beat the game. I think that&apos;s what got me
                 into coding. I wanted to find the best way to solve a problem.
               </p>
@@ -125,7 +178,7 @@ export default function About() {
                 Initially, I started learning Python to automate mundane tasks
                 in my daily life, but I soon fell in love with programming and
                 began exploring other languages as well. I have been working
-                with web technologies for the past 4 years now and I have been
+                with web technologies for the past 6 years now and I have been
                 able to learn new tools & frameworks independently, applying
                 them to real-world problems.
               </p>
@@ -187,7 +240,7 @@ export default function About() {
                   </Skills>
                   <Skills
                     icon={SiFlask}
-                    className="group-hover:fill-yellow-400 dark:group-hover:fill-yellow-300"
+                    className="group-hover:fill-zinc-800 dark:group-hover:fill-zinc-100"
                   >
                     Flask
                   </Skills>
@@ -228,13 +281,7 @@ export default function About() {
                 <div className="flex justify-center">
                   <div className="w-24 border-t border-zinc-300 dark:border-zinc-600/40"></div>
                 </div>
-                <SocialLink
-                  href="mailto:hello@rittik.io"
-                  icon={MdEmail}
-                  className=""
-                >
-                  hello@rittik.io
-                </SocialLink>
+                <CopyEmailLink />
                 <Button href="/projects" className="py-2">
                   See my projects
                 </Button>
