@@ -14,7 +14,8 @@ module.exports = {
         gradient: 'text 4s ease infinite',
         // glow: 'glow 2s ease-in-out alternate infinite',
         'fade-in': 'fade-in 3s ease-in-out forwards',
-        title: 'title 3s ease-out forwards',
+        'title-outline': 'title-outline 3s ease-out both',
+        'title-fill': 'title-fill 3s ease-out both',
         'fade-left': 'fade-left 3s ease-in-out forwards',
         'fade-right': 'fade-right 3s ease-in-out forwards',
         heartbeat: 'heartbeat 1s ease-in-out',
@@ -74,24 +75,17 @@ module.exports = {
             opacity: '0%',
           },
         },
-        title: {
-          '0%': {
-            'line-height': '0%',
-            'letter-spacing': '0.5em',
-            opacity: '0',
-          },
-          '25%': {
-            'line-height': '0%',
-            opacity: '0%',
-          },
-          '80%': {
-            opacity: '100%',
-          },
-
-          '100%': {
-            'line-height': '100%',
-            opacity: '100%',
-          },
+        'title-outline': {
+          '0%': { opacity: '0', 'letter-spacing': '0.5em' },
+          '25%': { opacity: '0' },
+          '80%': { opacity: '1' },
+          '100%': { opacity: '1', 'letter-spacing': '0.1em' },
+        },
+        'title-fill': {
+          '0%': { opacity: '0', 'letter-spacing': '0.5em', 'clip-path': 'inset(50% 0 50% 0)' },
+          '25%': { opacity: '0', 'clip-path': 'inset(50% 0 50% 0)' },
+          '80%': { opacity: '1' },
+          '100%': { opacity: '1', 'letter-spacing': '0.1em', 'clip-path': 'inset(0% 0 0% 0)' },
         },
         heartbeat: {
           '0%': {

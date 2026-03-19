@@ -21,15 +21,25 @@ export default function Home({ previousPathname }) {
             Hi, my name is
           </div>
           {/* <div className="hidden h-px animate-fade-left bg-gradient-to-r from-zinc-500/0 via-zinc-300/50 to-zinc-500/0 dark:from-zinc-500/0 dark:via-zinc-500/50 dark:to-zinc-500/0 md:block" /> */}
-          <h1
-            className={clsx(
-              `dark:text-edge-outline-dark text-edge-outline-light z-10 bg-zinc-900 bg-clip-text font-heading 
-            text-4xl tracking-widest text-zinc-800 text-transparent duration-1000 dark:bg-white sm:text-5xl`,
-              previousPathname === undefined && 'animate-title'
-            )}
-          >
-            Rittik Basu.
-          </h1>
+          <div className="relative z-10">
+            <h1
+              className={clsx(
+                'text-edge-outline-light dark:text-edge-outline-dark font-heading text-4xl leading-none tracking-widest text-transparent whitespace-nowrap sm:text-5xl sm:leading-none',
+                previousPathname === undefined && 'animate-title-outline'
+              )}
+            >
+              Rittik Basu.
+            </h1>
+            <h1
+              className={clsx(
+                'absolute top-0 left-0 text-edge-outline-light dark:text-edge-outline-dark font-heading text-4xl leading-none tracking-widest text-zinc-900 dark:text-white whitespace-nowrap duration-1000 sm:text-5xl sm:leading-none',
+                previousPathname === undefined && 'animate-title-fill'
+              )}
+              aria-hidden="true"
+            >
+              Rittik Basu.
+            </h1>
+          </div>
           {/* <div className="hidden h-px animate-fade-right bg-gradient-to-r from-zinc-500/0 via-zinc-300/50 to-zinc-500/0 dark:from-zinc-500/0 dark:via-zinc-500/50 dark:to-zinc-500/0 md:block" /> */}
           <div
             className={previousPathname === undefined ? 'animate-fade-in' : ''}
