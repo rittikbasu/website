@@ -1,5 +1,4 @@
 import trackrBot from '@/images/projects/trackrBot.png'
-import yc from '@/images/projects/yc.png'
 import frize from '@/images/projects/frize.png'
 import formulator from '@/images/projects/formulator.png'
 import shouldreads from '@/images/projects/shouldreads.png'
@@ -22,7 +21,7 @@ const data = [
     title: 'Mentions',
     description:
       'All your books, movies, youtube, music and TV show mentions and recommendations from your whatsapp group chat with the boys in one place so nothing gets lost.',
-    techUsed: ['Next.js', 'Pocketbase', 'OpenAI'],
+    techUsed: ['Next.js', 'Pocketbase', 'TMDB', 'OpenAI'],
     image: mentions,
     link: 'https://mentions.rittik.io',
     github: 'https://github.com/rittikbasu/mentions',
@@ -81,15 +80,6 @@ const data = [
     link: 'https://shouldreads.vercel.app/',
     github: 'https://github.com/rittikbasu/shouldreads',
   },
-  // {
-  //   title: 'Job Client for Hacker News',
-  //   description:
-  //     'A fast and lightweight job client for Hacker News that helps you find Y Combinator startups that are currently hiring.',
-  //   techUsed: ['Next.js', 'Tailwind', 'Hacker News API'],
-  //   image: yc,
-  //   link: 'https://yc.rittik.io',
-  //   github: 'https://github.com/rittikbasu/yc-job-client',
-  // },
 ]
 
 export default data
