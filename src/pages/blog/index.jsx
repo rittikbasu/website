@@ -156,7 +156,7 @@ export const getStaticProps = async () => {
     const response = await SupabaseAdmin.from('analytics')
       .select('likes')
       .filter('slug', 'eq', title)
-    const likes = response.data[0]?.likes || 0
+    const likes = response.data?.[0]?.likes ?? 0
 
     article.likes = likes
   }
