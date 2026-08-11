@@ -7,6 +7,16 @@ const nextConfig = {
     scrollRestoration: true,
   },
   transpilePackages: ['react-tweet'],
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.rittik.fyi' }],
+        destination: 'https://rittik.fyi/:path*',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'pbs.twimg.com' },
