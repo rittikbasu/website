@@ -3,7 +3,6 @@ import { NextSeo } from 'next-seo'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-// import { generateRssFeed } from '@/lib/generateRssFeed'
 import { baseUrl } from '../seo.config'
 
 export default function Home({ previousPathname }) {
@@ -78,17 +77,3 @@ export default function Home({ previousPathname }) {
     </>
   )
 }
-
-// export async function getStaticProps() {
-//   if (process.env.NODE_ENV === 'production') {
-//     await generateRssFeed()
-//   }
-
-//   return {
-//     props: {
-//       articles: (await getAllArticles())
-//         .slice(0, 4)
-//         .map(({ component, ...meta }) => meta),
-//     },
-//   }
-// }
