@@ -6,15 +6,19 @@ import { getAllArticles } from './getAllArticles'
 
 export async function generateRssFeed() {
   let articles = await getAllArticles()
-  let siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  let siteUrl = (
+    process.env.NEXT_PUBLIC_WEBSITE_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    'https://rittik.fyi'
+  ).replace(/\/+$/, '')
   let author = {
-    name: 'Spencer Sharp',
-    email: 'spencer@planetaria.tech',
+    name: 'Rittik Basu',
+    email: 'hey@rittik.fyi',
   }
 
   let feed = new Feed({
     title: author.name,
-    description: 'Your blog description',
+    description: 'Notes on building, design and software.',
     author,
     id: siteUrl,
     link: siteUrl,

@@ -50,7 +50,7 @@ function CopyEmailLink() {
   const [hovered, setHovered] = useState(false)
 
   function handleCopy() {
-    navigator.clipboard.writeText('hello@rittik.io')
+    navigator.clipboard.writeText('hey@rittik.fyi')
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -88,7 +88,7 @@ function CopyEmailLink() {
           />
         </div>
         <span className="ml-4 transition-all duration-300">
-          {copied ? 'Copied!' : 'hello@rittik.io'}
+          {copied ? 'Copied!' : 'hey@rittik.fyi'}
         </span>
       </button>
     </li>

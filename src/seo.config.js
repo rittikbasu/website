@@ -1,4 +1,9 @@
-export const baseUrl = process.env.NEXT_PUBLIC_WEBSITE_URL
+const configuredBaseUrl =
+  process.env.NEXT_PUBLIC_WEBSITE_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  'https://rittik.fyi'
+
+export const baseUrl = `${configuredBaseUrl.replace(/\/+$/, '')}/`
 
 const seoConfig = {
   defaultTitle: 'Rittik Basu | Full Stack Developer',

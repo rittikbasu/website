@@ -69,9 +69,9 @@ export default function Post({
       <NextSeo
         title={articleTitle[0].plain_text}
         description={articleDescription[0].plain_text}
-        canonical={`${baseUrl}articles/${slug}/`}
+        canonical={`${baseUrl}blog/${slug}/`}
         openGraph={{
-          url: `${baseUrl}articles/${slug}/`,
+          url: `${baseUrl}blog/${slug}/`,
           title: articleTitle[0].plain_text,
           description: articleDescription[0].plain_text,
           images: [
@@ -96,7 +96,7 @@ export default function Post({
       />
 
       <ArticleJsonLd
-        url={`${baseUrl}articles/${slug}/`}
+        url={`${baseUrl}blog/${slug}/`}
         title={articleTitle[0].plain_text}
         images={[
           `${baseUrl}api/og?title=${encodeURIComponent(

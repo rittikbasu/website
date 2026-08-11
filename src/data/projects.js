@@ -23,7 +23,7 @@ const data = [
       'All your books, movies, youtube, music and TV show mentions and recommendations from your whatsapp group chat with the boys in one place so nothing gets lost.',
     techUsed: ['Next.js', 'Pocketbase', 'TMDB', 'OpenAI'],
     image: mentions,
-    link: 'https://mentions.rittik.io',
+
     github: 'https://github.com/rittikbasu/mentions',
   },
   {
@@ -41,7 +41,7 @@ const data = [
       'The smartest way to recall, summarise or chat with a YouTube video. Just paste the link, hit enter, and ask questions about the video in seconds and get lightning fast answers.',
     techUsed: ['Next.js', 'Supabase', 'Groq', 'AWS Lambda'],
     image: total_recall,
-    link: 'https://totalrecall.rittik.io',
+    link: 'https://totalrecall.vercel.app',
   },
   {
     title: 'Formulator',
@@ -58,7 +58,7 @@ const data = [
       'An interactive dashboard that transforms time-tracking data from Rize into beautiful charts, graphs and insights.',
     techUsed: ['Next.js', 'Tremor UI', 'Supabase', 'OpenAI'],
     image: frize,
-    link: 'https://frize.rittik.io',
+    link: 'https://frize.vercel.app',
     github: 'https://github.com/rittikbasu/frize',
   },
   {

@@ -9,7 +9,7 @@ import { LuCopyCheck } from 'react-icons/lu'
 
 import { Container } from '@/components/Container'
 
-const EMAIL = 'hello@rittik.io'
+const EMAIL = 'hey@rittik.fyi'
 
 function NavLink({ href, children }) {
   return (
