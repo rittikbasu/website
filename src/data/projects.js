@@ -15,7 +15,7 @@ const data = [
     techUsed: ['Go', 'Bubble Tea', 'Homebrew'],
     image: wakeclaude,
     github: 'https://github.com/rittikbasu/wakeclaude',
-    stars: "23"
+    stars: 55,
   },
   {
     title: 'Mentions',
@@ -23,7 +23,7 @@ const data = [
       'All your books, movies, youtube, music and TV show mentions and recommendations from your whatsapp group chat with the boys in one place so nothing gets lost.',
     techUsed: ['Next.js', 'Pocketbase', 'TMDB', 'OpenAI'],
     image: mentions,
-
+    link: 'https://mentions.rittik.fyi',
     github: 'https://github.com/rittikbasu/mentions',
   },
   {
@@ -41,7 +41,7 @@ const data = [
       'The smartest way to recall, summarise or chat with a YouTube video. Just paste the link, hit enter, and ask questions about the video in seconds and get lightning fast answers.',
     techUsed: ['Next.js', 'Supabase', 'Groq', 'AWS Lambda'],
     image: total_recall,
-    link: 'https://totalrecall.vercel.app',
+    link: 'https://totalrecall.rittik.fyi',
   },
   {
     title: 'Formulator',
@@ -49,7 +49,7 @@ const data = [
       "A Formula 1 client that keeps you updated with all the stats, scores, and standings in a beautifully designed UI that's as fast as your favourite team on race day!",
     techUsed: ['Next.js', 'OpenF1', 'Jolpica API'],
     image: formulator,
-    link: 'https://formu1ator.vercel.app',
+    link: 'https://formulator.rittik.fyi',
     github: 'https://github.com/rittikbasu/formulator',
   },
   {
@@ -58,7 +58,7 @@ const data = [
       'An interactive dashboard that transforms time-tracking data from Rize into beautiful charts, graphs and insights.',
     techUsed: ['Next.js', 'Tremor UI', 'Supabase', 'OpenAI'],
     image: frize,
-    link: 'https://frize.vercel.app',
+    link: 'https://frize.rittik.fyi',
     github: 'https://github.com/rittikbasu/frize',
   },
   {
@@ -67,9 +67,8 @@ const data = [
       'A Telegram chatbot that helps you set price alerts for amazon products and sends you an alert message when it reaches the target price.',
     techUsed: ['Python', 'Telegram Bot API', 'ScraperAPI', 'Google Sheets API'],
     image: trackrBot,
-    link: 'https://telegram.me/PriceA1ertBot',
     github: 'https://github.com/rittikbasu/trackrBot',
-    stars: 45,
+    stars: 46,
   },
   {
     title: 'Shouldreads',
